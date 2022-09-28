@@ -1,0 +1,266 @@
+---
+title: "Part 0 - Undestand commands"
+author: "Martí Català"
+date: "June 2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Connect to a database
+
+In general we would write the following commands to connect to a database:
+
+```{r, eval = FALSE}
+library("DBI")
+
+server_dbi <- "..."
+user       <- "..."
+password   <- "..."
+port       <- "..."
+host       <- "..." 
+
+db <- dbConnect(RPostgreSQL::PostgreSQL(),
+                dbname = server_dbi,
+                port = port,
+                host = host, 
+                user = user, 
+                password = password)
+```
+
+OHDSI packages use their own database connector:
+
+
+```{r, eval = FALSE}
+library("DatabaseConnector")
+library("here")
+
+server   <- "..."
+user     <- "..."
+password <- "..."
+port     <- "..."
+host     <- "..." 
+
+connectionDetails <- DatabaseConnector::downloadJdbcDrivers("postgresql", here::here())
+connectionDetails <- DatabaseConnector::createConnectionDetails(dbms = "postgresql",
+                                                               server = server,
+                                                               user = user,
+                                                               password = password,
+                                                               port = port ,
+                                                               pathToDriver = here::here())
+```
+
+In this example we are going to use a synthetic database called [Eunomia](https://github.com/OHDSI/Eunomia) modified using [duckdb](https://cran.r-project.org/web/packages/duckdb/duckdb.pdf). To connect this database we are going to use the "standard" way:
+
+```{r, message = FALSE}
+library("here")
+library("DatabaseConnector")
+library("duckdb")
+library("dplyr")
+library("dbplyr")
+
+drv <- duckdb(dbdir = here("Duckdb_Eunomia/eunomia.duckdb"))
+con <- dbConnect(drv)
+```
+
+For example, to read 'person' and 'condition_occurrence' tables we can use the following commands:
+
+```{r, message=FALSE}
+condition_occurrence_db <- tbl(con, "CONDITION_OCCURRENCE")
+condition_occurrence_db
+person_db <- tbl(con, "PERSON")
+person_db
+```
+
+### Filter, select & %>%
+
+[Filter](https://www.rdocumentation.org/packages/dplyr/versions/0.7.8/topics/filter) function is used to obtain the rows (in our db patients) that have a desired condition.
+
+[Select](https://www.rdocumentation.org/packages/dplyr/versions/0.7.8/topics/select) function is used to obtain only the desired columns.
+
+[%>%](https://cran.r-project.org/web/packages/dplyr/vignettes/dplyr.html) operator is used to chain operators one after the other
+
+Lets filter people older than 80 (that were born before 1942)
+```{r}
+older80 <- filter(person_db,YEAR_OF_BIRTH<=1942)
+older80
+```
+Lets select year of birth and person_id
+```{r}
+older80 <- select(filter(person_db,YEAR_OF_BIRTH<=1942),PERSON_ID,YEAR_OF_BIRTH)
+older80
+```
+Combine them in an easy code (%>%)
+```{r}
+older80 <- person_db %>% filter(YEAR_OF_BIRTH<=1942) %>% select(PERSON_ID,YEAR_OF_BIRTH)
+older80
+```
+
+### Mutate, rename, group_by, tally & distinct
+
+[Mutate](https://www.rdocumentation.org/packages/dplyr/versions/0.5.0/topics/mutate) is used to create new variables (columns) in the database. They can be completely new variables or variables computed from the previous ones.
+
+[Rename](https://www.rdocumentation.org/packages/plyr/versions/1.8.7/topics/rename) is used to change the name of a column.
+
+[Group_by](https://www.rdocumentation.org/packages/dplyr/versions/0.7.8/topics/group_by) is used to create groups in the data (functions then are applied into this groups).
+
+[Tally](https://www.rdocumentation.org/packages/dplyr/versions/0.5.0/topics/tally) is used to count the number of elements (rows).
+
+[Distinct](https://www.rdocumentation.org/packages/dplyr/versions/0.7.8/topics/distinct) is used to ensure that all the rows are different.
+
+See the different race concepts included in person_db:
+```{r}
+Race <- person_db %>% select(RACE_CONCEPT_ID  )
+Race
+```
+Obtain the unique values for identifiers
+```{r}
+Race <- person_db %>% select(RACE_CONCEPT_ID  ) %>% distinct()
+Race
+```
+Create variable age (mutate) and rename the variable race
+```{r}
+tab <- person_db %>% mutate(AGE = 2022 - year_of_birth) %>% rename(RACE = RACE_CONCEPT_ID)
+```
+Count the elements with different groups
+```{r}
+tab %>% tally()
+tab %>% group_by(RACE) %>% tally()
+tab %>% group_by(AGE) %>% tally()
+tab %>% group_by(RACE,AGE) %>% tally()
+```
+Save this table for later
+```{r}
+compute_table <- tab %>% group_by(RACE,AGE) %>% tally()
+```
+
+### show_querry()
+* What [dbplyr](https://cran.r-project.org/web/packages/dplyr/dplyr.pdf) package is doing is to transform our R commands to SQL.
+* They are executed in the “DB side” and we see the output.
+* With this command we can see which are the sql commands that are being executed
+* Let’s see what our previous codes where doing…
+
+```{r}
+older80 %>% show_query()
+Race %>% show_query()
+tab %>% show_query()
+compute_table %>% show_query()
+```
+
+### Compute, collect & pull
+
+In fact, all this operations are carried out in the “database side” so how we can connect our environment of R with the variables that we want to obtain:
+
+[Compute](https://www.rdocumentation.org/packages/dplyr/versions/0.5.0/topics/compute) is used to force the computation of a set of commands, if compute is not used our variable only contains the set of commands and not the result.
+
+[Collect](https://www.rdocumentation.org/packages/memisc/versions/0.99.30.7/topics/collect) is used to move one data set to our R environment
+
+[Pull](https://www.rdocumentation.org/packages/lplyr/versions/0.1.6/topics/pull) is used to obtain an array of the table (moving the data set to our environment, if necessary) 
+
+```{r}
+library(tictoc)
+tab
+
+tic()
+tab
+toc()
+
+tic()
+tab_saved <- tab %>% compute()
+toc()
+
+tic()
+tab_saved
+toc()
+
+nrow(tab_saved)
+
+tab_collected <- tab %>% collect()
+tab_collected
+nrow(tab_collected)
+
+genders1 <- tab_collected %>% select(GENDER_CONCEPT_ID) %>% pull()
+genders2 <- tab_saved %>% select(GENDER_CONCEPT_ID) %>% pull()
+genders3 <- tab %>% select(GENDER_CONCEPT_ID) %>% pull()
+identical(genders1,genders2)
+identical(genders1,genders3)
+identical(genders2,genders3)
+```
+
+### Inner_join, full_join, left_join, right_join & anti_join
+
+Join tables is a very powerful tool that allow us to merge two different tables into just one. We are going to show five ways to join two tables.
+
+[Inner_join](https://www.rdocumentation.org/packages/tidyft/versions/0.4.5/topics/inner_join): only elements contained in both tables.
+
+[Full_join](https://www.rdocumentation.org/packages/tidylog/versions/1.0.2/topics/full_join): all element (even if they are not contained in one of the tables). NAs are introduced for absences.
+
+[Left_join](https://www.rdocumentation.org/packages/tidytable/versions/0.8.0/topics/left_join.): only elements in the first table are included. NAs are introduced for absences.
+
+[Right_join](https://www.rdocumentation.org/packages/sparklyr/versions/1.7.5/topics/right_join): only elements in the second table are included. NAs are introduced for absences.
+
+[Anti_join](https://www.rdocumentation.org/packages/tidylog/versions/1.0.2/topics/anti_join): only elements that are in the first table but not in the second are included. 
+
+Tables are joined using the variable specified (by=“variable”), if it is not specified all common variables are used.
+
+Lets define two tables we are going to work with:
+
+Table 1: people_db with only the people aged 80
+```{r}
+table1 <- person_db %>%
+  filter(YEAR_OF_BIRTH == 1942) %>%
+  select(PERSON_ID,GENDER_CONCEPT_ID,YEAR_OF_BIRTH) %>%
+  compute()
+table1
+```
+Table 2: the first event (condition_occurrence) of: "Sprain of ankle":
+```{r}
+table2 <- condition_occurrence_db %>%
+  filter(CONDITION_CONCEPT_ID == 81151) %>%
+  select(PERSON_ID,CONDITION_START_DATE) %>%
+  group_by(PERSON_ID) %>%
+  filter(CONDITION_START_DATE == min(CONDITION_START_DATE)) %>%
+  ungroup() %>%
+  compute()
+table2
+```
+Number of elements in each table
+```{r}
+table1 %>% tally() %>% pull()
+table2 %>% tally() %>% pull()
+```
+Individuals who are in any both tables
+```{r}
+table1_and_2 <- table1 %>% full_join(table2)
+table1_and_2 <- table1 %>% full_join(table2,by="PERSON_ID")
+table1 %>% full_join(table2,by="PERSON_ID") %>% tally() %>% pull()
+table2 %>% full_join(table1,by="PERSON_ID") %>% tally() %>% pull()
+```
+Individuals in both tables
+```{r}
+table1 %>% inner_join(table2,by="PERSON_ID") %>% tally() %>% pull()
+table2 %>% inner_join(table1,by="PERSON_ID") %>% tally() %>% pull()
+```
+Left join, we can see that the final table has the size of the initial one (first to appear)
+```{r}
+table1 %>% left_join(table2,by="PERSON_ID")
+table1 %>% left_join(table2,by="PERSON_ID") %>% tally() %>% pull() 
+table2 %>% left_join(table1,by="PERSON_ID")
+table2 %>% left_join(table1,by="PERSON_ID") %>% tally() %>% pull()
+```
+Right join, we can see that the final table has the size of the joined table (second to appear)
+```{r}
+table1 %>% right_join(table2,by="PERSON_ID")
+table1 %>% right_join(table2,by="PERSON_ID") %>% tally() %>% pull() 
+table2 %>% right_join(table1,by="PERSON_ID")
+table2 %>% right_join(table1,by="PERSON_ID") %>% tally() %>% pull()
+```
+Anti_join, eliminate from the first table the individuals that appear in the second table
+```{r}
+table1 %>% anti_join(table2,by="PERSON_ID")
+table1 %>% anti_join(table2,by="PERSON_ID") %>% tally() %>% pull()
+table2 %>% anti_join(table1,by="PERSON_ID")
+table2 %>% anti_join(table1,by="PERSON_ID") %>% tally() %>% pull()
+```

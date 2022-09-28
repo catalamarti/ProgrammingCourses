@@ -1,0 +1,145 @@
+---
+title: "Part 2 - Build a cohort"
+author: "Martí Català"
+date: "June 2022"
+output: md_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Introduction
+
+This R markdown document is the guideline for the second part of the practicum.
+
+In this part we are going to:
+
+1. Generate a cohort using the commands explained in the previous session.
+
+2. Generate a cohort from a .json definition generated in ATLAS
+
+3. Check that both cohorts are the same.
+
+The database that we are are going to use is a modified version of [Eunomia](https://github.com/OHDSI/Eunomia) using [duckdb](https://cran.r-project.org/web/packages/duckdb/duckdb.pdf) and [CDMConnector](https://odyosg.github.io/CDMConnector/).
+
+This document contain the tasks that we must try to complete during this session. If at some point we are not able to proceed, ask help to any of the nice and ready to help guys from the summer school. Also, the .Rmd file contains the solutions, although it is not recommended to use.
+
+### Cohort definition
+
+Individuals included in our cohort must fulfill the following criteria:
+
+* They are aged between 20 and 60 years old at 2000-01-01
+* Had a condition occurrence of "Viral sinusitis" between 2000-01-01 and 2004-12-31.
+* They were used to "Doxylamine" in the next 3 months (90 days) after the occurrence.
+* They were in continuous observation since 365 days previous the condition occurrence.
+
+We are going to define the cohort of a data.frame or tibble with 4 columns (OHDSI format):
+
+* COL 1 [cohort_definition_id]: is the identifier of the cohort. In our case, we just have one cohort, so all individuals will be identified with the same number (1).
+* COL 2 [subject_id]: is the identifier of each individual. In our cohort we are going to use the given PERSON_ID given by the database.
+* COL 3 [cohort_start_date]: is the start date of the cohort. In our case, the date of the condition occurrence.
+* COL 4 [cohort_end_date]: is the end date of the cohort. In our case, the end of the continuous observation.
+
+### Tips
+It is important to remember that:
+
+1. Year, month and day of birth are contained in PERSON_ID table.
+2. To obtain the CONCEPT_ID of a desired measurement / condition / observation / drug era ... we can use CONCEPT table.
+3. Conditions occurrence can be found in CONDITION_OCCURRENCE table.
+4. We use DRUG_ERA table to find Exposures to drugs.
+5. Periods of observation are seen in OBSERVATION_PERIOD table
+6. Measurements are found in MEASUREMENT table.
+7. To merge different tables we have the functions: inner_join, full_join, left_join, right_join ...
+
+If you don't know to start follow the next steps:
+
+1. Use person table to compute the age of individuals (difftime is a common function to compute the difference between two dates). Important difftime dos not work in databse side.
+2. Select only the individuals who fulfill the age criteria.
+3. Use concept table to find the concept_id for "Viral sinusitis". ATLAS and ATHENA can also be used.
+4. Use condition_occurrence table to find only the condition occurrences of "Viral sinusitis".
+5. Filter this table to find the 
+6. Use inner_join to merge both tables and obtain only individuals that fulfill both conditions.
+7. If you arrived at this point you can continue alone...
+
+
+### EXPECTED RESULT
+
+The result for Eunomia database should be a total of 3 individuals and a cohort like this:
+
+<details>
+  <summary>SOLUTION</summary>
+```{r, echo = FALSE, message = FALSE}
+library("DBI")
+library("dplyr")
+library("dbplyr")
+library("CDMConnector")
+library("duckdb")
+
+con <- dbConnect(duckdb(), dbdir = eunomia_dir())
+cdm <- cdm_from_con(con, cdm_schema = "main")
+
+AgeMin <- 20
+AgeMax <- 60
+DateAge <- as.Date("2000-01-01")
+ConditionOccurrence <- "Viral sinusitis"
+DrugEra <- "Doxylamine"
+StartDate <- as.Date("2000-01-01")
+EndDate <- as.Date("2004-12-31")
+DrugEraPeriod <- 90
+MinObservation <- 365
+
+cohort <- cdm$person %>%
+  collect() %>%
+  mutate(age = as.numeric(difftime(DateAge,birth_datetime)/365.25)) %>%
+  select(person_id,age) %>%
+  filter(age >= AgeMin) %>%
+  filter(age <= AgeMax)
+
+concept_db <- tbl(con,"CONCEPT")
+
+ConditionOccurrence_ID <- concept_db %>%
+  filter(concept_name == ConditionOccurrence) %>%
+  select(concept_id) %>%
+  pull()
+
+DrugEra_ID <- concept_db %>%
+  filter(concept_name == DrugEra) %>%
+  select(concept_id) %>%
+  pull()
+
+ViralSinusitis <- cdm$condition_occurrence %>%
+  filter(condition_concept_id == ConditionOccurrence_ID) %>%
+  filter(condition_start_date >= StartDate) %>%
+  filter(condition_end_date <= EndDate) %>%
+  collect() %>%
+  select("person_id","condition_start_date")
+
+cohort <- cohort %>%
+  inner_join(ViralSinusitis)
+
+cohort <- cohort %>%
+  inner_join(cdm$drug_era %>%
+               filter(drug_concept_id == DrugEra_ID) %>%
+               collect() %>%
+               select(person_id,drug_era_start_date)) %>%
+  filter(drug_era_start_date >= condition_start_date) %>%
+  filter(drug_era_start_date - DrugEraPeriod <= condition_start_date)
+
+cohort <- cohort %>%
+  inner_join(cdm$observation_period %>%
+               collect()) %>%
+  filter(observation_period_end_date >= condition_start_date) %>%
+  filter(observation_period_start_date <= condition_start_date - MinObservation) %>%
+  select(person_id,condition_start_date,observation_period_end_date)
+
+cohort <- cohort %>%
+  mutate(cohort_definition_id = 1) %>%
+  rename("subject_id" = "person_id") %>%
+  rename("cohort_start_date" = "condition_start_date") %>%
+  rename("cohort_end_date" = "observation_period_end_date") %>%
+  select(cohort_definition_id,subject_id,cohort_start_date,cohort_end_date)
+  
+cohort
+```
+</details>

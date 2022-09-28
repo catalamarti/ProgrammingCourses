@@ -1,0 +1,357 @@
+---
+title: "Part I - Basic commands"
+author: "Martí Català"
+date: "June 2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Introduction
+
+This R markdown document is the guideline for the first part of the practicum.
+
+In this part we are going to put in practice the commands explained in the previous session to characterize a database. The database that we are are going to use is a modified version of [Eunomia](https://github.com/OHDSI/Eunomia) using [duckdb](https://cran.r-project.org/web/packages/duckdb/duckdb.pdf) and [CDMConnector](https://odyosg.github.io/CDMConnector/).
+
+This document contain the tasks that we must try to complete during this session. If at some point we are not able to proceed, ask help to any of the nice and ready to help guys. Also, the .Rmd file contains the solutions, although it is not recommended to use.
+
+### Let's get started!
+
+Install CDMConnector:
+```{r, echo=TRUE, eval=FALSE}
+install.packages("devtools")
+# When ready we are going to add it to the darwin github:
+# devtools::install_github("darwin-eu/CDMConnector")
+# For the moment we have it on OdyOSG:
+devtools::install_github("OdyOSG/CDMConnector")
+```
+
+To connect to the database use the following commands:
+
+```{r, message=FALSE}
+library("DBI")
+library("dplyr")
+library("dbplyr")
+library("CDMConnector")
+library("duckdb")
+
+con <- dbConnect(duckdb(), dbdir = eunomia_dir())
+cdm <- cdm_from_con(con, cdm_schema = "main")
+```
+
+#### Read tables
+
+To read 'person' and 'observation_period' tables we can use the following commands:
+
+```{r, message=FALSE}
+person_db <- tbl(con, "PERSON") # using DBI way
+person_db
+person_db <- cdm$person # using CDMConnector
+person_db
+person_db <- cdm[["person"]]
+person_db
+```
+
+All the available tables can be observed in:
+
+```{r, message=FALSE}
+cat(paste0("There exist a total of: ", length(cdm), " tables."))
+names(cdm)
+```
+
+## Tasks
+
+### 1) Compute the number of rows in each table
+
+Tips, we have seen:
+A function that gives us the names of the available tables of cdm: [names](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/names)
+
+A function to compute the number of rows of a table (that it is in the R memory): [nrow](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/nrow)
+
+A function to count observations of a table (that its is in the database side): [tally](https://www.rdocumentation.org/packages/dplyr/versions/0.5.0/topics/tally)
+
+Making a loop (or using lapply or related functions for advanced users) may be a good way to optimize the process.
+
+<details>
+  <summary>SOLUTION</summary>
+```{r, echo = FALSE}
+name_tables <- names(cdm)
+NumberOfRows <- data.frame(table = name_tables, nrows = 0)
+for (k in 1:length(name_tables)){
+  TableToComputeNRows <- tbl(con, name_tables[k])
+  # option 1
+  NumberOfRows$nrows[k] <- TableToComputeNRows %>%
+    tally() %>%
+    pull()
+  # option 2
+  NumberOfRows$nrows[k] <- TableToComputeNRows %>%
+    collect() %>%
+    nrow()
+}
+NumberOfRows
+```
+</details>
+
+### 2) List the empty tables
+
+<details>
+  <summary>SOLUTION</summary>
+```{r, echo = FALSE, message = FALSE}
+EmptyTables <- NumberOfRows$table[NumberOfRows$nrow==0]
+cat(paste0("The empty tables are: ",paste0(EmptyTables,collapse=", "),"."))
+```
+</details>
+
+### 3) Compute the number of different individuals per table*
+*only the ones that contain PERSON_ID identifier
+
+Tips, we have seen: select, distinct, tally, pull...
+
+<details>
+  <summary>SOLUTION</summary>
+```{r, echo = FALSE, message = FALSE}
+name_tables <- names(cdm)
+NumberOfIndividuals <- data.frame(table = name_tables, NumberIndividuals = NA, contain_person_id = FALSE)
+for (k in 1:length(name_tables)){
+  WorkingTable <- cdm[[name_tables[k]]]
+  ColumNames <- colnames(WorkingTable)
+  NumberOfIndividuals$contain_person_id[k] <- sum(grepl("person_id",ColumNames))==1
+  if (NumberOfIndividuals$contain_person_id[k]){
+    NumberOfIndividuals$NumberIndividuals[k] <- WorkingTable %>% 
+      select("person_id") %>%
+      distinct() %>% 
+      tally() %>% 
+      pull()
+  }
+}
+NumberOfIndividuals <- NumberOfIndividuals %>% filter(contain_person_id) %>% select(table, NumberIndividuals)
+NumberOfIndividuals
+
+# also it can be done without grepl function:
+name_tables <- c("person",
+           "observation_period",
+           "visit_occurrence",
+           "visit_detail",
+           "condition_occurrence",
+           "drug_exposure",
+           "procedure_occurrence",
+           "device_exposure",
+           "measurement",
+           "observation",
+           "death",
+           "note",
+           "specimen",
+           "payer_plan_period",
+           "drug_era",
+           "dose_era",
+           "condition_era")
+NumberOfIndividuals <- data.frame(table = name_tables, NumberIndividuals = NA)
+for (k in 1:length(name_tables)){
+  WorkingTable <- cdm[[name_tables[k]]]
+  NumberOfIndividuals$NumberIndividuals[k] <- WorkingTable %>% 
+    select("person_id") %>% 
+    distinct() %>% 
+    tally() %>% 
+    pull()
+}
+# NumberOfIndividuals
+```
+</details>
+
+### 4) Find and sort the 10 most recurrent 'concept_name' in the following cases:
+
+Tips, we have seen: select, rename, distinct, tally, pull, collect, nrow, left_join, anti_join...
+
+table.i <- table.i %>% arrange(variablex) is used to order the table.i according to increassing variablex value.
+
+table.i <- table.i %>% arrange(desc(variablex)) is used to order the table.i according to decreasing variablex value.
+
+arrange is always the last step!
+
+table.i <- table.i %>% head(kk) is used to just show the first kk elements of table.i.
+
+The 'concept_name' is in 'concept' table and can be related to a 'concept_id' that has a different name in each table (e.g. 'condition_concept_id' in 'condition_occurrence' table, 'drug_concept_id' in 'drug_era' table, ...)
+
+### 4.1) in CONDITION_OCCURRENCE table
+
+<details>
+  <summary>SOLUTION</summary>
+```{r, echo = FALSE, message = FALSE}
+condition_occurrence_db <- cdm$condition_occurrence
+concepts_db <- cdm$concept
+First10ConceptNames_ConditionOccurrence <- condition_occurrence_db %>%
+  group_by(condition_concept_id) %>%
+  tally() %>%
+  left_join(concepts_db %>%
+              rename("condition_concept_id" = "concept_id") %>%
+              select(condition_concept_id,concept_name)) %>%
+  select(concept_name,n) %>%
+  arrange(desc(n)) %>%
+  collect() %>%
+  head(10)
+First10ConceptNames_ConditionOccurrence
+```
+</details>
+
+### 4.2) in DRUG_ERA table
+
+<details>
+  <summary>SOLUTION</summary>
+```{r, echo = FALSE, message = FALSE}
+drug_era_db <- cdm$drug_era
+First10ConceptNames_DrugEra <- drug_era_db %>%
+  group_by(drug_concept_id) %>%
+  tally() %>%
+  left_join(concepts_db %>%
+              rename("drug_concept_id" = concept_id) %>%
+              select(drug_concept_id, concept_name)) %>%
+  select(concept_name,n) %>%
+  arrange(desc(n)) %>%
+  collect() %>%
+  head(10)
+First10ConceptNames_DrugEra
+```
+</details>
+
+### 4.3) in CONDITION_OCCURRENCE, DRUG_ERA and MEASUREMENT tables excluding the repeated concepts for each individual
+
+<details>
+  <summary>SOLUTION</summary>
+```{r, echo = FALSE, message = FALSE}
+First10ConceptNames_ConditionOccurrence_ExcludingRepeated <- condition_occurrence_db %>%
+  select(condition_concept_id,person_id) %>%
+  distinct() %>%
+  group_by(condition_concept_id) %>%
+  tally() %>%
+  left_join(concepts_db %>%
+              rename("condition_concept_id" = "concept_id") %>%
+              select(condition_concept_id, concept_name)) %>%
+  select(concept_name,n) %>%
+  arrange(desc(n)) %>%
+  collect() %>%
+  head(10)
+First10ConceptNames_ConditionOccurrence_ExcludingRepeated
+
+First10ConceptNames_DrugEra_ExcludingRepeated <- drug_era_db %>%
+  select(drug_concept_id,person_id) %>%
+  distinct() %>%
+  group_by(drug_concept_id) %>%
+  tally() %>%
+  left_join(concepts_db %>%
+              rename("drug_concept_id" = "concept_id") %>%
+              select(drug_concept_id, concept_name)) %>%
+  select(concept_name,n) %>%
+  arrange(desc(n)) %>%
+  collect() %>%
+  head(10)
+First10ConceptNames_DrugEra_ExcludingRepeated
+
+measurement_db <- cdm$measurement
+First10ConceptNames_Measurement_ExcludingRepeated <- measurement_db %>%
+  select(measurement_concept_id,person_id) %>%
+  distinct() %>%
+  group_by(measurement_concept_id) %>%
+  tally() %>%
+  left_join(concepts_db %>%
+              rename(measurement_concept_id = concept_id) %>%
+              select(measurement_concept_id, concept_name)) %>%
+  select(concept_name,n) %>%
+  arrange(desc(n)) %>%
+  collect() %>%
+  head(10)
+First10ConceptNames_Measurement_ExcludingRepeated
+```
+</details>
+
+### 4.4) in CONDITION_OCCURRENCE, DRUG_ERA and MEASUREMENT tables only include the first temporal concept for each individual
+
+<details>
+  <summary>SOLUTION</summary>
+```{r, echo = FALSE, message = FALSE, warning = FALSE}
+First10ConceptNames_ConditionOccurrence_JustFirst <- condition_occurrence_db %>%
+  group_by(person_id) %>%
+  filter(condition_start_date == min(condition_start_date)) %>%
+  group_by(condition_concept_id) %>%
+  tally() %>%
+  left_join(concepts_db %>%
+              rename(condition_concept_id = concept_id) %>%
+              select(condition_concept_id, concept_name)) %>%
+  select(concept_name,n) %>%
+  arrange(desc(n)) %>%
+  collect() %>%
+  head(10)
+First10ConceptNames_ConditionOccurrence_JustFirst
+
+First10ConceptNames_DrugEra_JustFirst <- drug_era_db %>%
+  group_by(person_id) %>%
+  filter(drug_era_start_date == min(drug_era_start_date)) %>%
+  group_by(drug_concept_id) %>%
+  tally() %>%
+  left_join(concepts_db %>%
+              rename(drug_concept_id = concept_id) %>%
+              select(drug_concept_id, concept_name)) %>%
+  select(concept_name,n) %>%
+  arrange(desc(n)) %>%
+  collect() %>%
+  head(10)
+First10ConceptNames_DrugEra_JustFirst
+
+First10ConceptNames_Measurement_JustFirst <- measurement_db %>%
+  group_by(person_id) %>%
+  filter(measurement_date == min(measurement_date)) %>%
+  group_by(measurement_concept_id) %>%
+  tally() %>%
+  left_join(concepts_db %>%
+              rename(measurement_concept_id = concept_id) %>%
+              select(measurement_concept_id, concept_name)) %>%
+  select(concept_name,n) %>%
+  arrange(desc(n)) %>%
+  collect() %>%
+  head(10)
+First10ConceptNames_Measurement_JustFirst
+```
+</details>
+
+### 5) Plot evolution of new Ibuprofen users per year between 2000 and 2010
+
+<details>
+  <summary>SOLUTION</summary>
+```{r, echo = FALSE, message = FALSE}
+library(lubridate)
+ConceptIbuprofen <- concepts_db %>% filter(concept_name == "Ibuprofen") %>% select(concept_id) %>% pull()
+Years <- 2000:2010
+NewUsers <- 0*Years
+Ibuprofen_db <- drug_era_db %>% filter(drug_concept_id == ConceptIbuprofen) %>% compute()
+for (k in 1:length(Years)){
+  year.k <- Years[k]
+  Ibuprofen_db.k <- Ibuprofen_db %>% filter(year(drug_era_start_date) == year.k) %>% compute()
+  Ibuprofen_db.prior <- Ibuprofen_db %>% filter(year(drug_era_start_date) < year.k) %>% select(person_id) %>% compute()
+  NewUsers[k] <- Ibuprofen_db.k %>% anti_join(Ibuprofen_db.prior,by="person_id") %>% select(person_id) %>% distinct() %>%
+    tally() %>% pull()
+}
+names(NewUsers) <- paste0(Years)
+barplot(NewUsers)
+```
+</details>
+
+### 6) Compute the percentage of individuals who used Ibubrufen in the next 30 days after a sprain of ankle between 1995 and 2005.
+
+<details>
+  <summary>SOLUTION</summary>
+```{r, echo = FALSE, message = FALSE}
+ConceptIbuprofen <- concepts_db %>% filter(concept_name == "Ibuprofen") %>% select(concept_id) %>% pull()
+SprainOfAnkle <- concepts_db %>% filter(concept_name == "Sprain of ankle") %>% select(concept_id) %>% pull()
+start.year <- 1995
+end.year <- 2005
+Ibuprofen_db <- drug_era_db %>% filter(drug_concept_id == ConceptIbuprofen) %>% select(person_id,drug_era_start_date) %>% compute()
+Individuals <- condition_occurrence_db %>% filter(CONDITION_CONCEPT_ID == SprainOfAnkle) %>%
+  filter(year(condition_start_date) >= start.year) %>% filter(year(condition_start_date) <= end.year) %>% compute()
+Denominator <- Individuals %>% select(person_id) %>% distinct() %>% tally() %>% pull()
+Numerator <- Individuals %>%  select(person_id,condition_start_date) %>% left_join(Ibuprofen_db) %>% 
+  filter(drug_era_start_date >= condition_start_date) %>% filter(drug_era_start_date <= condition_start_date + days(30)) %>%
+  select(person_id) %>% distinct() %>% tally() %>% pull()
+cat(paste0("The percentage is: ", round(100*Numerator/Denominator), "%"))
+```
+</details>
