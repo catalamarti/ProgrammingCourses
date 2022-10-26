@@ -1,0 +1,12 @@
+{
+  "CONCEPT_ID": [4051466, 317009],
+  "CONCEPT_NAME": ["Childhood asthma", "Asthma"],
+  "STANDARD_CONCEPT": ["S", "S"],
+  "STANDARD_CONCEPT_CAPTION": ["Standard", "Standard"],
+  "INVALID_REASON": ["V", "V"],
+  "INVALID_REASON_CAPTION": ["Valid", "Valid"],
+  "CONCEPT_CODE": ["233678006", "195967001"],
+  "DOMAIN_ID": ["Condition", "Condition"],
+  "VOCABULARY_ID": ["SNOMED", "SNOMED"],
+  "CONCEPT_CLASS_ID": ["Clinical Finding", "Clinical Finding"]
+}

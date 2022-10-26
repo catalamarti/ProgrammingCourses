@@ -1,0 +1,115 @@
+---
+title: "Running OHDSI code for the OMOP CDM"
+author: "Marti Catala Sabate"
+format:
+  revealjs:
+    slide-number: true
+editor: visual
+---
+
+## Catch-up
+
+Yesterday we learnt:
+
+-   To connect to the database.
+-   Use CDMConnector.
+-   Use Eunomia mock database (or other databases that you have used).
+-   Use dplyr commands to manipulate data: %\>%, group_by, ungroup, tally, rename, select, distinct, summarise, show_query, mutate, filter, right_join, left_join, inner_join, full_join, semi_join, anti_join, union, union_all, compute, collect, pull.
+
+## Today's goals
+
+-   Concept set and cohort definitions.
+-   Built a concept set using [CodelistGenerator](https://github.com/darwin-eu/CodelistGenerator).
+-   Built a cohort definition using [ATLAS](https://academy.ehden.eu/course/view.php?id=8).
+-   Instantiate a cohort in the database using [CohortGenerator](https://github.com/OHDSI/CohortGenerator).
+-   Evaluate a cohort with [CohortDiagnostics](https://github.com/OHDSI/CohortDiagnostics/).
+-   Compute the incidence and prevalence using [IncidencePrevalence](https://github.com/darwin-eu/IncidencePrevalence/).
+
+## Concept set and cohort definitions
+
+### concept set:
+
+Concept sets provides the ability to create collections of logical expres sions that can be used to identify a set of concepts to be used throughout your stan dardized analyses.
+
+Simplification: list of codes.
+
+### cohort definition:
+
+Cohort definitions is the ability to construct a set of persons who satisfy one or more criteria for a duration of time and these cohorts can then serve as the basis of inputs for all of your subsequent analyses.
+
+Simplification: CONCEPT SETS + a certain LOGIC.
+
+## Concept set and cohort definitions
+
+### Example of concept set:
+
+## Concept set and cohort definitions
+
+### Example of cohort definition:
+
+## Let's build a concept set
+
+To so we are going to use CodelistGenerator.
+
+First step, install the package:
+
+```{r, eval = FALSE, echo = TRUE}
+install.packages("remotes")
+remotes::install_github("darwin-eu/CodelistGenerator")
+```
+
+Second let's pick a topic: we are going to build a concept set of xxx.
+
+## CodelistGenerator
+
+Example how to build a concept set:
+
+```{r, echo = TRUE}
+library(CDMConnector)
+library(duckdb)
+library(DBI)
+library(CodelistGenerator)
+con <- dbConnect(duckdb(), dbdir = eunomia_dir())
+cdm <- cdm_from_con(
+  con,
+  cdm_schema = "main",
+  cdm_tables = tidyselect::all_of(c(
+    "concept", "concept_relationship",
+    "concept_ancestor",
+    "concept_synonym",
+    "vocabulary"
+  ))
+)
+asthma <- getCandidateCodes(cdm = cdm,
+                            keywords = "asthma",
+                            domains = "Condition")
+```
+
+## CodelistGenerator
+
+```{r echo = TRUE}
+head(asthma,10)
+nrow(asthma)
+```
+
+## CodelistGenerator
+
+The package has good vignettes that can be very useful to understand how the package and its functions works: <https://darwin-eu.github.io/CodelistGenerator/index.html>
+
+## Obtain en exportable concept set
+
+Then we can obtain a concept set in JSON format as:
+```{r, echo=TRUE}
+# library(dplyr)
+# conceptSet <- Capr:::as.Concept(cdm$concept %>% semi_join(asthma, by = "concept_id", copy = TRUE) %>% collect() %>% rename("conceptId" = "concept_id","conceptName"="concept_name","domainId"="domain_id","vocabularyId"="vocabulary_id","conceptClassId"="concept_class_id","standardConcept"="standard_concept","conceptCode"="concept_code","invalidReason"="invalid_reason"))
+```
+This is going to be implemented in an easier way in the CodelistGenerator
+
+as.Concept(x)
+
+## Let's  move to ATLAS
+
+Using ATLAS we can build a concept set from the data obtained from 
+
+
+

@@ -1,0 +1,359 @@
+---
+title: "Writing bespoke code for the OMOP CDM"
+author: "Marti Catala Sabate"
+format:
+  revealjs:
+    slide-number: true
+editor: visual
+---
+
+## Connect to the database (DBI)
+
+This procedure should work for any database. These parameters depends on the database specifications, server and security. In general for CPRD, SIDIAP, IPCI, ... we would need:
+
+```{r, echo = TRUE}
+server_dbi <- Sys.getenv("DB_SERVER_cdm_aurum_202106_dbi")
+port       <- Sys.getenv("DB_PORT") 
+host       <- Sys.getenv("DB_HOST") 
+user       <- Sys.getenv("DB_USER")
+password   <- Sys.getenv("DB_PASSWORD")
+```
+
+Save all the credentials in .Renviron file:
+
+```{r, echo = TRUE, eval = FALSE}
+usethis::edit_r_environ()
+```
+
+## Connect to the database (DBI)
+
+To connect run the following script:
+
+```{r, echo = TRUE, eval = FALSE}
+db <- DBI::dbConnect(RPostgreSQL::PostgreSQL(), # may change
+                     dbname = server_db,
+                     port = port,
+                     host = host,
+                     user = user,
+                     password = password)
+```
+
+**db** is a driver used to connect to the database.
+
+## Connect to the database (DBI)
+
+For example we could read the person table as:
+
+```{r, echo = TRUE, eval = FALSE}
+person_db <- dplyr::tbl(db, dplyr::sql("SELECT * FROM cdm_schema.person"))
+person_db
+```
+
+```{r}
+db <- DBI::dbConnect(duckdb::duckdb(), dbdir = CDMConnector::eunomia_dir())
+cdm <- CDMConnector::cdm_from_con(db)
+cdm$person
+```
+
+## CDMConnector
+
+If we have a connection we can use CDMConnector specific function so that the tables are easier to manage:
+
+```{r, echo = TRUE}
+cdm <- CDMConnector::cdm_from_con(db, cdm_schema = "main")
+cdm
+```
+
+## CDMConnector
+
+Then we can read the tables with "\$" operator or \[\[""\]\]
+
+```{r, echo = TRUE}
+cdm$observation_period
+cdm[["observation_period"]]
+```
+
+## CDMConnector
+
+We can specify the cdm schema and the tables we want to read:
+
+```{r, echo = TRUE}
+cdm <- CDMConnector::cdm_from_con(db, cdm_schema = "main", cdm_tables = c("person","observation_period"))
+cdm
+```
+
+We can also specify the writable schema and the tables that we are interested on it:
+
+```{r, echo = TRUE, eval = FALSE}
+cdm <- CDMConnector::cdm_from_con(db,
+  cdm_schema = "main",
+  cdm_tables = c("person","observation_period"),
+  write_schema = "results",
+  cohort_tables = c("outcomes"))
+```
+
+## Eunomia
+
+To practice CDMConnector contains a mock database (Eunomia) with synthetic data of 2694 individuals.
+
+```{r, echo = TRUE}
+# load libraries
+library(DBI)
+library(dplyr)
+library(CDMConnector)
+library(duckdb)
+```
+
+We can connect with the data with:
+
+```{r, echo = TRUE}
+db  <- dbConnect(duckdb(), dbdir = eunomia_dir())
+cdm <- cdm_from_con(db)
+```
+
+## dplyr & dbplyr
+
+[dplyr](https://dplyr.tidyverse.org/) is the package that we are going to use for most of the table data manipulation. These functions work with local data. [dbplyr](https://dbplyr.tidyverse.org/) is the package that ensures that we can work in the database. With this package we can use the same functions that we were using with local data in with data that lives in the database.
+
+## Basic operators
+
+%\>% operator is used to chain operators one after the other:
+
+```{r, echo = TRUE, eval=FALSE}
+functionY(functionX(cdm$person))
+```
+
+is equivalent to:
+
+```{r, echo = TRUE, eval=FALSE}
+cdm$person %>% functionX() %>% functonY()
+```
+
+## group_by
+
+[group_by](https://dplyr.tidyverse.org/reference/group_by.html) is used to create groups in the data (functions then are applied into this groups)
+
+```{r, echo = TRUE}
+cdm$person %>% group_by(year_of_birth) %>% head(5)
+```
+
+Remember later to [ungroup()](https://dplyr.tidyverse.org/reference/group_by.html) to eliminate the groups and don't have surprises
+
+## tally()
+
+[tally](https://dplyr.tidyverse.org/reference/count.html) is used to count the number of elements (rows).
+
+```{r, echo = TRUE}
+cdm$person %>% tally()
+cdm$person %>% group_by(year_of_birth) %>% tally()
+```
+
+## rename()
+
+[rename](https://dplyr.tidyverse.org/reference/rename.html) is used to change the name of a column.
+
+```{r, echo = TRUE}
+cdm$condition_occurrence %>% head(1)
+cdm$condition_occurrence %>% rename("concept_id"="condition_concept_id") %>% head(1)
+```
+
+## select()
+
+[select](https://dplyr.tidyverse.org/reference/select.html) function is used to obtain only the desired columns that we are interested.
+
+```{r, echo = TRUE}
+cdm$condition_occurrence %>% select("condition_concept_id")
+```
+
+## distinct()
+
+[distinct](https://dplyr.tidyverse.org/reference/distinct.html) is used to ensure that all the rows are different.
+
+```{r, echo = TRUE}
+cdm$condition_occurrence %>% select("condition_concept_id") %>% distinct()
+```
+
+## Example
+
+```{r, echo = TRUE}
+cdm$condition_occurrence %>% select("person_id","condition_concept_id") %>%
+  distinct() %>% group_by(condition_concept_id) %>% tally() %>%
+  rename("N_persons" = "n")
+```
+
+## What is going on: show_query()
+
+-   What dbplyr package is doing is to translate our R commands to SQL.
+-   They are executed in the "DB side" and we see the output.
+-   With this command we can see which are the sql commands that are being executed
+-   Let's use [show_query](https://dplyr.tidyverse.org/reference/explain.html) to see the sql commands.
+
+## show_query()
+
+```{r, echo = TRUE}
+cdm$condition_occurrence %>% select("person_id","condition_concept_id") %>%
+  distinct() %>% group_by(condition_concept_id) %>% tally() %>%
+  rename("N_persons" = "n") %>% show_query()
+```
+
+## summarise()
+
+[summarise](https://dplyr.tidyverse.org/reference/summarise.html) is used to summarize the data. It will have one row for each group..
+
+```{r, echo = TRUE}
+cdm$condition_occurrence %>% group_by(condition_concept_id) %>%
+  summarise(
+    N_counts = n(),
+    N_distinct_people  = n_distinct(person_id),
+    Median_time = as.Date(median(condition_start_date)),
+    first_occurrence = min(condition_start_date)
+  )
+```
+
+## mutate()
+
+[mutate](https://dplyr.tidyverse.org/reference/mutate.html) is used to create new variables (columns) in the database. They can be completely new variables or variables computed from the previous ones.
+
+```{r, echo = TRUE}
+cdm$person <- cdm$person %>% mutate(age = 2022 - year_of_birth) %>%
+  select(person_id,age)
+cdm$person
+```
+
+## filter()
+
+[filter](https://dplyr.tidyverse.org/reference/filter.html) function is used to subset a data frame, retaining all rows that satisfy your conditions condition.
+
+```{r, echo = TRUE}
+cdm$person %>% filter(age == 55)
+```
+
+## Join tables
+
+-   Different ways to join: right_join, left_join, inner_join and full_join.
+-   Different ways to filter subsets: semi_join and anti_join.
+-   Different ways to concatenate two tables: union and union_all.
+
+Always specify the argument *by = ""* if we don't want a message specifying which are the variables used for the join. Vy default: common variables.
+
+## Join tables
+
+We are going to work with this tables:
+
+```{r}
+table1 <- tibble(xxx = c(1,2,3,4,5,6), person_id = c(1,2,2,3,9,2))
+table1
+table2 <- tibble(person_id = c(1,2,5), Names = c("Ed","Mimi","Marti"))
+table2
+```
+
+## right_join()
+
+[right_join](https://dplyr.tidyverse.org/reference/mutate-joins.html) includes all rows from second table.
+
+```{r, echo = TRUE,message=TRUE}
+table1 %>% right_join(table2)
+table1 %>% right_join(table2, by = "person_id")
+```
+
+## left_join()
+
+[left_join](https://dplyr.tidyverse.org/reference/mutate-joins.html) includes all rows from first table.
+
+```{r, echo = TRUE}
+table1 %>% left_join(table2)
+```
+
+## inner_join()
+
+[inner_join](https://dplyr.tidyverse.org/reference/mutate-joins.html) includes only rows included in both tables.
+
+```{r, echo = TRUE}
+table1 %>% inner_join(table2)
+```
+
+## full_join()
+
+[full_join](https://dplyr.tidyverse.org/reference/mutate-joins.html) includes all the rows from both tables.
+
+```{r, echo = TRUE}
+table1 %>% full_join(table2)
+```
+
+## anti_join()
+
+[anti_join](https://dplyr.tidyverse.org/reference/filter-joins.html) eliminates from the first table the rows contained in the second one.
+
+```{r, echo = TRUE}
+table1 %>% anti_join(table2)
+```
+
+## semi_join()
+
+[semi_join](https://dplyr.tidyverse.org/reference/filter-joins.html) only keeps from the first table the rows contained in the second one.
+
+```{r, echo = TRUE}
+table1 %>% semi_join(table2)
+```
+
+## union_all()
+
+[union_all](https://dplyr.tidyverse.org/reference/setops.html) function is used to unite the rows from first table and second one.
+
+```{r, echo = TRUE}
+table1 %>% union_all(table2)
+```
+
+## union()
+
+[union](https://generics.r-lib.org/reference/setops.html) function is used to unite the rows from first table and second one. Duplicates are eliminated
+
+```{r, echo = TRUE}
+table3 <- tibble(person_id = c(3,2), Names = c("Mike","Mimi"))
+table4 <- tibble(person_id = c(1,2,5), Names = c("Ed","Mimi","Marti"))
+table3 %>% union_all(table4)
+table3 %>% union(table4)
+```
+
+## compute, collect & pull
+
+-   [compute](https://dplyr.tidyverse.org/reference/compute.html) is used to force the computation of a set of commands, if compute is not used our variable only contains the set of commands and not the result. It creates a temporal table in the database.
+-   [collect](https://dplyr.tidyverse.org/reference/collect.html) is used to move one data set to our R environment.
+-   [pull](https://dplyr.tidyverse.org/reference/pull.html) is used to obtain an array of the table (moving the data set to our environment, if necessary).
+
+## compute()
+
+```{r, echo = TRUE}
+table5 <- cdm$person %>% inner_join(cdm$observation_period)
+table6 <- cdm$person %>% inner_join(cdm$observation_period) %>% compute()
+table5
+```
+
+-   
+
+        table5 will run instantaneously, and table6 will take a while.
+
+-   
+
+        table6 will show the result instantaneously, and table5 will take a while.
+
+## collect()
+
+```{r, echo = TRUE}
+table5 %>% collect()
+```
+
+## pull()
+
+```{r, echo = TRUE}
+table5 %>% select("person_id") %>% pull()
+table6 %>% select("person_id") %>% pull()
+```
+
+## Code optimization
+
+-   Always is better to use join functions than filters, for example: inner_join & anti_join are two very useful functions.
+-   Not to execute computations in the database side that can be executed in the R side.
+-   Use always compute(), collect() or pull() at the end of each line of code.
+-   Build cohorts with ATLAS (not seen) to speed-up some cohorts creation.
+-   Avoid changing between DB side to R side and R side to DB side if it is not necessary.
