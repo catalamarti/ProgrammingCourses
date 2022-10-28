@@ -58,11 +58,13 @@ install.packages("remotes")
 remotes::install_github("darwin-eu/CodelistGenerator")
 ```
 
-Second let's pick a topic: we are going to build a concept set of xxx.
+Second let's pick a topic: we are going to build a concept set of pancreatitis.
 
 ## CodelistGenerator
 
 Example how to build a concept set:
+
+1) Connect to a database (in this case eunomia):
 
 ```{r, echo = TRUE}
 library(CDMConnector)
@@ -80,17 +82,36 @@ cdm <- cdm_from_con(
     "vocabulary"
   ))
 )
-asthma <- getCandidateCodes(cdm = cdm,
-                            keywords = "asthma",
-                            domains = "Condition")
 ```
 
 ## CodelistGenerator
 
 ```{r echo = TRUE}
-head(asthma,10)
-nrow(asthma)
+getCandidateCodes(
+  keywords = "pancreatitis",
+  domains = "Condition",
+  cdm = cdm
+)
 ```
+
+<!-- keywords <- "acute kidney injury" -->
+
+<!-- aki  <- getCandidateCodes( -->
+<!--                       keywords = keywords, -->
+<!--                       domains = "Condition", -->
+<!--                       includeDescendants = TRUE, -->
+<!--                       searchViaSynonyms = TRUE, -->
+<!--                        cdm = cdm) -->
+
+<!-- ## inspect candidate codes -->
+<!-- # for example, in AKI we have a code for "At risk of AKI" -->
+<!-- # we exclude that concept from our definition -->
+<!-- aki <- aki %>% -->
+<!--   filter(!(str_detect(concept_name, "At risk of"))) -->
+
+<!-- # save -->
+<!-- write.csv2(pancreatitis, here("codes_pancreatitis.csv")) -->
+<!-- write.csv2(aki, here("codes_AKI.csv")) -->
 
 ## CodelistGenerator
 
@@ -99,17 +120,16 @@ The package has good vignettes that can be very useful to understand how the pac
 ## Obtain en exportable concept set
 
 Then we can obtain a concept set in JSON format as:
+
 ```{r, echo=TRUE}
 # library(dplyr)
 # conceptSet <- Capr:::as.Concept(cdm$concept %>% semi_join(asthma, by = "concept_id", copy = TRUE) %>% collect() %>% rename("conceptId" = "concept_id","conceptName"="concept_name","domainId"="domain_id","vocabularyId"="vocabulary_id","conceptClassId"="concept_class_id","standardConcept"="standard_concept","conceptCode"="concept_code","invalidReason"="invalid_reason"))
 ```
+
 This is going to be implemented in an easier way in the CodelistGenerator
 
 as.Concept(x)
 
-## Let's  move to ATLAS
+## Let's move to ATLAS
 
-Using ATLAS we can build a concept set from the data obtained from 
-
-
-
+Using ATLAS we can build a concept set from the data obtained from

@@ -1,14 +1,7 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-<script src="Presentation_Theory_files/libs/clipboard/clipboard.min.js"></script>
-<script src="Presentation_Theory_files/libs/quarto-html/tabby.min.js"></script>
-<script src="Presentation_Theory_files/libs/quarto-html/popper.min.js"></script>
-<script src="Presentation_Theory_files/libs/quarto-html/tippy.umd.min.js"></script>
-<link href="Presentation_Theory_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="Presentation_Theory_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
-<link href="Presentation_Theory_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.0.36">
-
+  <meta charset="utf-8">
+  <meta name="generator" content="quarto-0.9.80">
   <meta name="author" content="Marti Catala Sabate">
   <title>Running OHDSI code for the OMOP CDM</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -17,6 +10,9 @@
   <link rel="stylesheet" href="Presentation_Theory_files/libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="Presentation_Theory_files/libs/revealjs/dist/reveal.css">
   <style>
+    .reveal .sourceCode {  /* see #7635 */
+      overflow: visible;
+    }
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     span.underline{text-decoration: underline;}
@@ -53,42 +49,49 @@
       }
     pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
     div.sourceCode
-      { color: #003b4f; background-color: #f1f3f5; }
+      {   }
     @media screen {
     pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
     }
-    code span { color: #003b4f; } /* Normal */
-    code span.al { color: #ad0000; } /* Alert */
-    code span.an { color: #5e5e5e; } /* Annotation */
-    code span.at { color: #657422; } /* Attribute */
-    code span.bn { color: #ad0000; } /* BaseN */
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
     code span.bu { } /* BuiltIn */
-    code span.cf { color: #003b4f; } /* ControlFlow */
-    code span.ch { color: #20794d; } /* Char */
-    code span.cn { color: #8f5902; } /* Constant */
-    code span.co { color: #5e5e5e; } /* Comment */
-    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
-    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
-    code span.dt { color: #ad0000; } /* DataType */
-    code span.dv { color: #ad0000; } /* DecVal */
-    code span.er { color: #ad0000; } /* Error */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
     code span.ex { } /* Extension */
-    code span.fl { color: #ad0000; } /* Float */
-    code span.fu { color: #4758ab; } /* Function */
-    code span.im { color: #00769e; } /* Import */
-    code span.in { color: #5e5e5e; } /* Information */
-    code span.kw { color: #003b4f; } /* Keyword */
-    code span.op { color: #5e5e5e; } /* Operator */
-    code span.ot { color: #003b4f; } /* Other */
-    code span.pp { color: #ad0000; } /* Preprocessor */
-    code span.sc { color: #5e5e5e; } /* SpecialChar */
-    code span.ss { color: #20794d; } /* SpecialString */
-    code span.st { color: #20794d; } /* String */
-    code span.va { color: #111111; } /* Variable */
-    code span.vs { color: #20794d; } /* VerbatimString */
-    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="Presentation_Theory_files/libs/revealjs/dist/theme/quarto.css" id="theme">
+
+  <script src="Presentation_Theory_files/libs/clipboard/clipboard.min.js"></script>
+  <script src="Presentation_Theory_files/libs/quarto-html/tabby.min.js"></script>
+  <script src="Presentation_Theory_files/libs/quarto-html/popper.min.js"></script>
+  <script src="Presentation_Theory_files/libs/quarto-html/tippy.umd.min.js"></script>
+  <link href="Presentation_Theory_files/libs/quarto-html/tippy.css" rel="stylesheet">
+  <link href="Presentation_Theory_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet">
+  <link href="Presentation_Theory_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
   <link href="Presentation_Theory_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="Presentation_Theory_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="Presentation_Theory_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -102,7 +105,7 @@
   }
 
   .callout.callout-style-simple { 
-    padding: 0em 0.5em;
+    padding: 0em 0.7em;
     border-left: solid #acacac .3rem;
     border-right: solid 1px silver;
     border-top: solid 1px silver;
@@ -213,7 +216,8 @@
     display: none !important;
   }
 
-  .callout.callout-captioned .callout-body > .callout-content > :last-child {
+  .callout.callout-captioned .callout-body > :last-child,
+  .callout.callout-captioned .callout-body > div > :last-child {
     margin-bottom: 0.5rem;
   }
 
@@ -302,6 +306,12 @@
     .reveal .slide:not(.center) {
       height: 100%;
     }
+    .reveal #title-slide.center,
+    .reveal .title-slide.center,
+    .reveal .controls .navigate-left .controls-arrow,
+    .reveal .controls .navigate-right .controls-arrow {
+      margin-top: -15px;
+    }
     .reveal .slide.scrollable {
       overflow-y: auto;
     }
@@ -378,7 +388,7 @@
     }
   </style>
 </head>
-<body class="quarto-light">
+<body>
   <div class="reveal">
     <div class="slides">
 
@@ -430,16 +440,19 @@
 <p>To so we are going to use CodelistGenerator.</p>
 <p>First step, install the package:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">install.packages</span>(<span class="st">"remotes"</span>)</span>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r cell-code number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">install.packages</span>(<span class="st">"remotes"</span>)</span>
 <span id="cb1-2"><a href="#cb1-2"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"darwin-eu/CodelistGenerator"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Second let’s pick a topic: we are going to build a concept set of xxx.</p>
+<p>Second let’s pick a topic: we are going to build a concept set of pancreatitis.</p>
 </section>
 <section id="codelistgenerator" class="slide level2">
 <h2>CodelistGenerator</h2>
 <p>Example how to build a concept set:</p>
+<ol type="1">
+<li>Connect to database</li>
+</ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">library</span>(CDMConnector)</span>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r cell-code number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">library</span>(CDMConnector)</span>
 <span id="cb2-2"><a href="#cb2-2"></a><span class="fu">library</span>(duckdb)</span>
 <span id="cb2-3"><a href="#cb2-3"></a><span class="fu">library</span>(DBI)</span>
 <span id="cb2-4"><a href="#cb2-4"></a><span class="fu">library</span>(CodelistGenerator)</span>
@@ -453,33 +466,54 @@
 <span id="cb2-12"><a href="#cb2-12"></a>    <span class="st">"concept_synonym"</span>,</span>
 <span id="cb2-13"><a href="#cb2-13"></a>    <span class="st">"vocabulary"</span></span>
 <span id="cb2-14"><a href="#cb2-14"></a>  ))</span>
-<span id="cb2-15"><a href="#cb2-15"></a>)</span>
-<span id="cb2-16"><a href="#cb2-16"></a>asthma <span class="ot">&lt;-</span> <span class="fu">getCandidateCodes</span>(<span class="at">cdm =</span> cdm,</span>
-<span id="cb2-17"><a href="#cb2-17"></a>                            <span class="at">keywords =</span> <span class="st">"asthma"</span>,</span>
-<span id="cb2-18"><a href="#cb2-18"></a>                            <span class="at">domains =</span> <span class="st">"Condition"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-15"><a href="#cb2-15"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="codelistgenerator-1" class="slide level2">
 <h2>CodelistGenerator</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">head</span>(asthma,<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 2 × 6
-  concept_id concept_name     domain_id concept_class_id vocabulary_id found_f…¹
-       &lt;dbl&gt; &lt;chr&gt;            &lt;chr&gt;     &lt;chr&gt;            &lt;chr&gt;         &lt;chr&gt;    
-1    4051466 Childhood asthma condition clinical finding snomed        From ini…
-2     317009 Asthma           condition clinical finding snomed        From ini…
-# … with abbreviated variable name ¹​found_from</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">nrow</span>(asthma)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2</code></pre>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource r cell-code number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">getCandidateCodes</span>(</span>
+<span id="cb3-2"><a href="#cb3-2"></a>  <span class="at">keywords =</span> <span class="st">"pancreatitis"</span>,</span>
+<span id="cb3-3"><a href="#cb3-3"></a>  <span class="at">domains =</span> <span class="st">"Condition"</span>,</span>
+<span id="cb3-4"><a href="#cb3-4"></a>  <span class="at">cdm =</span> cdm</span>
+<span id="cb3-5"><a href="#cb3-5"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-stdout">
+<pre><code># A tibble: 0 × 0</code></pre>
 </div>
 </div>
+<!-- keywords <- "acute kidney injury" -->
+<!-- aki  <- getCandidateCodes( -->
+<!--                       keywords = keywords, -->
+<!--                       domains = "Condition", -->
+<!--                       includeDescendants = TRUE, -->
+<!--                       searchViaSynonyms = TRUE, -->
+<!--                        cdm = cdm) -->
+<!-- ## inspect candidate codes -->
+<!-- # for example, in AKI we have a code for "At risk of AKI" -->
+<!-- # we exclude that concept from our definition -->
+<!-- aki <- aki %>% -->
+<!--   filter(!(str_detect(concept_name, "At risk of"))) -->
+<!-- # save -->
+<!-- write.csv2(pancreatitis, here("codes_pancreatitis.csv")) -->
+<!-- write.csv2(aki, here("codes_AKI.csv")) -->
 </section>
 <section id="codelistgenerator-2" class="slide level2">
 <h2>CodelistGenerator</h2>
 <p>The package has good vignettes that can be very useful to understand how the package and its functions works: <a href="https://darwin-eu.github.io/CodelistGenerator/index.html" class="uri">https://darwin-eu.github.io/CodelistGenerator/index.html</a></p>
+</section>
+<section id="obtain-en-exportable-concept-set" class="slide level2">
+<h2>Obtain en exportable concept set</h2>
+<p>Then we can obtain a concept set in JSON format as:</p>
+<div class="cell">
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource r cell-code number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="co"># library(dplyr)</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="co"># conceptSet &lt;- Capr:::as.Concept(cdm$concept %&gt;% semi_join(asthma, by = "concept_id", copy = TRUE) %&gt;% collect() %&gt;% rename("conceptId" = "concept_id","conceptName"="concept_name","domainId"="domain_id","vocabularyId"="vocabulary_id","conceptClassId"="concept_class_id","standardConcept"="standard_concept","conceptCode"="concept_code","invalidReason"="invalid_reason"))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>This is going to be implemented in an easier way in the CodelistGenerator</p>
+<p>as.Concept(x)</p>
+</section>
+<section id="lets-move-to-atlas" class="slide level2">
+<h2>Let’s move to ATLAS</h2>
+<p>Using ATLAS we can build a concept set from the data obtained from</p>
 <div class="footer footer-default">
 
 </div>
@@ -489,19 +523,19 @@
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
   <script src="Presentation_Theory_files/libs/revealjs/dist/reveal.js"></script>
+
   <!-- reveal.js plugins -->
   <script src="Presentation_Theory_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
   <script src="Presentation_Theory_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
   <script src="Presentation_Theory_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
   <script src="Presentation_Theory_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
   <script src="Presentation_Theory_files/libs/revealjs/plugin/quarto-support/support.js"></script>
-  
-
   <script src="Presentation_Theory_files/libs/revealjs/plugin/notes/notes.js"></script>
   <script src="Presentation_Theory_files/libs/revealjs/plugin/search/search.js"></script>
   <script src="Presentation_Theory_files/libs/revealjs/plugin/zoom/zoom.js"></script>
   <script src="Presentation_Theory_files/libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
 
   <script>
 
@@ -515,9 +549,10 @@
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
 'autoAnimateUnmatched': true,
+
 'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
 'smaller': false,
- 
+
         // Display controls in the bottom right corner
         controls: false,
 
@@ -737,26 +772,8 @@
       })();
     </script>
 
-    <script id="quarto-html-after-body" type="application/javascript">
+    <script type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
-      const toggleBodyColorMode = (bsSheetEl) => {
-        const mode = bsSheetEl.getAttribute("data-mode");
-        const bodyEl = window.document.querySelector("body");
-        if (mode === "dark") {
-          bodyEl.classList.add("quarto-dark");
-          bodyEl.classList.remove("quarto-light");
-        } else {
-          bodyEl.classList.add("quarto-light");
-          bodyEl.classList.remove("quarto-dark");
-        }
-      }
-      const toggleBodyColorPrimary = () => {
-        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-        if (bsSheetEl) {
-          toggleBodyColorMode(bsSheetEl);
-        }
-      }
-      toggleBodyColorPrimary();  
       const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
       tabsets.forEach(function(tabset) {
         const tabby = new Tabby('#' + tabset.id);
@@ -773,10 +790,7 @@
         button.blur();
         // flash "checked"
         button.classList.add('code-copy-button-checked');
-        var currentTitle = button.getAttribute("title");
-        button.setAttribute("title", "Copied!");
         setTimeout(function() {
-          button.setAttribute("title", currentTitle);
           button.classList.remove('code-copy-button-checked');
         }, 1000);
         // clear code selection
