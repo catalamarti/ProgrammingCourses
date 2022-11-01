@@ -1,0 +1,809 @@
+ConceptID,ConceptName,Domain,ConceptClass,DesginatedMedicalEvent
+4026032,Acute hepatic failure,condition,clinical finding,acute hepatic failure
+4059281,Subacute hepatic failure,condition,clinical finding,acute hepatic failure
+4184847,Acute hepatic failure due to drugs,condition,clinical finding,acute hepatic failure
+36716708,Acute hepatic failure caused by hepatitis virus,condition,clinical finding,acute hepatic failure
+36716709,Subacute hepatic failure caused by hepatitis virus,condition,clinical finding,acute hepatic failure
+46269814,Hepatic coma due to acute hepatic failure,condition,clinical finding,acute hepatic failure
+46269949,Hepatic coma due to subacute liver failure,condition,clinical finding,acute hepatic failure
+36676901,Acute infantile liver failure with multisystemic involvement syndrome,condition,clinical finding,acute hepatic failure
+36715006,Acute infantile liver failure due to synthesis defect of mitochondrial deoxyribonucleic acid encoded protein,condition,clinical finding,acute hepatic failure
+761083,Acute injury of kidney,condition,clinical finding,acute kidney injury
+3661748,Acute kidney injury due to disease caused by Severe acute respiratory syndrome coronavirus 2,condition,clinical finding,acute kidney injury
+36716182,Acute kidney injury due to circulatory failure,condition,clinical finding,acute kidney injury
+36716183,Acute kidney injury due to hypovolemia,condition,clinical finding,acute kidney injury
+36716312,Acute kidney injury due to sepsis,condition,clinical finding,acute kidney injury
+37395514,Acute kidney injury due to acute tubular necrosis due to hypovolaemia,condition,clinical finding,acute kidney injury
+37395516,Acute kidney injury due to acute tubular necrosis due to circulatory failure,condition,clinical finding,acute kidney injury
+37395517,Acute kidney injury due to acute tubular necrosis due to sepsis,condition,clinical finding,acute kidney injury
+37395518,Acute kidney injury due to acute tubular necrosis with histological evidence,condition,clinical finding,acute kidney injury
+37395519,Acute kidney injury due to acute tubular necrosis due to hypovolaemia with histological evidence,condition,clinical finding,acute kidney injury
+37395520,Acute kidney injury due to acute tubular necrosis due to sepsis with histological evidence,condition,clinical finding,acute kidney injury
+37395521,Acute kidney injury due to acute tubular necrosis due to circulatory failure with histological evidence,condition,clinical finding,acute kidney injury
+44809061,Acute kidney injury stage 1,condition,clinical finding,acute kidney injury
+44809062,Acute kidney injury stage 2,condition,clinical finding,acute kidney injury
+44809063,Acute kidney injury stage 3,condition,clinical finding,acute kidney injury
+440689,Agranulocytosis,condition,clinical finding,agranulocytosis
+4224553,Agranulocytosis associated with AIDS,condition,clinical finding,agranulocytosis
+37017282,Agranulocytosis co-occurrent with human immunodeficiency virus infection,condition,clinical finding,agranulocytosis
+46273559,Periodontitis co-occurrent with infantile genetic agranulocytosis,condition,clinical finding,agranulocytosis
+434219,Food anaphylaxis,condition,clinical finding,anaphylaxis
+435987,Peanut-induced anaphylaxis,condition,clinical finding,anaphylaxis
+436863,Anaphylaxis due to fruit,condition,clinical finding,anaphylaxis
+437442,Cow's milk protein-induced anaphylaxis,condition,clinical finding,anaphylaxis
+441202,Anaphylaxis,condition,clinical finding,anaphylaxis
+442010,Seafood-induced anaphylaxis,condition,clinical finding,anaphylaxis
+443560,Anaphylaxis due to fish,condition,clinical finding,anaphylaxis
+443567,Anaphylaxis due to vegetable,condition,clinical finding,anaphylaxis
+3661863,Anaphylaxis caused by insect bite and/or insect sting,condition,clinical finding,anaphylaxis
+3661865,Anaphylaxis after allergen immunotherapy,condition,clinical finding,anaphylaxis
+4032643,Phacoanaphylaxis,condition,clinical finding,anaphylaxis
+4032658,Localized anaphylaxis,condition,clinical finding,anaphylaxis
+4083866,Anaphylaxis caused by venom,condition,clinical finding,anaphylaxis
+4083995,Exercise anaphylaxis,condition,clinical finding,anaphylaxis
+4084168,Drug-induced anaphylaxis,condition,clinical finding,anaphylaxis
+4084169,Penicillin-induced anaphylaxis,condition,clinical finding,anaphylaxis
+4084633,Bee sting-induced anaphylaxis,condition,clinical finding,anaphylaxis
+4084634,Wasp sting-induced anaphylaxis,condition,clinical finding,anaphylaxis
+4084635,Egg white-induced anaphylaxis,condition,clinical finding,anaphylaxis
+4084639,Idiopathic anaphylaxis,condition,clinical finding,anaphylaxis
+4086737,Insulin-induced anaphylaxis,condition,clinical finding,anaphylaxis
+4086738,Seminal fluid-induced anaphylaxis,condition,clinical finding,anaphylaxis
+4176292,Anaphylaxis due to mollusk,condition,clinical finding,anaphylaxis
+4221182,Anaphylaxis due to substance,condition,clinical finding,anaphylaxis
+4292362,Anaphylaxis due to ingested food,condition,clinical finding,anaphylaxis
+4330225,Anaphylaxis due to hymenoptera venom,condition,clinical finding,anaphylaxis
+36713373,Anaphylaxis caused by sulfur dioxide,condition,clinical finding,anaphylaxis
+36713986,Anaphylaxis caused by lupin flour,condition,clinical finding,anaphylaxis
+37396175,Anaphylaxis caused by sulfite salt,condition,clinical finding,anaphylaxis
+40479204,Anaphylaxis due to seed,condition,clinical finding,anaphylaxis
+40479207,Anaphylaxis due to tree nut,condition,clinical finding,anaphylaxis
+40479646,Anaphylaxis due to latex,condition,clinical finding,anaphylaxis
+40481793,Anaphylaxis due to shellfish,condition,clinical finding,anaphylaxis
+42536526,Anaphylaxis caused by insect venom,condition,clinical finding,anaphylaxis
+42536527,Anaphylaxis due to mast cell disorder,condition,clinical finding,anaphylaxis
+42538691,Anaphylaxis caused by low temperature,condition,clinical finding,anaphylaxis
+42539054,Shock co-occurrent and due to anaphylaxis caused by serum,condition,clinical finding,anaphylaxis
+4193788,Anaphylactic transfusion reaction,condition,clinical finding,anaphylaxis
+432791,Angioedema,condition,clinical finding,angioedema
+3655089,Respiratory angioedema,condition,clinical finding,angioedema
+3655098,Angioedema of eyelid,condition,clinical finding,angioedema
+3655099,Angioedema of lip,condition,clinical finding,angioedema
+3661559,Drug-induced angioedema-urticaria,condition,clinical finding,angioedema
+4080130,Penicillin-induced angioedema-urticaria,condition,clinical finding,angioedema
+4081073,Vibratory angioedema,condition,clinical finding,angioedema
+4083996,Drug-aggravated angioedema-urticaria,condition,clinical finding,angioedema
+4083997,NSAID-induced angioedema-urticaria,condition,clinical finding,angioedema
+4083998,Aspirin-induced angioedema-urticaria,condition,clinical finding,angioedema
+4084171,Food-induced angioedema-urticaria,condition,clinical finding,angioedema
+4084172,Chemical-aggravated angioedema-urticaria,condition,clinical finding,angioedema
+4084173,Azo-dye-induced angioedema-urticaria,condition,clinical finding,angioedema
+4084174,Sodium benzoate-induced angioedema-urticaria,condition,clinical finding,angioedema
+4086742,Venom-induced angioedema-urticaria,condition,clinical finding,angioedema
+4086744,Latex-induced angioedema-urticaria,condition,clinical finding,angioedema
+4161207,ACE inhibitor-aggravated angioedema,condition,clinical finding,angioedema
+4221673,Autoimmune urticaria and/or angioedema,condition,clinical finding,angioedema
+4222260,Idiopathic urticaria and/or angioedema,condition,clinical finding,angioedema
+4223489,Idiopathic angioedema,condition,clinical finding,angioedema
+4224624,Autoimmune angioedema,condition,clinical finding,angioedema
+4270861,Allergic angioedema,condition,clinical finding,angioedema
+4270862,Allergic angioedema due to ingested food,condition,clinical finding,angioedema
+4270863,Allergic urticaria and/or angioedema,condition,clinical finding,angioedema
+4270865,Episodic angioedema with eosinophilia,condition,clinical finding,angioedema
+4292365,Angioedema of tongue,condition,clinical finding,angioedema
+4292366,Cholinergic angioedema,condition,clinical finding,angioedema
+4296370,Cutis laxa following urticaria-angioedema,condition,clinical finding,angioedema
+4297361,Angioedema and/or urticaria,condition,clinical finding,angioedema
+4299298,Allergic angioedema due to bite and/or sting,condition,clinical finding,angioedema
+4301157,Angioedema due to angiotensin-converting-enzyme inhibitor,condition,clinical finding,angioedema
+37110554,Physical angioedema,condition,clinical finding,angioedema
+42537887,Intestinal angioedema caused by angiotensin-converting enzyme inhibitor,condition,clinical finding,angioedema
+45766599,Angioedema due to disorder of kinin metabolism,condition,clinical finding,angioedema
+45766602,Acquired angioedema due to lymphoproliferative disorder,condition,clinical finding,angioedema
+45766603,Acquired angioedema due to C1 inhibitor autoantibody,condition,clinical finding,angioedema
+4049244,Angioneurotic edema of larynx,condition,clinical finding,angioedema
+137829,Aplastic anemia,condition,clinical finding,aplastic anemia
+140681,Constitutional aplastic anemia,condition,clinical finding,aplastic anemia
+4031699,Humoral immunologic aplastic anemia,condition,clinical finding,aplastic anemia
+4098027,Aplastic anemia due to radiation,condition,clinical finding,aplastic anemia
+4098145,Idiopathic aplastic anemia,condition,clinical finding,aplastic anemia
+4100998,Aplastic anemia due to toxic cause,condition,clinical finding,aplastic anemia
+4101582,Aplastic anemia due to chronic disease,condition,clinical finding,aplastic anemia
+4101583,Aplastic anemia due to infection,condition,clinical finding,aplastic anemia
+4146086,Constitutional aplastic anemia with malformation,condition,clinical finding,aplastic anemia
+4146088,Aplastic anemia due to drugs,condition,clinical finding,aplastic anemia
+4177177,Cellular immunologic aplastic anemia,condition,clinical finding,aplastic anemia
+4184200,Secondary aplastic anemia,condition,clinical finding,aplastic anemia
+4184758,Acquired aplastic anemia,condition,clinical finding,aplastic anemia
+4186108,Aplastic anemia associated with metabolic alteration,condition,clinical finding,aplastic anemia
+4187773,Aplastic anemia associated with pregnancy,condition,clinical finding,aplastic anemia
+4211348,Aplastic anemia associated with pancreatitis,condition,clinical finding,aplastic anemia
+4225810,Aplastic anemia associated with AIDS,condition,clinical finding,aplastic anemia
+4298690,Immunologic aplastic anemia,condition,clinical finding,aplastic anemia
+37016151,Aplastic anemia caused by antineoplastic agent,condition,clinical finding,aplastic anemia
+37019055,Aplastic anemia co-occurrent with human immunodeficiency virus infection,condition,clinical finding,aplastic anemia
+437834,Non-autoimmune hemolytic anemia,condition,clinical finding,autoimmune hemolytic anemia
+441269,Autoimmune hemolytic anemia,condition,clinical finding,autoimmune hemolytic anemia
+4039536,Autoimmune hemolytic anemia due to complement,condition,clinical finding,autoimmune hemolytic anemia
+4121112,Maternal autoimmune hemolytic anemia,condition,clinical finding,autoimmune hemolytic anemia
+4130191,Secondary warm autoimmune hemolytic anemia,condition,clinical finding,autoimmune hemolytic anemia
+4130680,"Autoimmune hemolytic anemia, categorized by antibody class AND/OR complement",condition,clinical finding,autoimmune hemolytic anemia
+4131127,Secondary autoimmune hemolytic anemia,condition,clinical finding,autoimmune hemolytic anemia
+4131915,Primary (idiopathic) autoimmune hemolytic anemia,condition,clinical finding,autoimmune hemolytic anemia
+4143167,Autoimmune hemolytic anemia due to IgA plus complement,condition,clinical finding,autoimmune hemolytic anemia
+4146936,Drug-induced autoimmune hemolytic anemia,condition,clinical finding,autoimmune hemolytic anemia
+4160887,Cold autoimmune hemolytic anemia,condition,clinical finding,autoimmune hemolytic anemia
+4209139,Autoimmune hemolytic anemia due to IgG,condition,clinical finding,autoimmune hemolytic anemia
+4215784,Autoimmune hemolytic anemia due to IgM,condition,clinical finding,autoimmune hemolytic anemia
+4219853,Warm autoimmune hemolytic anemia,condition,clinical finding,autoimmune hemolytic anemia
+4238904,Autoimmune hemolytic anemia due to IgA,condition,clinical finding,autoimmune hemolytic anemia
+4269919,Autoimmune hemolytic anemia due to IgG plus complement,condition,clinical finding,autoimmune hemolytic anemia
+4318674,Chronic idiopathic autoimmune hemolytic anemia,condition,clinical finding,autoimmune hemolytic anemia
+36713763,Autoimmune hemolytic anemia mixed type,condition,clinical finding,autoimmune hemolytic anemia
+37116297,Secondary autoimmune hemolytic anemia co-occurrent and due to chronic inflammatory disease,condition,clinical finding,autoimmune hemolytic anemia
+37116298,Secondary autoimmune hemolytic anemia co-occurrent and due to lymphoproliferative disorder,condition,clinical finding,autoimmune hemolytic anemia
+37116300,Secondary autoimmune hemolytic anemia co-occurrent and due to rheumatic disorder,condition,clinical finding,autoimmune hemolytic anemia
+37116301,Secondary autoimmune hemolytic anemia co-occurrent and due to ulcerative colitis,condition,clinical finding,autoimmune hemolytic anemia
+37117740,Secondary autoimmune hemolytic anemia co-occurrent and due to systemic lupus erythematosus,condition,clinical finding,autoimmune hemolytic anemia
+4130192,Post-infectious cold agglutinin disease,condition,clinical finding,autoimmune hemolytic anemia
+4130193,Cold agglutinin disease due to Epstein-Barr virus infection,condition,clinical finding,autoimmune hemolytic anemia
+4130194,Chronic cold agglutinin disease associated with B-cell neoplasm,condition,clinical finding,autoimmune hemolytic anemia
+4131128,Chronic cold agglutinin disease,condition,clinical finding,autoimmune hemolytic anemia
+4168135,Cold agglutinin disease due to Mycoplasma pneumonia,condition,clinical finding,autoimmune hemolytic anemia
+4273847,Idiopathic chronic cold agglutinin disease,condition,clinical finding,autoimmune hemolytic anemia
+4098017,Primary cold-type hemolytic anemia,condition,clinical finding,autoimmune hemolytic anemia
+4098754,Secondary cold-type hemolytic anemia,condition,clinical finding,autoimmune hemolytic anemia
+4098753,Primary warm-type hemolytic anemia,condition,clinical finding,autoimmune hemolytic anemia
+4101578,Secondary warm-type hemolytic anemia,condition,clinical finding,autoimmune hemolytic anemia
+200762,Autoimmune hepatitis,condition,clinical finding,autoimmune hepatitis
+36687200,Chronic autoimmune hepatitis,condition,clinical finding,autoimmune hepatitis
+36715923,Autoimmune hepatitis type 1,condition,clinical finding,autoimmune hepatitis
+36715924,Autoimmune hepatitis type 3,condition,clinical finding,autoimmune hepatitis
+36717496,Autoimmune hepatitis type 2,condition,clinical finding,autoimmune hepatitis
+36716715,Autoimmune pancreatitis type 1,condition,clinical finding,autoimmune pancreatitis
+40490446,Autoimmune pancreatitis,condition,clinical finding,autoimmune pancreatitis
+4153346,Azotemia due to intrarenal disease,condition,clinical finding,azotemia
+40481633,Azotemia,condition,clinical finding,azotemia
+40484279,Postrenal azotemia,condition,clinical finding,azotemia
+40484316,Prerenal azotemia,condition,clinical finding,azotemia
+253482,Cortical blindness,condition,clinical finding,blindness
+372906,Blindness - both eyes,condition,clinical finding,blindness
+374037,Night blindness,condition,clinical finding,blindness
+376406,"Impairment level: blindness, one eye - low vision other eye",condition,clinical finding,blindness
+376978,Acquired night blindness,condition,clinical finding,blindness
+377290,Legal blindness USA,condition,clinical finding,blindness
+378394,Vitamin A deficiency with night blindness,condition,clinical finding,blindness
+379820,Color blindness,condition,clinical finding,blindness
+3654232,Complete blindness of right eye,condition,clinical finding,blindness
+3654233,Complete blindness of left eye,condition,clinical finding,blindness
+3654398,Complete pinhole blindness of left eye,condition,clinical finding,blindness
+3654399,Complete pinhole blindness of right eye,condition,clinical finding,blindness
+4023310,Blindness AND/OR vision impairment level,condition,clinical finding,blindness
+4042550,Blindness of one eye,condition,clinical finding,blindness
+4047733,Olivopontocerebellar atrophy with blindness,condition,clinical finding,blindness
+4062445,O/E - red-green color blindness,condition,clinical finding,blindness
+4077066,O/E - color blindness,condition,clinical finding,blindness
+4163899,Day blindness,condition,clinical finding,blindness
+4192436,Central blindness,condition,clinical finding,blindness
+4226790,Blindness associated with AIDS,condition,clinical finding,blindness
+4230656,Hysterical blindness,condition,clinical finding,blindness
+4239971,Taste-blindness,condition,clinical finding,blindness
+4280821,Legal blindness,condition,clinical finding,blindness
+4308281,Transient blindness,condition,clinical finding,blindness
+4318976,Snow blindness,condition,clinical finding,blindness
+35621873,Chondroectodermal dysplasia with night blindness syndrome,condition,clinical finding,blindness
+36675179,"Early-onset progressive neurodegeneration, blindness, ataxia, spasticity syndrome",condition,clinical finding,blindness
+36676621,"Early-onset epileptic encephalopathy, cortical blindness, intellectual disability, facial dysmorphism syndrome",condition,clinical finding,blindness
+36713548,"Blindness, scoliosis, arachnodactyly syndrome",condition,clinical finding,blindness
+36717454,Ectodermal dysplasia with blindness syndrome,condition,clinical finding,blindness
+37118457,"Cortical blindness, intellectual disability, polydactyly syndrome",condition,clinical finding,blindness
+37209376,Bilateral cortical blindness of brain,condition,clinical finding,blindness
+40386117,Bilateral acquired blindness of eyes,condition,clinical finding,blindness
+45757715,Cortical blindness of left side of brain,condition,clinical finding,blindness
+45763582,Blindness due to type 2 diabetes mellitus,condition,clinical finding,blindness
+45763585,Blindness due to type 1 diabetes mellitus,condition,clinical finding,blindness
+45772121,Cortical blindness of right side of brain,condition,clinical finding,blindness
+377551,Blind hypertensive eye,condition,clinical finding,blindness
+378758,"Impairment level: better eye: severe impairment: lesser eye: blind, not further specified",condition,clinical finding,blindness
+381562,"Impairment level: better eye: moderate impairment: lesser eye: blind, not further specified",condition,clinical finding,blindness
+4025939,Painful blind eye,condition,clinical finding,blindness
+4062721,O/E - R-eye completely blind,condition,clinical finding,blindness
+4064189,O/E - L-eye completely blind,condition,clinical finding,blindness
+4109116,"One eye blind, one eye low vision",condition,clinical finding,blindness
+4147638,Blind or low vision - both eyes,condition,clinical finding,blindness
+4150173,Blind or low vision - one eye only,condition,clinical finding,blindness
+4164639,Blind left eye,condition,clinical finding,blindness
+4164640,Blind right eye,condition,clinical finding,blindness
+4235239,O/E - pinhole left eye completely blind,condition,clinical finding,blindness
+4255286,O/E - pinhole right eye completely blind,condition,clinical finding,blindness
+45757719,"Blind right eye, normal vision left eye",condition,clinical finding,blindness
+45757720,"Blind right eye, low vision left eye",condition,clinical finding,blindness
+45757721,"Blind left eye, normal vision right eye",condition,clinical finding,blindness
+45757722,"Blind left eye, low vision right eye",condition,clinical finding,blindness
+4121274,Bone marrow transplant failure,condition,clinical finding,bone marrow failure
+193210,Transient ischemic deafness,condition,clinical finding,deafness
+765500,Carrier of nonsyndromic deafness,condition,clinical finding,deafness
+4007235,"Black locks, oculocutaneous albinism, AND deafness of the sensorineural type",condition,clinical finding,deafness
+4030066,"Photomyoclonus, diabetes mellitus, deafness, nephropathy and cerebral dysfunction",condition,clinical finding,deafness
+4030676,"Prune belly syndrome with pulmonic stenosis, mental retardation and deafness",condition,clinical finding,deafness
+4030677,Renal tubular acidosis with progressive nerve deafness,condition,clinical finding,deafness
+4034568,Keratitis ichthyosis and deafness syndrome,condition,clinical finding,deafness
+4034963,"Megaloblastic anemia, thiamine-responsive, with diabetes mellitus and sensorineural deafness",condition,clinical finding,deafness
+4036957,Bilateral deafness,condition,clinical finding,deafness
+4042714,Voice associated with deafness,condition,clinical finding,deafness
+4048164,Chronic deafness,condition,clinical finding,deafness
+4051469,High frequency deafness,condition,clinical finding,deafness
+4064208,O/E - High tone deafness,condition,clinical finding,deafness
+4082356,"Alopecia, onychodysplasia, hypohidrosis, deafness ectodermal dysplasia",condition,clinical finding,deafness
+4093148,Rubella deafness,condition,clinical finding,deafness
+4097391,Robinson nail dystrophy-deafness syndrome,condition,clinical finding,deafness
+4107706,Psychogenic deafness,condition,clinical finding,deafness
+4111340,Hystrix ichthyosis with deafness,condition,clinical finding,deafness
+4129516,Diabetes-deafness syndrome maternally transmitted,condition,clinical finding,deafness
+4133465,"Knuckle pads, deafness AND leukonychia syndrome",condition,clinical finding,deafness
+4150172,Ototoxicity - deafness,condition,clinical finding,deafness
+4155091,Deafness symptom,condition,clinical finding,deafness
+4168067,Drug ototoxicity - deafness,condition,clinical finding,deafness
+4169069,Upper frequency deafness,condition,clinical finding,deafness
+4173753,Low frequency deafness,condition,clinical finding,deafness
+4187687,Bone conduction deafness,condition,clinical finding,deafness
+4210155,Tone deafness,condition,clinical finding,deafness
+4218925,Retinitis pigmentosa-deafness-ataxia syndrome,condition,clinical finding,deafness
+4224197,Partial deafness,condition,clinical finding,deafness
+4237144,End organ deafness,condition,clinical finding,deafness
+4240613,Retinitis pigmentosa-deafness syndrome,condition,clinical finding,deafness
+4249738,Air conduction deafness,condition,clinical finding,deafness
+4283945,Pili torti-deafness syndrome,condition,clinical finding,deafness
+4291940,Toxic deafness,condition,clinical finding,deafness
+4295600,Autosomal recessive keratitis-ichthyosis-deafness syndrome,condition,clinical finding,deafness
+4301399,Albinism-deafness syndrome of Tietz,condition,clinical finding,deafness
+4309773,Complete deafness,condition,clinical finding,deafness
+4321249,Mid frequency deafness,condition,clinical finding,deafness
+4322638,Diabetes mellitus AND insipidus with optic atrophy AND deafness,condition,clinical finding,deafness
+4324406,Hysterical deafness,condition,clinical finding,deafness
+35607979,Postlingual non-syndromic genetic deafness,condition,clinical finding,deafness
+35607980,Prelingual non-syndromic genetic deafness,condition,clinical finding,deafness
+35621875,"Charcot-Marie-Tooth disease, deafness, intellectual disability syndrome",condition,clinical finding,deafness
+35621925,"Conductive deafness, ptosis, skeletal anomalies syndrome",condition,clinical finding,deafness
+35622286,"Deafness, encephaloneuropathy, obesity, valvulopathy syndrome",condition,clinical finding,deafness
+36674396,Deafness with onychodystrophy syndrome,condition,clinical finding,deafness
+36674894,"Severe motor and intellectual disabilities, sensorineural deafness, dystonia syndrome",condition,clinical finding,deafness
+36674897,Sinoatrial node dysfunction and deafness,condition,clinical finding,deafness
+36676503,"Mandibular hypoplasia, deafness, progeroid syndrome",condition,clinical finding,deafness
+36676639,"Aphonia, deafness, retinal dystrophy, bifid halluces, intellectual disability syndrome",condition,clinical finding,deafness
+36676681,"Nephrotic syndrome, deafness, pretibial epidermolysis bullosa syndrome",condition,clinical finding,deafness
+36676693,"Hypertelorism, preauricular sinus, punctual pits, deafness syndrome",condition,clinical finding,deafness
+36713437,Choroideremia with deafness and obesity syndrome,condition,clinical finding,deafness
+36713539,Bilateral microtia with deafness and cleft palate syndrome,condition,clinical finding,deafness
+36713569,Branchiogenic deafness syndrome,condition,clinical finding,deafness
+36713762,Deafness and hypogonadism syndrome,condition,clinical finding,deafness
+36715041,Deafness and myopia syndrome,condition,clinical finding,deafness
+36715050,Ataxia with deafness and intellectual disability syndrome,condition,clinical finding,deafness
+36715051,"Atherosclerosis, deafness, diabetes, epilepsy, nephropathy syndrome",condition,clinical finding,deafness
+36715414,"Deafness, enamel hypoplasia, nail defect syndrome",condition,clinical finding,deafness
+36715415,"Deafness, genital anomaly, metacarpal and metatarsal synostosis syndrome",condition,clinical finding,deafness
+36715416,Deafness and intellectual disability Martin Probst type syndrome,condition,clinical finding,deafness
+36715419,"Developmental malformation, deafness, dystonia syndrome",condition,clinical finding,deafness
+36715509,"Seizure, sensorineural deafness, ataxia, intellectual disability, electrolyte imbalance syndrome",condition,clinical finding,deafness
+36716108,"Lipodystrophy, intellectual disability, deafness syndrome",condition,clinical finding,deafness
+36716152,Ocular albinism with late-onset sensorineural deafness,condition,clinical finding,deafness
+36716255,Palmoplantar keratoderma with deafness syndrome,condition,clinical finding,deafness
+36716317,Albinism with deafness syndrome,condition,clinical finding,deafness
+36716323,"Autosomal dominant cerebellar ataxia, deafness and narcolepsy syndrome",condition,clinical finding,deafness
+36716441,Gingival fibromatosis with progressive deafness syndrome,condition,clinical finding,deafness
+36716456,Distal renal tubular acidosis co-occurrent with sensorineural deafness,condition,clinical finding,deafness
+36716461,Thickened earlobe with conductive deafness syndrome,condition,clinical finding,deafness
+36717138,Ehlers-Danlos syndrome kyphoscoliotic and deafness type,condition,clinical finding,deafness
+36717151,Hirschsprung disease with deafness and polydactyly syndrome,condition,clinical finding,deafness
+36717531,"Osteochondrodysplatic nanism, deafness, retinitis pigmentosa syndrome",condition,clinical finding,deafness
+37109990,Sensorineural deafness with dilated cardiomyopathy syndrome,condition,clinical finding,deafness
+37109996,"Retinitis pigmentosa, intellectual disability, deafness, hypogenitalism syndrome",condition,clinical finding,deafness
+37111590,Caudal appendage deafness syndrome,condition,clinical finding,deafness
+37111627,"Central nervous system calcification, deafness, tubular acidosis, anemia syndrome",condition,clinical finding,deafness
+37116289,"Mitochondrial myopathy, lactic acidosis, deafness syndrome",condition,clinical finding,deafness
+37116291,Ectodermal dysplasia and sensorineural deafness syndrome,condition,clinical finding,deafness
+37116377,"Deafness, vitiligo, achalasia syndrome",condition,clinical finding,deafness
+37116378,"Deafness, small bowel diverticulosis, neuropathy syndrome",condition,clinical finding,deafness
+37116641,"Metaphyseal dysostosis, intellectual disability, conductive deafness syndrome",condition,clinical finding,deafness
+37117182,"Nephropathy, deafness, hyperparathyroidism syndrome",condition,clinical finding,deafness
+37117238,"Neutropenia, monocytopenia, deafness syndrome",condition,clinical finding,deafness
+37117745,"Myoclonus, cerebellar ataxia, deafness syndrome",condition,clinical finding,deafness
+37117747,"Spastic paraplegia, nephritis, deafness syndrome",condition,clinical finding,deafness
+37118645,"Dysmorphism, short stature, deafness, disorder of sex development syndrome",condition,clinical finding,deafness
+37119051,"Nephrosis, deafness, urinary tract, digital malformation syndrome",condition,clinical finding,deafness
+37119067,"Hypoparathyroidism, deafness, renal disease syndrome",condition,clinical finding,deafness
+37204318,Renal caliceal diverticuli and deafness syndrome,condition,clinical finding,deafness
+37204690,Hypotrichosis and deafness syndrome,condition,clinical finding,deafness
+37204836,"Conductive deafness, malformed external ear syndrome",condition,clinical finding,deafness
+37395885,Olivopontocerebellar atrophy and deafness,condition,clinical finding,deafness
+37395900,Spastic paraparesis and deafness,condition,clinical finding,deafness
+37395902,"Phocomelia, ectrodactyly, deafness and sinus arrhythmia syndrome",condition,clinical finding,deafness
+37395914,Deafness and oligodontia syndrome,condition,clinical finding,deafness
+37395916,Progressive deafness with stapes fixation,condition,clinical finding,deafness
+37396436,Deafness craniofacial syndrome,condition,clinical finding,deafness
+43021776,Deafness of right ear,condition,clinical finding,deafness
+43021777,Deafness of left ear,condition,clinical finding,deafness
+45763942,Sensorineural deafness and male infertility,condition,clinical finding,deafness
+45765427,Craniofacial deafness hand syndrome,condition,clinical finding,deafness
+45765474,Deafness-dystonia-optic neuronopathy syndrome,condition,clinical finding,deafness
+46272952,"3-methylglutaconic aciduria type IV with sensorineural deafness, encephalopathy and Leigh-like syndrome",condition,clinical finding,deafness
+4008663,Megaloblastic anemia due to exfoliative dermatitis,condition,clinical finding,dermatitis exfoliative
+4048080,Generalized exfoliative contact dermatitis,condition,clinical finding,dermatitis exfoliative
+4135953,Chronic generalized exfoliative dermatitis,condition,clinical finding,dermatitis exfoliative
+4245496,Subacute generalized exfoliative dermatitis,condition,clinical finding,dermatitis exfoliative
+45765791,Drug reaction with eosinophilia and systemic symptoms,condition,clinical finding,drug reaction with eosinophilia and systemic symptoms
+45773405,Drug reaction with eosinophilia and systemic symptoms caused by strontium ranelate,condition,clinical finding,drug reaction with eosinophilia and systemic symptoms
+132702,Erythema multiforme,condition,clinical finding,erythema multiforme
+3655271,Erythema multiforme due to systemic fungal infection,condition,clinical finding,erythema multiforme
+3655328,Erythema multiforme due to Herpes simplex infection,condition,clinical finding,erythema multiforme
+3655329,Erythema multiforme due to Mycoplasma pneumoniae infection,condition,clinical finding,erythema multiforme
+4032899,Non-bullous erythema multiforme,condition,clinical finding,erythema multiforme
+4033361,Erythema multiforme of pregnancy,condition,clinical finding,erythema multiforme
+4033928,Lupus erythematosus and erythema multiforme-like syndrome,condition,clinical finding,erythema multiforme
+4047122,"Erythema multiforme, dermal type",condition,clinical finding,erythema multiforme
+4165240,Coccidioidomycosis with erythema multiforme,condition,clinical finding,erythema multiforme
+4177482,Drug-induced erythema multiforme,condition,clinical finding,erythema multiforme
+4248562,"Erythema multiforme, epidermal type",condition,clinical finding,erythema multiforme
+4293565,Papular form erythema multiforme,condition,clinical finding,erythema multiforme
+4294562,Erythema multiforme due to mycoplasma infection,condition,clinical finding,erythema multiforme
+4299674,Erythema multiforme due to malignancy,condition,clinical finding,erythema multiforme
+4299823,Erythema multiforme-like lupus erythematosus,condition,clinical finding,erythema multiforme
+4300797,Vesicobullous form erythema multiforme,condition,clinical finding,erythema multiforme
+4301038,Erythema multiforme-induced ulceration of lips,condition,clinical finding,erythema multiforme
+4314782,"Erythema multiforme, mixed dermal-epidermal type",condition,clinical finding,erythema multiforme
+37017048,Gingival disease co-occurrent and due to erythema multiforme,condition,clinical finding,erythema multiforme
+42539147,Erythema multiforme caused by virus,condition,clinical finding,erythema multiforme
+45768805,Erythema multiforme co-occurrent with ulcer of oral mucous membrane,condition,clinical finding,erythema multiforme
+46270026,Erythema multiforme minor,condition,clinical finding,erythema multiforme
+4250734,Febrile neutropenia,condition,clinical finding,febrile neutropenia
+4030593,Benign granulocytopenia in childhood,condition,clinical finding,granulocytopenia
+4122938,Chronic benign granulocytopenia,condition,clinical finding,granulocytopenia
+4143553,Febrile granulocytopenia,condition,clinical finding,granulocytopenia
+433029,Perinatal jaundice from excessive hemolysis,condition,clinical finding,hemolysis
+434616,Hemoglobinuria due to hemolysis from external causes,condition,clinical finding,hemolysis
+763017,Febrile transfusion reaction without hemolysis,condition,clinical finding,hemolysis
+3655917,Post-artesunate delayed hemolysis,condition,clinical finding,hemolysis
+4009929,"Bacterial colony hemolysis, alpha prime",condition,clinical finding,hemolysis
+4049138,Intravascular hemolysis,condition,clinical finding,hemolysis
+4113376,Intravascular hemolysis following abortive pregnancy,condition,clinical finding,hemolysis
+4167006,"Bacterial colony hemolysis, gamma",condition,clinical finding,hemolysis
+4197444,Extravascular hemolysis,condition,clinical finding,hemolysis
+4215615,"Bacterial colony hemolysis, alpha",condition,clinical finding,hemolysis
+4250490,Hemolysis,condition,clinical finding,hemolysis
+4292085,Bacterial colony hemolysis,condition,clinical finding,hemolysis
+4312209,"Bacterial colony hemolysis, beta",condition,clinical finding,hemolysis
+43020932,Mechanical hemolysis due to cardiovascular prosthetic patch,condition,clinical finding,hemolysis
+23988,Hemolytic anemia due to glutathione metabolism disorder,condition,clinical finding,hemolytic anemia
+435503,Hemolytic anemia,condition,clinical finding,hemolytic anemia
+437834,Non-autoimmune hemolytic anemia,condition,clinical finding,hemolytic anemia
+440979,Acquired hemolytic anemia,condition,clinical finding,hemolytic anemia
+441269,Autoimmune hemolytic anemia,condition,clinical finding,hemolytic anemia
+4008273,Coombs negative hemolytic anemia,condition,clinical finding,hemolytic anemia
+4032352,Hemolytic anemia due to hyperbaric oxygen,condition,clinical finding,hemolytic anemia
+4039536,Autoimmune hemolytic anemia due to complement,condition,clinical finding,hemolytic anemia
+4082917,"Drug-induced immune hemolytic anemia, immune complex type",condition,clinical finding,hemolytic anemia
+4085853,Hemolytic anemia due to babesiosis,condition,clinical finding,hemolytic anemia
+4098013,Hemolytic anemia due to hexokinase deficiency,condition,clinical finding,hemolytic anemia
+4098017,Primary cold-type hemolytic anemia,condition,clinical finding,hemolytic anemia
+4098018,Mechanical hemolytic anemia,condition,clinical finding,hemolytic anemia
+4098019,Toxic hemolytic anemia,condition,clinical finding,hemolytic anemia
+4098746,Hemolytic anemia due to pyruvate kinase deficiency,condition,clinical finding,hemolytic anemia
+4098753,Primary warm-type hemolytic anemia,condition,clinical finding,hemolytic anemia
+4098754,Secondary cold-type hemolytic anemia,condition,clinical finding,hemolytic anemia
+4100991,Hemolytic anemia due to triose phosphate isomerase deficiency,condition,clinical finding,hemolytic anemia
+4101578,Secondary warm-type hemolytic anemia,condition,clinical finding,hemolytic anemia
+4121112,Maternal autoimmune hemolytic anemia,condition,clinical finding,hemolytic anemia
+4125630,Chronic non-spherocytic hemolytic anemia,condition,clinical finding,hemolytic anemia
+4130191,Secondary warm autoimmune hemolytic anemia,condition,clinical finding,hemolytic anemia
+4130680,"Autoimmune hemolytic anemia, categorized by antibody class AND/OR complement",condition,clinical finding,hemolytic anemia
+4131127,Secondary autoimmune hemolytic anemia,condition,clinical finding,hemolytic anemia
+4131915,Primary (idiopathic) autoimmune hemolytic anemia,condition,clinical finding,hemolytic anemia
+4131919,"Drug-induced immune hemolytic anemia, hapten type",condition,clinical finding,hemolytic anemia
+4143167,Autoimmune hemolytic anemia due to IgA plus complement,condition,clinical finding,hemolytic anemia
+4146936,Drug-induced autoimmune hemolytic anemia,condition,clinical finding,hemolytic anemia
+4151502,Hemolytic anemia due to Clostridium welchii,condition,clinical finding,hemolytic anemia
+4156842,Intracorpuscular hemolytic anemia,condition,clinical finding,hemolytic anemia
+4160887,Cold autoimmune hemolytic anemia,condition,clinical finding,hemolytic anemia
+4168772,Megaloblastic anemia due to chronic hemolytic anemia,condition,clinical finding,hemolytic anemia
+4176884,Hemolytic anemia due to nonlymphoid neoplasm,condition,clinical finding,hemolytic anemia
+4196102,Hapten type low affinity hemolytic anemia,condition,clinical finding,hemolytic anemia
+4198102,Microangiopathic hemolytic anemia,condition,clinical finding,hemolytic anemia
+4209139,Autoimmune hemolytic anemia due to IgG,condition,clinical finding,hemolytic anemia
+4215784,Autoimmune hemolytic anemia due to IgM,condition,clinical finding,hemolytic anemia
+4218100,Hemolytic anemia due to drugs,condition,clinical finding,hemolytic anemia
+4219853,Warm autoimmune hemolytic anemia,condition,clinical finding,hemolytic anemia
+4228444,Acquired hemolytic anemia associated with AIDS,condition,clinical finding,hemolytic anemia
+4238904,Autoimmune hemolytic anemia due to IgA,condition,clinical finding,hemolytic anemia
+4246105,Hemolytic anemia with emphysema AND cutis laxa,condition,clinical finding,hemolytic anemia
+4254380,Coombs positive hemolytic anemia,condition,clinical finding,hemolytic anemia
+4269919,Autoimmune hemolytic anemia due to IgG plus complement,condition,clinical finding,hemolytic anemia
+4297024,Hemolytic anemia due to Bartonella,condition,clinical finding,hemolytic anemia
+4297537,Hemolytic anemia due to infection,condition,clinical finding,hemolytic anemia
+4298975,Hemolytic anemia due to malaria,condition,clinical finding,hemolytic anemia
+4313581,Hapten type high affinity hemolytic anemia,condition,clinical finding,hemolytic anemia
+4318674,Chronic idiopathic autoimmune hemolytic anemia,condition,clinical finding,hemolytic anemia
+35624317,Hemolytic anemia due to adenylate kinase deficiency,condition,clinical finding,hemolytic anemia
+36713763,Autoimmune hemolytic anemia mixed type,condition,clinical finding,hemolytic anemia
+36714258,Lethal hemolytic anemia and genital anomaly syndrome,condition,clinical finding,hemolytic anemia
+37017285,Acquired hemolytic anemia co-occurrent with human immunodeficiency virus infection,condition,clinical finding,hemolytic anemia
+37110727,Nonspherocytic hemolytic anemia due to deficiency of adenosinetriphosphatase,condition,clinical finding,hemolytic anemia
+37116297,Secondary autoimmune hemolytic anemia co-occurrent and due to chronic inflammatory disease,condition,clinical finding,hemolytic anemia
+37116298,Secondary autoimmune hemolytic anemia co-occurrent and due to lymphoproliferative disorder,condition,clinical finding,hemolytic anemia
+37116300,Secondary autoimmune hemolytic anemia co-occurrent and due to rheumatic disorder,condition,clinical finding,hemolytic anemia
+37116301,Secondary autoimmune hemolytic anemia co-occurrent and due to ulcerative colitis,condition,clinical finding,hemolytic anemia
+37117740,Secondary autoimmune hemolytic anemia co-occurrent and due to systemic lupus erythematosus,condition,clinical finding,hemolytic anemia
+44783626,Pulmonary arterial hypertension associated with chronic hemolytic anemia,condition,clinical finding,hemolytic anemia
+45768941,Chronic hemolytic anemia,condition,clinical finding,hemolytic anemia
+4009787,HNSHA due to aldolase A deficiency,condition,clinical finding,hemolytic anemia
+4009788,HNSHA due to glutathione synthetase deficiency,condition,clinical finding,hemolytic anemia
+4101917,HNSHA due to gamma glutamyl cysteine synthetase deficiency,condition,clinical finding,hemolytic anemia
+4145277,HNSHA due to pyrimidine-5'-nucleotidase deficiency,condition,clinical finding,hemolytic anemia
+4171026,HNSHA due to NADH diaphorase deficiency,condition,clinical finding,hemolytic anemia
+4174701,HNSHA due to hexokinase deficiency,condition,clinical finding,hemolytic anemia
+4178731,HNSHA due to glutathione reductase deficiency,condition,clinical finding,hemolytic anemia
+4181143,HNSHA due to glucose phosphate isomerase deficiency,condition,clinical finding,hemolytic anemia
+4187034,HNSHA due to phosphofructokinase deficiency,condition,clinical finding,hemolytic anemia
+4193514,HNSHA due to decreased adenosine deaminase activity,condition,clinical finding,hemolytic anemia
+4203291,HNSHA due to increased adenosine deaminase activity,condition,clinical finding,hemolytic anemia
+4242111,HNSHA due to phosphoglycerate kinase deficiency,condition,clinical finding,hemolytic anemia
+4254249,HNSHA due to pyruvate kinase deficiency,condition,clinical finding,hemolytic anemia
+4258685,HNSHA due to triosephosphate isomerase deficiency,condition,clinical finding,hemolytic anemia
+4265915,HNSHA due to diphosphoglycerate mutase deficiency,condition,clinical finding,hemolytic anemia
+4130192,Post-infectious cold agglutinin disease,condition,clinical finding,hemolytic anemia
+4130193,Cold agglutinin disease due to Epstein-Barr virus infection,condition,clinical finding,hemolytic anemia
+4130194,Chronic cold agglutinin disease associated with B-cell neoplasm,condition,clinical finding,hemolytic anemia
+4131128,Chronic cold agglutinin disease,condition,clinical finding,hemolytic anemia
+4168135,Cold agglutinin disease due to Mycoplasma pneumonia,condition,clinical finding,hemolytic anemia
+4273847,Idiopathic chronic cold agglutinin disease,condition,clinical finding,hemolytic anemia
+4026032,Acute hepatic failure,condition,clinical finding,hepatic failure
+4059281,Subacute hepatic failure,condition,clinical finding,hepatic failure
+4184847,Acute hepatic failure due to drugs,condition,clinical finding,hepatic failure
+4245975,Hepatic failure,condition,clinical finding,hepatic failure
+4309163,Hepatic failure as a complication of care,condition,clinical finding,hepatic failure
+4331292,Hepatic failure due to a procedure,condition,clinical finding,hepatic failure
+4340386,Alcoholic hepatic failure,condition,clinical finding,hepatic failure
+4340389,Fulminant hepatic failure,condition,clinical finding,hepatic failure
+4340390,Chronic hepatic failure,condition,clinical finding,hepatic failure
+4342773,Subfulminant hepatic failure,condition,clinical finding,hepatic failure
+36716708,Acute hepatic failure caused by hepatitis virus,condition,clinical finding,hepatic failure
+36716709,Subacute hepatic failure caused by hepatitis virus,condition,clinical finding,hepatic failure
+42710029,Hepatic encephalopathy in fulminant hepatic failure,condition,clinical finding,hepatic failure
+46269814,Hepatic coma due to acute hepatic failure,condition,clinical finding,hepatic failure
+46269818,Hepatic coma due to alcoholic liver failure,condition,clinical finding,hepatic failure
+46269836,Hepatic coma due to chronic hepatic failure,condition,clinical finding,hepatic failure
+46269949,Hepatic coma due to subacute liver failure,condition,clinical finding,hepatic failure
+36676901,Acute infantile liver failure with multisystemic involvement syndrome,condition,clinical finding,hepatic failure
+36715006,Acute infantile liver failure due to synthesis defect of mitochondrial deoxyribonucleic acid encoded protein,condition,clinical finding,hepatic failure
+77056,Failure of lactation - delivered,condition,clinical finding,hepatic failure
+4205558,Cardiac failure after obstetrical surgery AND/OR other procedure including delivery,condition,clinical finding,hepatic failure
+4269927,Cardiac arrest AND/OR failure following anesthesia AND/OR sedation in labor AND/OR delivery,condition,clinical finding,hepatic failure
+4308395,Liver transplant failure and rejection,condition,clinical finding,hepatic failure
+4341658,Liver transplant failure,condition,clinical finding,hepatic failure
+37397038,Renal tubulopathy with encephalopathy and liver failure syndrome,condition,clinical finding,hepatic failure
+194417,Hepatic infarction,condition,clinical finding,hepatic infarction
+4143845,Fulminant hepatitis,condition,clinical finding,hepatitis fulminant
+4000065,Drug-induced immune thrombocytopenia,condition,clinical finding,immune thrombocytopenia
+4028065,Autoimmune thrombocytopenia,condition,clinical finding,immune thrombocytopenia
+4103532,Immune thrombocytopenia,condition,clinical finding,immune thrombocytopenia
+4133983,Secondary autoimmune thrombocytopenia,condition,clinical finding,immune thrombocytopenia
+4133984,Alloimmune thrombocytopenia,condition,clinical finding,immune thrombocytopenia
+4338386,Thrombocytopenia due to non-immune destruction,condition,clinical finding,immune thrombocytopenia
+4258261,Drug induced thrombotic thrombocytopenic purpura,condition,clinical finding,immune thrombocytopenia
+199925,Perinatal intestinal perforation,condition,clinical finding,intestinal perforation
+4202064,Gastrointestinal perforation,condition,clinical finding,intestinal perforation
+37016128,Perforation of intestine due to diverticulitis of gastrointestinal tract,condition,clinical finding,intestinal perforation
+44811897,Peritonitis due to perforation of gastrointestinal tract,condition,clinical finding,intestinal perforation
+4342664,Neutropenic colitis,condition,clinical finding,neutropenic colitis
+373487,Ischemic optic neuropathy,condition,clinical finding,optic ischemic neuropathy
+761526,Anterior ischemic optic neuropathy of right eye,condition,clinical finding,optic ischemic neuropathy
+765086,Anterior ischemic optic neuropathy of left eye,condition,clinical finding,optic ischemic neuropathy
+3654670,Arteritic anterior ischemic optic neuropathy due to giant cell arteritis,condition,clinical finding,optic ischemic neuropathy
+3655278,Idiopathic non-arteritic ischemic optic neuropathy,condition,clinical finding,optic ischemic neuropathy
+3655341,Idiopathic non-arteritic posterior ischemic optic neuropathy,condition,clinical finding,optic ischemic neuropathy
+3657878,Bilateral arteritic anterior ischemic optic neuropathy of eyes,condition,clinical finding,optic ischemic neuropathy
+3657879,Arteritic anterior ischemic optic neuropathy of left eye,condition,clinical finding,optic ischemic neuropathy
+3657880,Arteritic anterior ischemic optic neuropathy of right eye,condition,clinical finding,optic ischemic neuropathy
+4047917,Arteritic ischemic optic neuropathy,condition,clinical finding,optic ischemic neuropathy
+4047918,Non-arteritic ischemic optic neuropathy,condition,clinical finding,optic ischemic neuropathy
+4187326,Posterior ischemic optic neuropathy,condition,clinical finding,optic ischemic neuropathy
+4223942,Anterior ischemic optic neuropathy,condition,clinical finding,optic ischemic neuropathy
+36684651,Ischemic optic neuropathy of right eye,condition,clinical finding,optic ischemic neuropathy
+36684716,Ischemic optic neuropathy of left eye,condition,clinical finding,optic ischemic neuropathy
+36684778,Bilateral ischemic optic neuropathy of eyes,condition,clinical finding,optic ischemic neuropathy
+36716901,Perioperative secondary non-arteritic ischemic optic neuropathy,condition,clinical finding,optic ischemic neuropathy
+37116696,Arteritic anterior ischemic optic neuropathy,condition,clinical finding,optic ischemic neuropathy
+195596,Chronic pancreatitis,condition,clinical finding,pancreatitis
+196628,Mumps pancreatitis,condition,clinical finding,pancreatitis
+199074,Acute pancreatitis,condition,clinical finding,pancreatitis
+763030,Calculus of common bile duct with acute pancreatitis,condition,clinical finding,pancreatitis
+3654680,Chronic infectious pancreatitis,condition,clinical finding,pancreatitis
+3655446,Pleural effusion due to pancreatitis,condition,clinical finding,pancreatitis
+4026157,Acute recurrent pancreatitis,condition,clinical finding,pancreatitis
+4026158,Acute suppurative pancreatitis,condition,clinical finding,pancreatitis
+4082334,Post-ERCP acute pancreatitis,condition,clinical finding,pancreatitis
+4088042,Suppurative pancreatitis,condition,clinical finding,pancreatitis
+4102255,Calcific chronic pancreatitis,condition,clinical finding,pancreatitis
+4121819,Relapsing pancreatitis,condition,clinical finding,pancreatitis
+4124691,Recurrent pancreatitis,condition,clinical finding,pancreatitis
+4125494,Pancytopenia with pancreatitis,condition,clinical finding,pancreatitis
+4147231,Apoplectic pancreatitis,condition,clinical finding,pancreatitis
+4185268,Acute hemorrhagic pancreatitis,condition,clinical finding,pancreatitis
+4192249,Chronic fibrosing pancreatitis,condition,clinical finding,pancreatitis
+4192640,Pancreatitis,condition,clinical finding,pancreatitis
+4211348,Aplastic anemia associated with pancreatitis,condition,clinical finding,pancreatitis
+4241838,Metabolic pancreatitis,condition,clinical finding,pancreatitis
+4243504,Subacute pancreatitis,condition,clinical finding,pancreatitis
+4262809,Subcutaneous nodular fat necrosis in pancreatitis,condition,clinical finding,pancreatitis
+4262937,Interstitial pancreatitis,condition,clinical finding,pancreatitis
+4303234,Acute necrotizing pancreatitis,condition,clinical finding,pancreatitis
+4309439,Infectious pancreatitis,condition,clinical finding,pancreatitis
+4319446,Gallstone pancreatitis,condition,clinical finding,pancreatitis
+4337316,Painless pancreatitis,condition,clinical finding,pancreatitis
+4340493,Alcohol-induced acute pancreatitis,condition,clinical finding,pancreatitis
+4340494,Postoperative acute pancreatitis,condition,clinical finding,pancreatitis
+4340496,Idiopathic chronic pancreatitis,condition,clinical finding,pancreatitis
+4340960,Idiopathic acute pancreatitis,condition,clinical finding,pancreatitis
+4340961,Drug-induced acute pancreatitis,condition,clinical finding,pancreatitis
+4340962,Cytomegaloviral pancreatitis,condition,clinical finding,pancreatitis
+4340963,Gallstone chronic pancreatitis,condition,clinical finding,pancreatitis
+4340964,Alcohol-induced chronic pancreatitis,condition,clinical finding,pancreatitis
+4341073,Drug-induced chronic pancreatitis,condition,clinical finding,pancreatitis
+4341763,Gallstone acute pancreatitis,condition,clinical finding,pancreatitis
+4341764,Acute pancreatitis due to infection,condition,clinical finding,pancreatitis
+4341765,Viral acute pancreatitis,condition,clinical finding,pancreatitis
+4342866,Obstructive chronic pancreatitis,condition,clinical finding,pancreatitis
+35624505,Chronic pancreatitis due to acute alcohol intoxication,condition,clinical finding,pancreatitis
+36675120,Follicular cholangitis and pancreatitis,condition,clinical finding,pancreatitis
+36715932,Acute on chronic pancreatitis,condition,clinical finding,pancreatitis
+36716513,Pancreatitis due to pancreatic duct obstruction,condition,clinical finding,pancreatitis
+36716714,Groove pancreatitis,condition,clinical finding,pancreatitis
+36716715,Autoimmune pancreatitis type 1,condition,clinical finding,pancreatitis
+37110323,Tropical calcific chronic pancreatitis,condition,clinical finding,pancreatitis
+40483827,Alcohol-induced pancreatitis,condition,clinical finding,pancreatitis
+40490446,Autoimmune pancreatitis,condition,clinical finding,pancreatitis
+44806251,Biliary acute pancreatitis,condition,clinical finding,pancreatitis
+45757494,Chronic pancreatitis due to chronic alcoholism,condition,clinical finding,pancreatitis
+46274136,Acute pancreatitis due to common bile duct calculus,condition,clinical finding,pancreatitis
+199074,Acute pancreatitis,condition,clinical finding,pancreatitis acute
+763030,Calculus of common bile duct with acute pancreatitis,condition,clinical finding,pancreatitis acute
+4026157,Acute recurrent pancreatitis,condition,clinical finding,pancreatitis acute
+4026158,Acute suppurative pancreatitis,condition,clinical finding,pancreatitis acute
+4082334,Post-ERCP acute pancreatitis,condition,clinical finding,pancreatitis acute
+4185268,Acute hemorrhagic pancreatitis,condition,clinical finding,pancreatitis acute
+4243504,Subacute pancreatitis,condition,clinical finding,pancreatitis acute
+4303234,Acute necrotizing pancreatitis,condition,clinical finding,pancreatitis acute
+4340493,Alcohol-induced acute pancreatitis,condition,clinical finding,pancreatitis acute
+4340494,Postoperative acute pancreatitis,condition,clinical finding,pancreatitis acute
+4340960,Idiopathic acute pancreatitis,condition,clinical finding,pancreatitis acute
+4340961,Drug-induced acute pancreatitis,condition,clinical finding,pancreatitis acute
+4341763,Gallstone acute pancreatitis,condition,clinical finding,pancreatitis acute
+4341764,Acute pancreatitis due to infection,condition,clinical finding,pancreatitis acute
+4341765,Viral acute pancreatitis,condition,clinical finding,pancreatitis acute
+35624505,Chronic pancreatitis due to acute alcohol intoxication,condition,clinical finding,pancreatitis acute
+36715932,Acute on chronic pancreatitis,condition,clinical finding,pancreatitis acute
+44806251,Biliary acute pancreatitis,condition,clinical finding,pancreatitis acute
+46274136,Acute pancreatitis due to common bile duct calculus,condition,clinical finding,pancreatitis acute
+432881,Pancytopenia,condition,clinical finding,pancytopenia
+4077348,Pancytopenia-dysmelia,condition,clinical finding,pancytopenia
+4082738,Autoimmune pancytopenia,condition,clinical finding,pancytopenia
+4125494,Pancytopenia with pancreatitis,condition,clinical finding,pancytopenia
+4239484,Acquired pancytopenia,condition,clinical finding,pancytopenia
+35625536,Ataxia pancytopenia syndrome,condition,clinical finding,pancytopenia
+36674474,Pancytopenia with developmental delay syndrome,condition,clinical finding,pancytopenia
+36713112,Pancytopenia due to antineoplastic chemotherapy,condition,clinical finding,pancytopenia
+37204478,Pancytopenia due to IKZF1 mutations,condition,clinical finding,pancytopenia
+37209558,Pancytopenia caused by immunosuppressant,condition,clinical finding,pancytopenia
+42536958,Pancytopenia caused by medication,condition,clinical finding,pancytopenia
+433957,Progressive multifocal leukoencephalopathy,condition,clinical finding,progressive multifocal leukoencephalopathy
+4100234,Cerebral degeneration due to progressive multifocal leukoencephalopathy,condition,clinical finding,progressive multifocal leukoencephalopathy
+4226631,Progressive multifocal leukoencephalopathy associated with AIDS,condition,clinical finding,progressive multifocal leukoencephalopathy
+37017246,Progressive multifocal leukoencephalopathy co-occurrent with human immunodeficiency virus infection,condition,clinical finding,progressive multifocal leukoencephalopathy
+37116468,Dementia with progressive multifocal leukoencephalopathy,condition,clinical finding,progressive multifocal leukoencephalopathy
+4013643,Pulmonary arterial hypertension,condition,clinical finding,pulmonary arterial hypertension
+4121620,Pulmonary arterial hypertension induced by drug,condition,clinical finding,pulmonary arterial hypertension
+40482858,Pulmonary arterial hypertension associated with portal hypertension,condition,clinical finding,pulmonary arterial hypertension
+44782560,Idiopathic pulmonary arterial hypertension,condition,clinical finding,pulmonary arterial hypertension
+44782561,Pulmonary arterial hypertension induced by toxin,condition,clinical finding,pulmonary arterial hypertension
+44783621,Associated pulmonary arterial hypertension,condition,clinical finding,pulmonary arterial hypertension
+44783622,Pulmonary arterial hypertension associated with connective tissue disease,condition,clinical finding,pulmonary arterial hypertension
+44783623,Pulmonary arterial hypertension associated with HIV infection,condition,clinical finding,pulmonary arterial hypertension
+44783625,Pulmonary arterial hypertension associated with schistosomiasis,condition,clinical finding,pulmonary arterial hypertension
+44783626,Pulmonary arterial hypertension associated with chronic hemolytic anemia,condition,clinical finding,pulmonary arterial hypertension
+253797,Post-inflammatory pulmonary fibrosis,condition,clinical finding,pulmonary fibrosis
+3655115,Chronic pulmonary fibrosis caused by chemical vapors,condition,clinical finding,pulmonary fibrosis
+4025168,Diffuse interstitial pulmonary fibrosis,condition,clinical finding,pulmonary fibrosis
+4112681,Chronic pulmonary fibrosis due to chemical fumes,condition,clinical finding,pulmonary fibrosis
+4119792,Toxic diffuse interstitial pulmonary fibrosis,condition,clinical finding,pulmonary fibrosis
+4119793,Drug-induced diffuse interstitial pulmonary fibrosis,condition,clinical finding,pulmonary fibrosis
+4120272,Localized pulmonary fibrosis,condition,clinical finding,pulmonary fibrosis
+4236725,Pulmonary fibrosis due to and following radiotherapy,condition,clinical finding,pulmonary fibrosis
+37017059,Drug induced pulmonary fibrosis,condition,clinical finding,pulmonary fibrosis
+37109889,"Pulmonary fibrosis, hepatic hyperplasia, bone marrow hypoplasia syndrome",condition,clinical finding,pulmonary fibrosis
+37312199,Acute exacerbation of idiopathic pulmonary fibrosis,condition,clinical finding,pulmonary fibrosis
+45763750,Idiopathic pulmonary fibrosis,condition,clinical finding,pulmonary fibrosis
+45768903,Pulmonary fibrosis due to Hermansky-Pudlak syndrome,condition,clinical finding,pulmonary fibrosis
+45769389,Pulmonary emphysema co-occurrent with fibrosis of lung,condition,clinical finding,pulmonary fibrosis
+4184896,Rheumatoid fibrosing alveolitis,condition,clinical finding,pulmonary fibrosis
+3654816,Mild pulmonary hypertension,condition,clinical finding,pulmonary hypertension
+3654817,Moderate pulmonary hypertension,condition,clinical finding,pulmonary hypertension
+3654818,Severe pulmonary hypertension,condition,clinical finding,pulmonary hypertension
+4013643,Pulmonary arterial hypertension,condition,clinical finding,pulmonary hypertension
+4033160,Progressive pulmonary hypertension,condition,clinical finding,pulmonary hypertension
+4081038,Pulmonary hypertension with extreme obesity,condition,clinical finding,pulmonary hypertension
+4081039,Pulmonary hypertension with occult mitral stenosis,condition,clinical finding,pulmonary hypertension
+4081040,Facultative pulmonary hypertension with shunt at atrial level,condition,clinical finding,pulmonary hypertension
+4120092,Solitary pulmonary hypertension,condition,clinical finding,pulmonary hypertension
+4120093,Large vessel pulmonary hypertension,condition,clinical finding,pulmonary hypertension
+4120094,Chronic thromboembolic pulmonary hypertension,condition,clinical finding,pulmonary hypertension
+4120095,Post-arteritic pulmonary hypertension,condition,clinical finding,pulmonary hypertension
+4121462,Persistent pulmonary hypertension of the newborn,condition,clinical finding,pulmonary hypertension
+4121619,Small vessel pulmonary hypertension,condition,clinical finding,pulmonary hypertension
+4121620,Pulmonary arterial hypertension induced by drug,condition,clinical finding,pulmonary hypertension
+4124831,Sporadic primary pulmonary hypertension,condition,clinical finding,pulmonary hypertension
+4124832,Pulmonary hypertension associated with chronic underventilation,condition,clinical finding,pulmonary hypertension
+4124833,Pulmonary hypertension due to chronic exposure to high altitude,condition,clinical finding,pulmonary hypertension
+4138307,Right heart failure due to pulmonary hypertension,condition,clinical finding,pulmonary hypertension
+4233689,Postcapillary pulmonary hypertension,condition,clinical finding,pulmonary hypertension
+4235804,Pulmonary hypertension secondary to raised pulmonary vascular resistance,condition,clinical finding,pulmonary hypertension
+4322024,Pulmonary hypertension,condition,clinical finding,pulmonary hypertension
+4337510,Episodic pulmonary hypertension,condition,clinical finding,pulmonary hypertension
+4339214,Secondary pulmonary hypertension,condition,clinical finding,pulmonary hypertension
+36679002,"Hyperuricemia, pulmonary hypertension, renal failure, alkalosis syndrome",condition,clinical finding,pulmonary hypertension
+40482858,Pulmonary arterial hypertension associated with portal hypertension,condition,clinical finding,pulmonary hypertension
+43020840,Pulmonary venous hypertension due to compression of pulmonary great vein,condition,clinical finding,pulmonary hypertension
+43020841,Pulmonary venous hypertension due to compression of pulmonary great vein by sclerosing mediastinitis,condition,clinical finding,pulmonary hypertension
+43020842,Pulmonary venous hypertension due to compression of pulmonary great vein by lymphadenopathy,condition,clinical finding,pulmonary hypertension
+43020910,Pulmonary hypertension due to left heart disease,condition,clinical finding,pulmonary hypertension
+43021932,Pulmonary venous hypertension as complication of procedure,condition,clinical finding,pulmonary hypertension
+43021933,Pulmonary venous hypertension due to compression of pulmonary great vein by neoplasm,condition,clinical finding,pulmonary hypertension
+44782560,Idiopathic pulmonary arterial hypertension,condition,clinical finding,pulmonary hypertension
+44782561,Pulmonary arterial hypertension induced by toxin,condition,clinical finding,pulmonary hypertension
+44782563,Pulmonary hypertension due to chronic obstructive pulmonary disease,condition,clinical finding,pulmonary hypertension
+44782564,Pulmonary hypertension due to hematological disorder,condition,clinical finding,pulmonary hypertension
+44782565,Pulmonary hypertension in Langerhans cell histiocytosis,condition,clinical finding,pulmonary hypertension
+44782566,Pulmonary hypertension due to left-sided valvular heart disease,condition,clinical finding,pulmonary hypertension
+44783617,Precapillary pulmonary hypertension,condition,clinical finding,pulmonary hypertension
+44783621,Associated pulmonary arterial hypertension,condition,clinical finding,pulmonary hypertension
+44783622,Pulmonary arterial hypertension associated with connective tissue disease,condition,clinical finding,pulmonary hypertension
+44783623,Pulmonary arterial hypertension associated with HIV infection,condition,clinical finding,pulmonary hypertension
+44783625,Pulmonary arterial hypertension associated with schistosomiasis,condition,clinical finding,pulmonary hypertension
+44783626,Pulmonary arterial hypertension associated with chronic hemolytic anemia,condition,clinical finding,pulmonary hypertension
+44783628,Pulmonary hypertension due to lung disease and/or hypoxia,condition,clinical finding,pulmonary hypertension
+44783629,Pulmonary hypertension due to interstitial lung disease,condition,clinical finding,pulmonary hypertension
+44783630,Pulmonary hypertension due to pulmonary disease with mixed restrictive and obstructive pattern,condition,clinical finding,pulmonary hypertension
+44783631,Pulmonary hypertension due to sleep-disordered breathing,condition,clinical finding,pulmonary hypertension
+44783632,Pulmonary hypertension due to alveolar hypoventilation disorder,condition,clinical finding,pulmonary hypertension
+44783633,Pulmonary hypertension due to developmental abnormality of the lung,condition,clinical finding,pulmonary hypertension
+44783634,Pulmonary hypertension due to myeloproliferative disorder,condition,clinical finding,pulmonary hypertension
+44783635,Pulmonary hypertension due to post-splenectomy hematological disorder,condition,clinical finding,pulmonary hypertension
+44783636,Pulmonary hypertension in systemic disorder,condition,clinical finding,pulmonary hypertension
+44783637,Pulmonary hypertension in sarcoidosis,condition,clinical finding,pulmonary hypertension
+44783638,Pulmonary hypertension in lymphangioleiomyomatosis,condition,clinical finding,pulmonary hypertension
+44783639,Pulmonary hypertension in neurofibromatosis,condition,clinical finding,pulmonary hypertension
+44783640,Pulmonary hypertension due to systolic systemic ventricular dysfunction,condition,clinical finding,pulmonary hypertension
+44783641,Pulmonary hypertension due to diastolic systemic ventricular dysfunction,condition,clinical finding,pulmonary hypertension
+44784483,Pregnancy induced hypertension with pulmonary edema,condition,clinical finding,pulmonary hypertension
+44784484,Hypertension in the puerperium with pulmonary edema,condition,clinical finding,pulmonary hypertension
+45766237,Pulmonary hypertension due to vasculitis,condition,clinical finding,pulmonary hypertension
+45771016,Chronic pulmonary thromboembolism without pulmonary hypertension,condition,clinical finding,pulmonary hypertension
+192359,Renal failure syndrome,condition,clinical finding,renal failure
+197320,Acute renal failure syndrome,condition,clinical finding,renal failure
+197329,Acute renal failure due to acute cortical necrosis,condition,clinical finding,renal failure
+198185,Chronic renal failure,condition,clinical finding,renal failure
+432961,Acute renal papillary necrosis with renal failure,condition,clinical finding,renal failure
+439694,Hypertensive heart and renal disease with both (congestive) heart failure and renal failure,condition,clinical finding,renal failure
+439695,Hypertensive heart and renal disease with renal failure,condition,clinical finding,renal failure
+439696,Hypertensive heart and renal disease with (congestive) heart failure,condition,clinical finding,renal failure
+443919,Hypertensive renal failure,condition,clinical finding,renal failure
+443961,Anemia of chronic renal failure,condition,clinical finding,renal failure
+4029094,Renal failure-associated hyperphosphatemia,condition,clinical finding,renal failure
+4030519,Acute drug-induced renal failure,condition,clinical finding,renal failure
+4030520,End stage renal failure on dialysis,condition,clinical finding,renal failure
+4056470,Renal function impairment with growth failure,condition,clinical finding,renal failure
+4125970,End stage renal failure with renal transplant,condition,clinical finding,renal failure
+4126424,Nephrotoxic acute renal failure,condition,clinical finding,renal failure
+4128067,Acute-on-chronic renal failure,condition,clinical finding,renal failure
+4128200,End stage renal failure untreated by renal replacement therapy,condition,clinical finding,renal failure
+4139414,Transient acute renal failure,condition,clinical finding,renal failure
+4143363,Neuropathy in renal failure,condition,clinical finding,renal failure
+4150547,Anemia secondary to renal failure,condition,clinical finding,renal failure
+4151112,Acute renal failure due to crush syndrome,condition,clinical finding,renal failure
+4153876,Renal failure as a complication of care,condition,clinical finding,renal failure
+4160274,Acute renal failure with oliguria,condition,clinical finding,renal failure
+4170452,Postoperative renal failure,condition,clinical finding,renal failure
+4180453,Acute renal failure due to obstruction,condition,clinical finding,renal failure
+4180769,Renal failure associated with renal vascular disease,condition,clinical finding,renal failure
+4200639,Post-renal renal failure,condition,clinical finding,renal failure
+4232873,Acute postoperative renal failure,condition,clinical finding,renal failure
+4264681,Acute renal failure due to procedure,condition,clinical finding,renal failure
+4306513,Acute renal failure due to ACE inhibitor,condition,clinical finding,renal failure
+4311129,Acute renal failure due to ischemia,condition,clinical finding,renal failure
+4322556,Chronic progressive renal failure,condition,clinical finding,renal failure
+35607997,Action myoclonus renal failure syndrome,condition,clinical finding,renal failure
+36679002,"Hyperuricemia, pulmonary hypertension, renal failure, alkalosis syndrome",condition,clinical finding,renal failure
+36716029,"Hyperuricemia, anemia, renal failure syndrome",condition,clinical finding,renal failure
+37016366,Acute renal failure caused by contrast agent,condition,clinical finding,renal failure
+37017425,Renal failure syndrome co-occurrent with human immunodeficiency virus infection,condition,clinical finding,renal failure
+37116834,Postpartum acute renal failure,condition,clinical finding,renal failure
+37397038,Renal tubulopathy with encephalopathy and liver failure syndrome,condition,clinical finding,renal failure
+42537766,Renal failure following molar pregnancy,condition,clinical finding,renal failure
+44784439,Benign hypertensive renal disease with renal failure,condition,clinical finding,renal failure
+44808338,Acute renal failure induced by aminoglycoside,condition,clinical finding,renal failure
+44808340,Acute renal failure induced by cyclosporin A,condition,clinical finding,renal failure
+44808821,Acute renal failure induced by animal toxin,condition,clinical finding,renal failure
+44808822,Acute renal failure induced by plant toxin,condition,clinical finding,renal failure
+44808823,Acute renal failure induced by heavy metal,condition,clinical finding,renal failure
+44809170,Acute renal failure induced by poison,condition,clinical finding,renal failure
+44809173,Acute renal failure induced by radiographic contrast media,condition,clinical finding,renal failure
+44809286,Acute renal failure induced by solvent,condition,clinical finding,renal failure
+44813789,Acute renal failure induced by cisplatin,condition,clinical finding,renal failure
+44813790,Acute renal failure induced by non-steroidal anti-inflammatory drug,condition,clinical finding,renal failure
+45757398,Acute renal failure on dialysis,condition,clinical finding,renal failure
+45757466,Acute renal failure due to tubular necrosis,condition,clinical finding,renal failure
+45770903,Prerenal renal failure,condition,clinical finding,renal failure
+761083,Acute injury of kidney,condition,clinical finding,renal failure
+3661748,Acute kidney injury due to disease caused by Severe acute respiratory syndrome coronavirus 2,condition,clinical finding,renal failure
+36716182,Acute kidney injury due to circulatory failure,condition,clinical finding,renal failure
+36716183,Acute kidney injury due to hypovolemia,condition,clinical finding,renal failure
+36716312,Acute kidney injury due to sepsis,condition,clinical finding,renal failure
+37395514,Acute kidney injury due to acute tubular necrosis due to hypovolaemia,condition,clinical finding,renal failure
+37395516,Acute kidney injury due to acute tubular necrosis due to circulatory failure,condition,clinical finding,renal failure
+37395517,Acute kidney injury due to acute tubular necrosis due to sepsis,condition,clinical finding,renal failure
+37395518,Acute kidney injury due to acute tubular necrosis with histological evidence,condition,clinical finding,renal failure
+37395519,Acute kidney injury due to acute tubular necrosis due to hypovolaemia with histological evidence,condition,clinical finding,renal failure
+37395520,Acute kidney injury due to acute tubular necrosis due to sepsis with histological evidence,condition,clinical finding,renal failure
+37395521,Acute kidney injury due to acute tubular necrosis due to circulatory failure with histological evidence,condition,clinical finding,renal failure
+44809061,Acute kidney injury stage 1,condition,clinical finding,renal failure
+44809062,Acute kidney injury stage 2,condition,clinical finding,renal failure
+44809063,Acute kidney injury stage 3,condition,clinical finding,renal failure
+4302748,Chronic hypertensive uremia,condition,clinical finding,renal failure
+375241,Reye's syndrome,condition,clinical finding,reye syndrome
+3655977,Rhabdomyolysis due to disease caused by Severe acute respiratory syndrome coronavirus 2,condition,clinical finding,rhabdomyolysis
+4218766,Exertional rhabdomyolysis,condition,clinical finding,rhabdomyolysis
+4345578,Rhabdomyolysis,condition,clinical finding,rhabdomyolysis
+36716902,Secondary rhabdomyolysis,condition,clinical finding,rhabdomyolysis
+37204042,Rhabdomyolysis due to statin,condition,clinical finding,rhabdomyolysis
+44806643,Rhabdomyolysis associated with wound,condition,clinical finding,rhabdomyolysis
+44806644,Rhabdomyolysis associated with burn,condition,clinical finding,rhabdomyolysis
+141651,Stevens-Johnson syndrome,condition,clinical finding,stevens-johnson syndrome
+4301158,Drug-induced Stevens-Johnson syndrome,condition,clinical finding,stevens-johnson syndrome
+35625857,"Stevens-Johnson syndrome, toxic epidermal necrolysis spectrum",condition,clinical finding,stevens-johnson syndrome
+37119160,Stevens-Johnson and toxic epidermal necrolysis overlap syndrome caused by drug,condition,clinical finding,stevens-johnson syndrome
+46273453,Stevens Johnson syndrome AND toxic epidermal necrolysis overlap,condition,clinical finding,stevens-johnson syndrome
+4317150,Sudden cardiac death,condition,clinical finding,sudden cardiac death
+4204900,Acquired thrombotic thrombocytopenic purpura,condition,clinical finding,thrombotic thrombocytopenic purpura
+4230266,Autoimmune thrombotic thrombocytopenic purpura,condition,clinical finding,thrombotic thrombocytopenic purpura
+4258261,Drug induced thrombotic thrombocytopenic purpura,condition,clinical finding,thrombotic thrombocytopenic purpura
+4301602,Thrombotic thrombocytopenic purpura,condition,clinical finding,thrombotic thrombocytopenic purpura
+4292357,Toxic epidermal necrolysis due to graft-versus-host disease,condition,clinical finding,toxic epidermal necrolysis
+4298728,Toxic epidermal necrolysis due to drug,condition,clinical finding,toxic epidermal necrolysis
+35625857,"Stevens-Johnson syndrome, toxic epidermal necrolysis spectrum",condition,clinical finding,toxic epidermal necrolysis
+35625872,Toxic epidermal necrolysis due to infection,condition,clinical finding,toxic epidermal necrolysis
+37119160,Stevens-Johnson and toxic epidermal necrolysis overlap syndrome caused by drug,condition,clinical finding,toxic epidermal necrolysis
+46273453,Stevens Johnson syndrome AND toxic epidermal necrolysis overlap,condition,clinical finding,toxic epidermal necrolysis
+377570,Toxic optic neuropathy,condition,clinical finding,toxic optic neuropathy
+437894,Ventricular fibrillation,condition,clinical finding,ventricular fibrillation
+4064455,EKG: ventricular fibrillation,condition,clinical finding,ventricular fibrillation
+4111700,Ventricular fibrillation and flutter,condition,clinical finding,ventricular fibrillation
+4325850,Sustained ventricular fibrillation,condition,clinical finding,ventricular fibrillation
+37109917,Idiopathic ventricular fibrillation not Brugada type,condition,clinical finding,ventricular fibrillation
+44782442,Atrial fibrillation with rapid ventricular response,condition,clinical finding,ventricular fibrillation
+46286361,Injury following street drug use,condition,clinical finding,drug liver injury
+46286370,Injury following unknown drug use,condition,clinical finding,drug liver injury
+46286371,Injury following prescription drug use,condition,clinical finding,drug liver injury
+432589,Neutropenia associated with infectious disease,condition,clinical finding,neutropenic infection
+4135823,Torsades de pointes,condition,clinical finding,torsade de pointes
+4141527,EKG: torsades de pointes,condition,clinical finding,torsade de pointes
+37110729,Torsades de pointe caused by drug,condition,clinical finding,torsade de pointes
+37397458,Torsade de pointes with short coupling interval syndrome,condition,clinical finding,torsade de pointes
+374053,Sudden hearing loss,condition,clinical finding,Sudden hearing loss
+377556,Sudden visual loss,condition,clinical finding,Sudden visual loss
+138723,Acquired red cell aplasia,condition,clinical finding,Red cell aplasia
+140065,Pure red cell aplasia,condition,clinical finding,Red cell aplasia
+4098028,Transient acquired pure red cell aplasia,condition,clinical finding,Red cell aplasia
+4125496,"Pure red cell aplasia, acquired",condition,clinical finding,Red cell aplasia
+4146087,Constitutional red cell aplasia and hypoplasia,condition,clinical finding,Red cell aplasia
+4211695,Acute pure red cell aplasia,condition,clinical finding,Red cell aplasia
+4234973,Chronic acquired pure red cell aplasia,condition,clinical finding,Red cell aplasia
+35623407,Adult pure red cell aplasia,condition,clinical finding,Red cell aplasia
+37017607,Antibody mediated acquired pure red cell aplasia caused by erythropoiesis stimulating agent,condition,clinical finding,Red cell aplasia

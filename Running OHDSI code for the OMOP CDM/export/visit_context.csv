@@ -1,0 +1,7 @@
+﻿"cohort_id","visit_concept_id","visit_context","subjects","database_id"
+1,581477,"After",2323,"SUBSET_AURUM"
+1,581477,"Before",2299,"SUBSET_AURUM"
+1,581477,"On visit start",2506,"SUBSET_AURUM"
+2,581477,"After",1980,"SUBSET_AURUM"
+2,581477,"Before",1855,"SUBSET_AURUM"
+2,581477,"On visit start",1999,"SUBSET_AURUM"

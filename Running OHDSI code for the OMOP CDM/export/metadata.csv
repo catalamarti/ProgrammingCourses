@@ -1,0 +1,267 @@
+database_id,start_time,variable_field,value_field
+SUBSET_AURUM,TM_2022-11-01 00:45:06,timeZone,Europe/Dublin
+SUBSET_AURUM,TM_2022-11-01 00:45:06,runTime,20.5398401339849
+SUBSET_AURUM,TM_2022-11-01 00:45:06,runTimeUnits,mins
+SUBSET_AURUM,TM_2022-11-01 00:45:06,packageDependencySnapShotJson,"{
+	""package"" : [
+		""R"",
+		""grDevices"",
+		""graphics"",
+		""utils"",
+		""stats"",
+		""methods"",
+		""cli"",
+		""glue"",
+		""rlang"",
+		""lifecycle"",
+		""ellipsis"",
+		""fansi"",
+		""pkgconfig"",
+		""utf8"",
+		""vctrs"",
+		""bit"",
+		""cpp11"",
+		""crayon"",
+		""fastmap"",
+		""hms"",
+		""magrittr"",
+		""pillar"",
+		""prettyunits"",
+		""R6"",
+		""withr"",
+		""backports"",
+		""bit64"",
+		""cachem"",
+		""generics"",
+		""progress"",
+		""Rcpp"",
+		""tibble"",
+		""tidyselect"",
+		""tools"",
+		""tzdb"",
+		""assertthat"",
+		""blob"",
+		""checkmate"",
+		""clipr"",
+		""DBI"",
+		""dplyr"",
+		""memoise"",
+		""plogr"",
+		""purrr"",
+		""rJava"",
+		""stringi"",
+		""triebeard"",
+		""vroom"",
+		""dbplyr"",
+		""jsonlite"",
+		""readr"",
+		""RSQLite"",
+		""snow"",
+		""SqlRender"",
+		""stringr"",
+		""urltools"",
+		""xml2"",
+		""zip"",
+		""Andromeda"",
+		""DatabaseConnector"",
+		""digest"",
+		""lubridate"",
+		""ParallelLogger"",
+		""RJSONIO"",
+		""clock"",
+		""CohortGenerator"",
+		""FeatureExtraction"",
+		""tidyr"",
+		""CohortDiagnostics""
+	],
+	""version"" : [
+		""4.1.2"",
+		""4.1.2"",
+		""4.1.2"",
+		""4.1.2"",
+		""4.1.2"",
+		""4.1.2"",
+		""3.4.1"",
+		""1.6.2"",
+		""1.0.6"",
+		""1.0.3"",
+		""0.3.2"",
+		""1.0.3"",
+		""2.0.3"",
+		""1.2.2"",
+		""0.5.0"",
+		""4.0.4"",
+		""0.4.3"",
+		""1.5.2"",
+		""1.1.0"",
+		""1.1.2"",
+		""2.0.3"",
+		""1.8.1"",
+		""1.1.1"",
+		""2.5.1"",
+		""2.5.0"",
+		""1.4.1"",
+		""4.0.5"",
+		""1.0.6"",
+		""0.1.3"",
+		""1.2.2"",
+		""1.0.9"",
+		""3.1.8"",
+		""1.2.0"",
+		""4.1.2"",
+		""0.3.0"",
+		""0.2.1"",
+		""1.2.3"",
+		""2.1.0"",
+		""0.8.0"",
+		""1.1.3"",
+		""1.0.10"",
+		""2.0.1"",
+		""0.2.0"",
+		""0.3.5"",
+		""1.0-6"",
+		""1.7.8"",
+		""0.3.0"",
+		""1.6.0"",
+		""2.2.1"",
+		""1.8.0"",
+		""2.1.3"",
+		""2.2.16"",
+		""0.4-4"",
+		""1.10.0"",
+		""1.4.1"",
+		""1.7.3"",
+		""1.3.3"",
+		""2.2.0"",
+		""0.6.1"",
+		""5.0.4"",
+		""0.6.29"",
+		""1.8.0"",
+		""3.0.1"",
+		""1.3-1.6"",
+		""0.6.1"",
+		""0.6.0"",
+		""3.2.0"",
+		""1.2.0"",
+		""3.0.3""
+	]
+}"
+SUBSET_AURUM,TM_2022-11-01 00:45:06,argumentsAtDiagnosticsInitiationJson,"{
+	""runInclusionStatistics"" : true,
+	""runIncludedSourceConcepts"" : true,
+	""runOrphanConcepts"" : true,
+	""runTimeSeries"" : false,
+	""runVisitContext"" : true,
+	""runBreakdownIndexEvents"" : true,
+	""runIncidenceRate"" : true,
+	""runTemporalCohortCharacterization"" : true,
+	""minCellCount"" : 5,
+	""incremental"" : false,
+	""temporalCovariateSettings"" : {
+		"""" : [
+			""::"",
+			""FeatureExtraction"",
+			""createTemporalCovariateSettings""
+		],
+		""useDemographicsGender"" : true,
+		""useDemographicsAge"" : true,
+		""useDemographicsAgeGroup"" : true,
+		""useDemographicsRace"" : true,
+		""useDemographicsEthnicity"" : true,
+		""useDemographicsIndexYear"" : true,
+		""useDemographicsIndexMonth"" : true,
+		""useDemographicsIndexYearMonth"" : true,
+		""useDemographicsPriorObservationTime"" : true,
+		""useDemographicsPostObservationTime"" : true,
+		""useDemographicsTimeInCohort"" : true,
+		""useConditionOccurrence"" : true,
+		""useProcedureOccurrence"" : true,
+		""useDrugEraStart"" : true,
+		""useMeasurement"" : true,
+		""useConditionEraStart"" : true,
+		""useConditionEraOverlap"" : true,
+		""useConditionEraGroupStart"" : false,
+		""useConditionEraGroupOverlap"" : true,
+		""useDrugExposure"" : false,
+		""useDrugEraOverlap"" : false,
+		""useDrugEraGroupStart"" : false,
+		""useDrugEraGroupOverlap"" : true,
+		""useObservation"" : true,
+		""useDeviceExposure"" : true,
+		""useCharlsonIndex"" : true,
+		""useDcsi"" : true,
+		""useChads2"" : true,
+		""useChads2Vasc"" : true,
+		""useHfrs"" : false,
+		""temporalStartDays"" : [
+			""c"",
+			[
+				""-"",
+				9999
+			],
+			[
+				""-"",
+				365
+			],
+			[
+				""-"",
+				180
+			],
+			[
+				""-"",
+				30
+			],
+			[
+				""-"",
+				365
+			],
+			[
+				""-"",
+				30
+			],
+			0,
+			1,
+			31,
+			[
+				""-"",
+				9999
+			]
+		],
+		""temporalEndDays"" : [
+			""c"",
+			0,
+			0,
+			0,
+			0,
+			[
+				""-"",
+				31
+			],
+			[
+				""-"",
+				1
+			],
+			0,
+			30,
+			365,
+			9999
+		]
+	}
+}"
+SUBSET_AURUM,TM_2022-11-01 00:45:06,rversion,R version 4.1.2 (2021-11-01)
+SUBSET_AURUM,TM_2022-11-01 00:45:06,currentPackage,CohortDiagnostics
+SUBSET_AURUM,TM_2022-11-01 00:45:06,currentPackageVersion,3.0.3
+SUBSET_AURUM,TM_2022-11-01 00:45:06,sourceDescription,"CPRD Aurum is a UK general practioner database containing diagnosis, lab, procedure, and prescriptions written data from contributing practices."
+SUBSET_AURUM,TM_2022-11-01 00:45:06,cdmSourceName,p20_059_cdm_aurum
+SUBSET_AURUM,TM_2022-11-01 00:45:06,sourceReleaseDate,2021-05-17
+SUBSET_AURUM,TM_2022-11-01 00:45:06,cdmVersion,v5.3.1
+SUBSET_AURUM,TM_2022-11-01 00:45:06,cdmReleaseDate,2018-06-14
+SUBSET_AURUM,TM_2022-11-01 00:45:06,vocabularyVersion,v5.0 05-MAY-21
+SUBSET_AURUM,TM_2022-11-01 00:45:06,datasourceName,SUBSET_AURUM
+SUBSET_AURUM,TM_2022-11-01 00:45:06,datasourceDescription,SUBSET_AURUM
+SUBSET_AURUM,TM_2022-11-01 00:45:06,vocabularyVersionCdm,v5.0 05-MAY-21
+SUBSET_AURUM,TM_2022-11-01 00:45:06,observationPeriodMinDate,1917-05-26
+SUBSET_AURUM,TM_2022-11-01 00:45:06,observationPeriodMaxDate,2021-02-07
+SUBSET_AURUM,TM_2022-11-01 00:45:06,personsInDatasource,487963
+SUBSET_AURUM,TM_2022-11-01 00:45:06,recordsInDatasource,487963
+SUBSET_AURUM,TM_2022-11-01 00:45:06,personDaysInDatasource,2741103275

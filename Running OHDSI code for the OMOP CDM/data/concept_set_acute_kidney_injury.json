@@ -1,0 +1,287 @@
+{
+  "items": [{
+    "concept": {
+      "CONCEPT_CLASS_ID": "Clinical Finding",
+      "CONCEPT_CODE": "1048511000000103",
+      "CONCEPT_ID": 37395519,
+      "CONCEPT_NAME": "Acute kidney injury due to acute tubular necrosis due to hypovolaemia with histological evidence",
+      "DOMAIN_ID": "Condition",
+      "INVALID_REASON": "V",
+      "INVALID_REASON_CAPTION": "Valid",
+      "STANDARD_CONCEPT": "S",
+      "STANDARD_CONCEPT_CAPTION": "Standard",
+      "VOCABULARY_ID": "SNOMED",
+      "VALID_START_DATE": "2016-04-01",
+      "VALID_END_DATE": "valid_end_date"
+    },
+    "isExcluded": false,
+    "includeDescendants": false,
+    "includeMapped": false
+  },
+{
+    "concept": {
+      "CONCEPT_CLASS_ID": "Clinical Finding",
+      "CONCEPT_CODE": "14350001000004108",
+      "CONCEPT_ID": 761083,
+      "CONCEPT_NAME": "Acute injury of kidney",
+      "DOMAIN_ID": "Condition",
+      "INVALID_REASON": "V",
+      "INVALID_REASON_CAPTION": "Valid",
+      "STANDARD_CONCEPT": "S",
+      "STANDARD_CONCEPT_CAPTION": "Standard",
+      "VOCABULARY_ID": "SNOMED",
+      "VALID_START_DATE": "2015-09-01",
+      "VALID_END_DATE": "valid_end_date"
+    },
+    "isExcluded": false,
+    "includeDescendants": false,
+    "includeMapped": false
+  },
+{
+    "concept": {
+      "CONCEPT_CLASS_ID": "Clinical Finding",
+      "CONCEPT_CODE": "722278006",
+      "CONCEPT_ID": 36716312,
+      "CONCEPT_NAME": "Acute kidney injury due to sepsis",
+      "DOMAIN_ID": "Condition",
+      "INVALID_REASON": "V",
+      "INVALID_REASON_CAPTION": "Valid",
+      "STANDARD_CONCEPT": "S",
+      "STANDARD_CONCEPT_CAPTION": "Standard",
+      "VOCABULARY_ID": "SNOMED",
+      "VALID_START_DATE": "2017-01-31",
+      "VALID_END_DATE": "valid_end_date"
+    },
+    "isExcluded": false,
+    "includeDescendants": false,
+    "includeMapped": false
+  },
+{
+    "concept": {
+      "CONCEPT_CLASS_ID": "Clinical Finding",
+      "CONCEPT_CODE": "1048541000000102",
+      "CONCEPT_ID": 37395521,
+      "CONCEPT_NAME": "Acute kidney injury due to acute tubular necrosis due to circulatory failure with histological evidence",
+      "DOMAIN_ID": "Condition",
+      "INVALID_REASON": "V",
+      "INVALID_REASON_CAPTION": "Valid",
+      "STANDARD_CONCEPT": "S",
+      "STANDARD_CONCEPT_CAPTION": "Standard",
+      "VOCABULARY_ID": "SNOMED",
+      "VALID_START_DATE": "2016-04-01",
+      "VALID_END_DATE": "valid_end_date"
+    },
+    "isExcluded": false,
+    "includeDescendants": false,
+    "includeMapped": false
+  },
+{
+    "concept": {
+      "CONCEPT_CLASS_ID": "Clinical Finding",
+      "CONCEPT_CODE": "722095005",
+      "CONCEPT_ID": 36716182,
+      "CONCEPT_NAME": "Acute kidney injury due to circulatory failure",
+      "DOMAIN_ID": "Condition",
+      "INVALID_REASON": "V",
+      "INVALID_REASON_CAPTION": "Valid",
+      "STANDARD_CONCEPT": "S",
+      "STANDARD_CONCEPT_CAPTION": "Standard",
+      "VOCABULARY_ID": "SNOMED",
+      "VALID_START_DATE": "2017-01-31",
+      "VALID_END_DATE": "valid_end_date"
+    },
+    "isExcluded": false,
+    "includeDescendants": false,
+    "includeMapped": false
+  },
+{
+    "concept": {
+      "CONCEPT_CLASS_ID": "Clinical Finding",
+      "CONCEPT_CODE": "1048481000000109",
+      "CONCEPT_ID": 37395516,
+      "CONCEPT_NAME": "Acute kidney injury due to acute tubular necrosis due to circulatory failure",
+      "DOMAIN_ID": "Condition",
+      "INVALID_REASON": "V",
+      "INVALID_REASON_CAPTION": "Valid",
+      "STANDARD_CONCEPT": "S",
+      "STANDARD_CONCEPT_CAPTION": "Standard",
+      "VOCABULARY_ID": "SNOMED",
+      "VALID_START_DATE": "2016-04-01",
+      "VALID_END_DATE": "valid_end_date"
+    },
+    "isExcluded": false,
+    "includeDescendants": false,
+    "includeMapped": false
+  },
+{
+    "concept": {
+      "CONCEPT_CLASS_ID": "Clinical Finding",
+      "CONCEPT_CODE": "1048501000000100",
+      "CONCEPT_ID": 37395518,
+      "CONCEPT_NAME": "Acute kidney injury due to acute tubular necrosis with histological evidence",
+      "DOMAIN_ID": "Condition",
+      "INVALID_REASON": "V",
+      "INVALID_REASON_CAPTION": "Valid",
+      "STANDARD_CONCEPT": "S",
+      "STANDARD_CONCEPT_CAPTION": "Standard",
+      "VOCABULARY_ID": "SNOMED",
+      "VALID_START_DATE": "2016-04-01",
+      "VALID_END_DATE": "valid_end_date"
+    },
+    "isExcluded": false,
+    "includeDescendants": false,
+    "includeMapped": false
+  },
+{
+    "concept": {
+      "CONCEPT_CLASS_ID": "Clinical Finding",
+      "CONCEPT_CODE": "851931000000107",
+      "CONCEPT_ID": 44809061,
+      "CONCEPT_NAME": "Acute kidney injury stage 1",
+      "DOMAIN_ID": "Condition",
+      "INVALID_REASON": "V",
+      "INVALID_REASON_CAPTION": "Valid",
+      "STANDARD_CONCEPT": "S",
+      "STANDARD_CONCEPT_CAPTION": "Standard",
+      "VOCABULARY_ID": "SNOMED",
+      "VALID_START_DATE": "2012-10-01",
+      "VALID_END_DATE": "valid_end_date"
+    },
+    "isExcluded": false,
+    "includeDescendants": false,
+    "includeMapped": false
+  },
+{
+    "concept": {
+      "CONCEPT_CLASS_ID": "Clinical Finding",
+      "CONCEPT_CODE": "722096006",
+      "CONCEPT_ID": 36716183,
+      "CONCEPT_NAME": "Acute kidney injury due to hypovolemia",
+      "DOMAIN_ID": "Condition",
+      "INVALID_REASON": "V",
+      "INVALID_REASON_CAPTION": "Valid",
+      "STANDARD_CONCEPT": "S",
+      "STANDARD_CONCEPT_CAPTION": "Standard",
+      "VOCABULARY_ID": "SNOMED",
+      "VALID_START_DATE": "2017-01-31",
+      "VALID_END_DATE": "valid_end_date"
+    },
+    "isExcluded": false,
+    "includeDescendants": false,
+    "includeMapped": false
+  },
+{
+    "concept": {
+      "CONCEPT_CLASS_ID": "Clinical Finding",
+      "CONCEPT_CODE": "870589006",
+      "CONCEPT_ID": 3661748,
+      "CONCEPT_NAME": "Acute kidney injury due to disease caused by Severe acute respiratory syndrome coronavirus 2",
+      "DOMAIN_ID": "Condition",
+      "INVALID_REASON": "V",
+      "INVALID_REASON_CAPTION": "Valid",
+      "STANDARD_CONCEPT": "S",
+      "STANDARD_CONCEPT_CAPTION": "Standard",
+      "VOCABULARY_ID": "SNOMED",
+      "VALID_START_DATE": "2020-07-31",
+      "VALID_END_DATE": "valid_end_date"
+    },
+    "isExcluded": false,
+    "includeDescendants": false,
+    "includeMapped": false
+  },
+{
+    "concept": {
+      "CONCEPT_CLASS_ID": "Clinical Finding",
+      "CONCEPT_CODE": "1048491000000106",
+      "CONCEPT_ID": 37395517,
+      "CONCEPT_NAME": "Acute kidney injury due to acute tubular necrosis due to sepsis",
+      "DOMAIN_ID": "Condition",
+      "INVALID_REASON": "V",
+      "INVALID_REASON_CAPTION": "Valid",
+      "STANDARD_CONCEPT": "S",
+      "STANDARD_CONCEPT_CAPTION": "Standard",
+      "VOCABULARY_ID": "SNOMED",
+      "VALID_START_DATE": "2016-04-01",
+      "VALID_END_DATE": "valid_end_date"
+    },
+    "isExcluded": false,
+    "includeDescendants": false,
+    "includeMapped": false
+  },
+{
+    "concept": {
+      "CONCEPT_CLASS_ID": "Clinical Finding",
+      "CONCEPT_CODE": "851951000000100",
+      "CONCEPT_ID": 44809063,
+      "CONCEPT_NAME": "Acute kidney injury stage 3",
+      "DOMAIN_ID": "Condition",
+      "INVALID_REASON": "V",
+      "INVALID_REASON_CAPTION": "Valid",
+      "STANDARD_CONCEPT": "S",
+      "STANDARD_CONCEPT_CAPTION": "Standard",
+      "VOCABULARY_ID": "SNOMED",
+      "VALID_START_DATE": "2012-10-01",
+      "VALID_END_DATE": "valid_end_date"
+    },
+    "isExcluded": false,
+    "includeDescendants": false,
+    "includeMapped": false
+  },
+{
+    "concept": {
+      "CONCEPT_CLASS_ID": "Clinical Finding",
+      "CONCEPT_CODE": "1048451000000103",
+      "CONCEPT_ID": 37395514,
+      "CONCEPT_NAME": "Acute kidney injury due to acute tubular necrosis due to hypovolaemia",
+      "DOMAIN_ID": "Condition",
+      "INVALID_REASON": "V",
+      "INVALID_REASON_CAPTION": "Valid",
+      "STANDARD_CONCEPT": "S",
+      "STANDARD_CONCEPT_CAPTION": "Standard",
+      "VOCABULARY_ID": "SNOMED",
+      "VALID_START_DATE": "2016-04-01",
+      "VALID_END_DATE": "valid_end_date"
+    },
+    "isExcluded": false,
+    "includeDescendants": false,
+    "includeMapped": false
+  },
+{
+    "concept": {
+      "CONCEPT_CLASS_ID": "Clinical Finding",
+      "CONCEPT_CODE": "851941000000103",
+      "CONCEPT_ID": 44809062,
+      "CONCEPT_NAME": "Acute kidney injury stage 2",
+      "DOMAIN_ID": "Condition",
+      "INVALID_REASON": "V",
+      "INVALID_REASON_CAPTION": "Valid",
+      "STANDARD_CONCEPT": "S",
+      "STANDARD_CONCEPT_CAPTION": "Standard",
+      "VOCABULARY_ID": "SNOMED",
+      "VALID_START_DATE": "2012-10-01",
+      "VALID_END_DATE": "valid_end_date"
+    },
+    "isExcluded": false,
+    "includeDescendants": false,
+    "includeMapped": false
+  },
+{
+    "concept": {
+      "CONCEPT_CLASS_ID": "Clinical Finding",
+      "CONCEPT_CODE": "1048521000000109",
+      "CONCEPT_ID": 37395520,
+      "CONCEPT_NAME": "Acute kidney injury due to acute tubular necrosis due to sepsis with histological evidence",
+      "DOMAIN_ID": "Condition",
+      "INVALID_REASON": "V",
+      "INVALID_REASON_CAPTION": "Valid",
+      "STANDARD_CONCEPT": "S",
+      "STANDARD_CONCEPT_CAPTION": "Standard",
+      "VOCABULARY_ID": "SNOMED",
+      "VALID_START_DATE": "2016-04-01",
+      "VALID_END_DATE": "valid_end_date"
+    },
+    "isExcluded": false,
+    "includeDescendants": false,
+    "includeMapped": false
+  }  ]
+} 

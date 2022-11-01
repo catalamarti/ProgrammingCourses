@@ -197,21 +197,33 @@ for (i in 1:length(cohortJsonFiles)) {
                                                        stringsAsFactors = FALSE))
 }
 
-# Create the cohort tables to hold the cohort generation results
-cohortTableNames <- CohortGenerator::getCohortTableNames(cohortTable = "my_cohort_table")
+# Create the cohort tables names
+cohortTableNames <- CohortGenerator::getCohortTableNames(cohortTable = "internal_training")
+# Create the cohort tables (drops tables if exist)
 CohortGenerator::createCohortTables(connectionDetails = connectionDetails,
-                                                        cohortDatabaseSchema = "main",
+                                                        cohortDatabaseSchema = "public",
                                                         cohortTableNames = cohortTableNames)
 # Generate the cohorts
 cohortsGenerated <- CohortGenerator::generateCohortSet(connectionDetails = connectionDetails,
-                                                       cdmDatabaseSchema = "main",
-                                                       cohortDatabaseSchema = "main",
+                                                       cdmDatabaseSchema = "public",
+                                                       cohortDatabaseSchema = "results",
                                                        cohortTableNames = cohortTableNames,
                                                        cohortDefinitionSet = cohortsToCreate)
+```
 
-# Get the cohort counts
-cohortCounts <- CohortGenerator::getCohortCounts(connectionDetails = connectionDetails,
-                                                 cohortDatabaseSchema = "main",
-                                                 cohortTable = cohortTableNames$cohortTable)
-print(cohortCounts)
+## CohortGenerator
+
+Now we can read the cohorts that we have generated and see that the results are the same that we had on ATLAS:
+
+```{r, eval = FALSE, echo = TRUE}
+cdm <- cdm_from_con(
+  db,
+  cdm_schema = "public",
+  write_schema = "results",
+  cohort_tables = "internal_training"
+)
+cdm$internal_training %>% group_by(cohort_definition_id) %>% tally()
+```
+```{r}
+tibble(cohort_definition_id = c(1,2), n = c(1,1))
 ```
