@@ -18,12 +18,38 @@ Yesterday we learnt:
 
 ## Today's goals
 
+-   Connect to the database using [databaseConnector](https://github.com/OHDSI/DatabaseConnector).
 -   Concept set and cohort definitions.
 -   Built a concept set using [CodelistGenerator](https://github.com/darwin-eu/CodelistGenerator).
 -   Built a cohort definition using [ATLAS](https://academy.ehden.eu/course/view.php?id=8).
 -   Instantiate a cohort in the database using [CohortGenerator](https://github.com/OHDSI/CohortGenerator).
 -   Evaluate a cohort with [CohortDiagnostics](https://github.com/OHDSI/CohortDiagnostics/).
 -   Compute the incidence and prevalence using [IncidencePrevalence](https://github.com/darwin-eu/IncidencePrevalence/).
+
+## DatabaseConnector
+
+Yesterday we saw the DBI package, the standard way to connect to a database.
+
+But OHDSI has their own way to connect to the database using [databaseConnector](https://github.com/OHDSI/DatabaseConnector) package:
+```{r, eval=FALSE, echo=TRUE}
+server     <- Sys.getenv("DB_SERVER") # different to server_dbi!
+user       <- Sys.getenv("DB_USER")
+password   <- Sys.getenv("DB_PASSWORD")
+port       <- Sys.getenv("DB_PORT") 
+host       <- Sys.getenv("DB_HOST")
+dialect    <- "postgresql"
+
+connectionDetails <- DatabaseConnector::downloadJdbcDrivers(dialect, here::here())
+connectionDetails <- DatabaseConnector::createConnectionDetails(
+  dbms = dialect,
+  server = server,
+  user = user,
+  password = password,
+  port = port,
+  pathToDriver = here::here()
+)
+```
+
 
 ## Concept set and cohort definitions
 
@@ -64,7 +90,7 @@ The package has good vignettes that can be very useful to understand how the pac
 
 Example how to build a concept set:
 
-1) Connect to a database (eunomia don't have the full version of the vocabulary, so connect to your own database):
+1)  Connect to a database (eunomia don't have the full version of the vocabulary, so connect to your own database):
 
 ```{r, echo = TRUE, eval = FALSE}
 cdm <- cdm_from_con(
@@ -96,6 +122,7 @@ proposed_list <- getCandidateCodes(
 ## CodelistGenerator
 
 We have 57 candidates:
+
 ```{r}
 preliminary_concept_list <- read.csv(here::here("data", "proposed_list_pancreatitis.csv"))
 preliminary_concept_list
@@ -103,16 +130,20 @@ preliminary_concept_list
 
 ## Validation
 
-This is just a preliminary list. At this stage we must review the concept list and together with some experts decide which concepts we want to exclude.
-In our case we decided to exclude 5 concepts:
+This is just a preliminary list. At this stage we must review the concept list and together with some experts decide which concepts we want to exclude. In our case we decided to exclude 5 concepts:
+
 ```{r}
 preliminary_concept_list[c(19,31,39,43,57),]
 ```
+
 We can update our concept list:
+
 ```{r, eval = FALSE, echo = TRUE}
 concept_set_pancratitis <- preliminary_concept_list[-c(19,31,39,43,57),]
 ```
+
 We can create an exportable json file and save it:
+
 ```{r}
 concept_set_json_pancratitis <- getJsonFileFromConceptList(concept_set_pancratitis, cdm)
 writeChar(concept_set_json_pancratitis)
@@ -121,3 +152,66 @@ writeChar(concept_set_json_pancratitis)
 ## Let's move to ATLAS
 
 Using ATLAS we can build a concept set from the data obtained from
+
+![](Presentation_Theory_files/atlas.png){fig-align="center"}
+
+## We have a cohort
+
+If we instantiated it from ATLAS we can read it directly from the cohort table in results schema.
+
+```{r}
+cdm <- cdm_from_con(
+  cdm,
+  cdm_schema = "public",
+  write_schema = "results",
+  cohort_tables = "cohort"
+)
+```
+
+Or we may be interested to instantiate our cohort in a table in this case using [CohortGenerator](https://github.com/OHDSI/CohortGenerator) package.
+
+## CohortGenerator
+
+```{r, eval = FALSE, echo = TRUE}
+# create empty cohort definition set
+cohortsToCreate <- CohortGenerator::createEmptyCohortDefinitionSet()
+# read the folder that contain the JsonFiles
+cohortJsonFiles <- list.files(path = here::here("Cohorts"), full.names = TRUE)
+# for each one of the cohorts we:
+for (i in 1:length(cohortJsonFiles)) {
+  # 1) obtain its name
+  cohortJsonFileName <- cohortJsonFiles[i]
+  # 2) Remove the extension and previous path to the name
+  cohortName <- tools::file_path_sans_ext(basename(cohortJsonFileName))
+  # 3) Read the Json file
+  cohortJson <- readChar(cohortJsonFileName, file.info(cohortJsonFileName)$size)
+  # 4) Convert the Json to expression
+  cohortExpression <- CirceR::cohortExpressionFromJson(cohortJson)
+  # 5) Convert the expression to the SQL
+  cohortSql <- CirceR::buildCohortQuery(cohortExpression, options = CirceR::createGenerateOptions(generateStats = FALSE))
+  # 6) Append the definition to the Cohorts to create list
+  cohortsToCreate <- rbind(cohortsToCreate, data.frame(cohortId = i, # cohort_definition_id
+                                                       cohortName = cohortName, # internal name
+                                                       json = cohortJson, # json definition of the cohort
+                                                       sql = cohortSql, # sql to execute
+                                                       stringsAsFactors = FALSE))
+}
+
+# Create the cohort tables to hold the cohort generation results
+cohortTableNames <- CohortGenerator::getCohortTableNames(cohortTable = "my_cohort_table")
+CohortGenerator::createCohortTables(connectionDetails = connectionDetails,
+                                                        cohortDatabaseSchema = "main",
+                                                        cohortTableNames = cohortTableNames)
+# Generate the cohorts
+cohortsGenerated <- CohortGenerator::generateCohortSet(connectionDetails = connectionDetails,
+                                                       cdmDatabaseSchema = "main",
+                                                       cohortDatabaseSchema = "main",
+                                                       cohortTableNames = cohortTableNames,
+                                                       cohortDefinitionSet = cohortsToCreate)
+
+# Get the cohort counts
+cohortCounts <- CohortGenerator::getCohortCounts(connectionDetails = connectionDetails,
+                                                 cohortDatabaseSchema = "main",
+                                                 cohortTable = cohortTableNames$cohortTable)
+print(cohortCounts)
+```
