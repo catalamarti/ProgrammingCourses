@@ -1,0 +1,16 @@
+CDMConnector-package	CDMConnector-package
+%>%	pipe
+CDMConnector	CDMConnector-package
+cdm_from_con	cdm_from_con
+cdm_from_files	cdm_from_files
+collect.cdm_reference	collect.cdm_reference
+dbConnect,dbConnectDetails-method	dbConnect-dbConnectDetails-method
+dbConnectDetails	dbConnectDetails
+dbConnectDetails-class	dbConnectDetails-class
+dbms	dbms
+eunomia_dir	eunomia_dir
+listTables	listTables
+print.cdm_reference	print.cdm_reference
+stow	stow
+tbl_group	tbl_group
+validate_cdm	validate_cdm

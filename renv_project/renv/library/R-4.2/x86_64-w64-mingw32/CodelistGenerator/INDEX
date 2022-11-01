@@ -1,0 +1,12 @@
+checkDbType             Check the database type.
+checkTableExists        Check if given table exists in cdm.
+compareCodelists        Compare two codelists
+getCandidateCodes       Generate candidate codelist for the OMOP CDM
+getDescendants          getDescendants
+getDomains              getDomains
+getMappings             Show mappings from non-standard vocabularies to
+                        standard
+getVocabVersion         getVocabVersion
+getVocabularies         getVocabularies
+getconceptClassId       getconceptClassId
+mockVocabRef            Generate example vocabulary database

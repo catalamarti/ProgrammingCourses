@@ -1,0 +1,13 @@
+collect_denominator_pops
+                        Identify a set of denominator populations
+collect_pop_incidence   Collect population incidence estimates
+collect_pop_prevalence
+                        Collect population prevalence estimates
+generate_mock_incidence_prevalence_db
+                        Generate example database for
+                        IncidencePrevalence package
+get_denominator_pop     Identify the denominator populations
+get_pop_incidence       Get population incidence estimates
+get_pop_prevalence      Get population prevalence estimates
+obscure_counts          Obscure the small number of counts
+record_attrition        Record attrition in tibble

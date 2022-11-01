@@ -1,0 +1,37 @@
+Package: CodelistGenerator
+Title: Generate Candidate Codelists for the OMOP CDM
+Version: 0.9.1
+Authors@R: 
+    person("Edward", "Burn", , "edward.burn@ndorms.ox.ac.uk", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0002-9286-1128"))
+Description: Generate a candidate codelist for the OMOP CDM based on string matching. For a given search strategy, a candidate codelist will be returned.
+License: Apache License (>= 2)
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.1
+Imports: CDMConnector, tidyselect, checkmate (>= 2.0.0), dbplyr (>=
+        2.2.1), dplyr (>= 1.0.0), stringr (>= 1.4.0), magrittr (>=
+        2.0.0), rlang (>= 1.0.0), DBI (>= 1.1.0), arrow (>= 9.0.0),
+        glue
+Suggests: covr, knitr, readr (>= 2.1.0), duckdb, DT, rmarkdown, here
+        (>= 1.0.0), testthat (>= 3.0.0), kableExtra (>= 1.0.0),
+        RPostgres, odbc
+Remotes: OdyOSG/CDMConnector
+Config/testthat/edition: 3
+VignetteBuilder: knitr
+URL: https://darwin-eu.github.io/CodelistGenerator/
+RemoteType: github
+RemoteHost: api.github.com
+RemoteRepo: codelistgenerator
+RemoteUsername: darwin-eu
+RemoteRef: HEAD
+RemoteSha: 3598abc543c83647963ae4ac304141c28ba22d27
+GithubRepo: codelistgenerator
+GithubUsername: darwin-eu
+GithubRef: HEAD
+GithubSHA1: 3598abc543c83647963ae4ac304141c28ba22d27
+NeedsCompilation: no
+Packaged: 2022-11-01 09:10:39 UTC; martics
+Author: Edward Burn [aut, cre] (<https://orcid.org/0000-0002-9286-1128>)
+Maintainer: Edward Burn <edward.burn@ndorms.ox.ac.uk>
+Built: R 4.2.1; ; 2022-11-01 09:10:41 UTC; windows

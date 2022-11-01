@@ -1,0 +1,12 @@
+IncidencePrevalence-package	IncidencePrevalence-package
+%>%	pipe
+collect_denominator_pops	collect_denominator_pops
+collect_pop_incidence	collect_pop_incidence
+collect_pop_prevalence	collect_pop_prevalence
+generate_mock_incidence_prevalence_db	generate_mock_incidence_prevalence_db
+get_denominator_pop	get_denominator_pop
+get_pop_incidence	get_pop_incidence
+get_pop_prevalence	get_pop_prevalence
+IncidencePrevalence	IncidencePrevalence-package
+obscure_counts	obscure_counts
+record_attrition	record_attrition

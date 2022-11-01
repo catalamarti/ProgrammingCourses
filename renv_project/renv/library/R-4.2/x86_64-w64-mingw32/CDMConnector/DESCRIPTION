@@ -1,0 +1,35 @@
+Package: CDMConnector
+Title: Connect to an OMOP Common Data Model
+Version: 0.1.0
+Authors@R: 
+    person("Adam", "Black", , "black@ohdsi.org", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0001-5576-8701"))
+Description: Provides tools for working OMOP CDM tables in a pipe friendly syntax.
+  CDM table references are stored in a single compound object along with metadata.
+License: file LICENSE
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.0
+Depends: R (>= 4.0)
+Imports: dplyr, DBI (>= 0.3.0), checkmate, magrittr, dbplyr, pillar,
+        cli, purrr, rlang, tidyselect, readr, glue, waldo, arrow,
+        methods
+Suggests: covr, knitr, rmarkdown, duckdb (>= 0.5.0), RPostgres, odbc,
+        ggplot2, SqlRender, testthat (>= 3.0.0)
+Config/testthat/edition: 3
+VignetteBuilder: knitr, rmarkdown
+RemoteType: github
+RemoteHost: api.github.com
+RemoteRepo: cdmconnector
+RemoteUsername: odyosg
+RemoteRef: HEAD
+RemoteSha: 0648b2e8cda0b8c425b5550b765c026d53e8246e
+GithubRepo: cdmconnector
+GithubUsername: odyosg
+GithubRef: HEAD
+GithubSHA1: 0648b2e8cda0b8c425b5550b765c026d53e8246e
+NeedsCompilation: no
+Packaged: 2022-11-01 09:09:56 UTC; martics
+Author: Adam Black [aut, cre] (<https://orcid.org/0000-0001-5576-8701>)
+Maintainer: Adam Black <black@ohdsi.org>
+Built: R 4.2.1; ; 2022-11-01 09:09:58 UTC; windows

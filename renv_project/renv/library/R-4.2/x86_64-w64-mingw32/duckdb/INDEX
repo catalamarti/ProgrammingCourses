@@ -1,0 +1,43 @@
+duckdb                  Connect to a DuckDB database instance
+duckdb-package          DuckDB client package for R
+duckdb_explain-class    DuckDB EXPLAIN query tree
+duckdb_get_substrait    Get the Substrait plan for a SQL query
+                        Transforms a SQL query into a raw vector
+                        containing the serialized Substrait query blob
+duckdb_get_substrait_json
+                        Get the Substrait plan for a SQL query in the
+                        JSON format Transforms a SQL query into a
+                        vector containing the serialized Substrait
+                        query JSON
+duckdb_prepare_substrait
+                        Query DuckDB using Substrait Method for
+                        interpreting a Substrait BLOB plan as a DuckDB
+                        Query Plan It interprets and executes the
+                        query.
+duckdb_read_csv         Reads a CSV file into DuckDB
+duckdb_register         Register a data frame as a virtual table
+duckdb_register_arrow   Register an Arrow data source as a virtual
+                        table
+expr_constant           Create a constant expression
+expr_function           Create a function call expression
+expr_reference          Create a column reference expression
+expr_set_alias          Set the alias for an expression
+expr_tostring           Convert an expression to a string for debugging
+                        purposes
+rel_aggregate           Lazily aggregate a DuckDB relation object
+rel_alias               Get the internal alias for a DuckDB relation
+                        object
+rel_distinct            Lazily compute a distinct result on a DuckDB
+                        relation object
+rel_explain             Print the EXPLAIN output for a DuckDB relation
+                        object
+rel_filter              Lazily filter a DuckDB relation object
+rel_from_df             Convert a R data.frame to a DuckDB relation
+                        object
+rel_inner_join          Lazily INNER join two DuckDB relation objects
+rel_order               Lazily reorder a DuckDB relation object
+rel_project             Lazily project a DuckDB relation object
+rel_set_alias           Set the internal alias for a DuckDB relation
+                        object
+rel_sql                 Run a SQL query on a DuckDB relation object
+simulate_duckdb         DuckDB SQL backend for dbplyr

@@ -1,0 +1,19 @@
+cdm_from_con            Create a CDM reference object from a database
+                        connection
+cdm_from_files          Create a CDM reference from a folder containing
+                        parquet, csv, or feather files
+collect.cdm_reference   Bring a remote CDM reference into R
+dbConnect,dbConnectDetails-method
+                        Connect to a database using stored connection
+                        details
+dbConnectDetails        Save database connection information in an
+                        object
+dbms                    Get the database management system (dbms) from
+                        a cdm_reference or DBI connection
+eunomia_dir             Create a new Eunomia CDM
+listTables              List tables in a schema
+print.cdm_reference     Print a CDM reference object
+stow                    Collect a list of lazy queries and save the
+                        results as files
+tbl_group               CDM table selection helper
+validate_cdm            Validation report for a CDM

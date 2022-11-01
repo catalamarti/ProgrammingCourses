@@ -1,0 +1,14 @@
+CodelistGenerator-package	CodelistGenerator-package
+%>%	pipe
+checkDbType	checkDbType
+checkTableExists	checkTableExists
+CodelistGenerator	CodelistGenerator-package
+compareCodelists	compareCodelists
+getCandidateCodes	getCandidateCodes
+getconceptClassId	getconceptClassId
+getDescendants	getDescendants
+getDomains	getDomains
+getMappings	getMappings
+getVocabularies	getVocabularies
+getVocabVersion	getVocabVersion
+mockVocabRef	mockVocabRef

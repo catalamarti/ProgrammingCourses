@@ -1,0 +1,45 @@
+Package: IncidencePrevalence
+Title: Population Incidence and Prevalence using the OMOP Common Data
+        Model
+Version: 0.0.0.9000
+Authors@R: c(
+    person("Edward", "Burn", email = "edward.burn@ndorms.ox.ac.uk", role = c("aut", "cre"), 
+    comment = c(ORCID = "0000-0002-9286-1128")), 
+    person("Berta", "Raventos", email = "braventos@idiapjgol.info", role = c("aut"), 
+    comment = c(ORCID = "0000-0002-4668-2970")), 
+    person("Marti", "Catala", email = "marti.catalasabate@ndorms.ox.ac.uk", role = c("aut"), 
+    comment = c(ORCID = "0000-0003-3308-9905")),
+    person("Mike", "Du", email = "mike.du@ndorms.ox.ac.uk", role = c("aut"), 
+    comment = c(ORCID = "0000-0002-9517-8834"))
+    )
+Description: Calculate population incidence and prevalence using data mapped to the OMOP common data model.
+License: Apache License (>= 2)
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.1
+Suggests: knitr, rmarkdown, RPostgres, tibble, ggplot2, scales, duckdb,
+        odbc, here, testthat (>= 3.0.0)
+Config/testthat/edition: 3
+Imports: checkmate, DBI, dbplyr, dplyr, glue, magrittr, rlang, purrr,
+        tidyr, CDMConnector, SqlRender
+Remotes: OdyOSG/CDMConnector
+Depends: lubridate
+VignetteBuilder: knitr
+RemoteType: github
+RemoteHost: api.github.com
+RemoteRepo: IncidencePrevalence
+RemoteUsername: darwin-eu
+RemoteRef: HEAD
+RemoteSha: 205070554e01902aaf9d9f886200da730002ea91
+GithubRepo: IncidencePrevalence
+GithubUsername: darwin-eu
+GithubRef: HEAD
+GithubSHA1: 205070554e01902aaf9d9f886200da730002ea91
+NeedsCompilation: no
+Packaged: 2022-11-01 09:40:31 UTC; martics
+Author: Edward Burn [aut, cre] (<https://orcid.org/0000-0002-9286-1128>),
+  Berta Raventos [aut] (<https://orcid.org/0000-0002-4668-2970>),
+  Marti Catala [aut] (<https://orcid.org/0000-0003-3308-9905>),
+  Mike Du [aut] (<https://orcid.org/0000-0002-9517-8834>)
+Maintainer: Edward Burn <edward.burn@ndorms.ox.ac.uk>
+Built: R 4.2.1; ; 2022-11-01 09:40:33 UTC; windows
