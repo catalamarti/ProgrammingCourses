@@ -31,6 +31,7 @@ Yesterday we learnt:
 Yesterday we saw the DBI package, the standard way to connect to a database.
 
 But OHDSI has their own way to connect to the database using [databaseConnector](https://github.com/OHDSI/DatabaseConnector) package:
+
 ```{r, eval=FALSE, echo=TRUE}
 server     <- Sys.getenv("DB_SERVER") # different to server_dbi!
 user       <- Sys.getenv("DB_USER")
@@ -41,15 +42,11 @@ dialect    <- "postgresql"
 
 connectionDetails <- DatabaseConnector::downloadJdbcDrivers(dialect, here::here())
 connectionDetails <- DatabaseConnector::createConnectionDetails(
-  dbms = dialect,
-  server = server,
-  user = user,
-  password = password,
-  port = port,
-  pathToDriver = here::here()
+  dbms = dialect, server = server,
+  user = user, password = password,
+  port = port, pathToDriver = here::here()
 )
 ```
-
 
 ## Concept set and cohort definitions
 
@@ -69,9 +66,23 @@ Simplification: CONCEPT SETS + a certain LOGIC.
 
 ### Example of concept set:
 
+Bells Palsy: 4091559, 36716396, 4048018.
+
+We export them as Json files.
+
+![](Presentation_Theory_files/conceptSet.png)
+
 ## Concept set and cohort definitions
 
 ### Example of cohort definition:
+
+![](Presentation_Theory_files/cohort.png)
+
+## Concept set and cohort definitions
+
+### Example of cohort definition:
+
+![](Presentation_Theory_files/cohort2.png)
 
 ## Let's build a concept set
 
@@ -125,7 +136,7 @@ We have 57 candidates:
 
 ```{r}
 preliminary_concept_list <- read.csv(here::here("data", "proposed_list_pancreatitis.csv"))
-preliminary_concept_list
+preliminary_concept_list[,-1]
 ```
 
 ## Validation
@@ -133,8 +144,10 @@ preliminary_concept_list
 This is just a preliminary list. At this stage we must review the concept list and together with some experts decide which concepts we want to exclude. In our case we decided to exclude 5 concepts:
 
 ```{r}
-preliminary_concept_list[c(19,31,39,43,57),]
+preliminary_concept_list[c(19,31,39,43,57),c(2,3)]
 ```
+
+## Validation
 
 We can update our concept list:
 
@@ -144,9 +157,92 @@ concept_set_pancratitis <- preliminary_concept_list[-c(19,31,39,43,57),]
 
 We can create an exportable json file and save it:
 
-```{r}
+```{r, echo = FALSE, eval = TRUE}
+library(dplyr)
+library(dbplyr)
+getJsonFileFromConceptList <- function(x,cdm){
+  
+  x <- cdm$concept %>%
+    dplyr::semi_join(x, by = "concept_id", copy = TRUE) %>%
+    dplyr::collect() %>%
+    dplyr::mutate(
+      invalid_reason_caption = dplyr::if_else(is.na(.data$invalid_reason),
+        "Valid", "Invalid"
+      )
+    ) %>%
+    dplyr::mutate(invalid_reason = dplyr::if_else(
+      is.na(.data$invalid_reason), "V", .data$invalid_reason
+    )) %>%
+    dplyr::mutate(standard_concept_caption = dplyr::if_else(
+      is.na(.data$standard_concept), "Non-Standard", dplyr::if_else(
+        .data$standard_concept == "C", "Classification", "Standard"
+      )
+    )) %>%
+    dplyr::mutate(standard_concept = dplyr::if_else(
+      is.na(.data$standard_concept), "N",
+      .data$standard_concept
+    ))
+
+  emptyConcept <-'{
+    "concept": {
+      "CONCEPT_CLASS_ID": "#concept_class_id",
+      "CONCEPT_CODE": "#concept_code",
+      "CONCEPT_ID": #concept_id,
+      "CONCEPT_NAME": "#concept_name",
+      "DOMAIN_ID": "#domain_id",
+      "INVALID_REASON": "#invalid_reason",
+      "INVALID_REASON_CAPTION": "#invalid_reason_caption",
+      "STANDARD_CONCEPT": "#standard_concept",
+      "STANDARD_CONCEPT_CAPTION": "#standard_concept_caption",
+      "VOCABULARY_ID": "#vocabulary_id",
+      "VALID_START_DATE": "#valid_start_date",
+      "VALID_END_DATE": "valid_end_date"
+    },
+    "isExcluded": false,
+    "includeDescendants": false,
+    "includeMapped": false
+  }'
+  
+  for (k in 1:nrow(x)){
+    concept <- stringr::str_replace(emptyConcept,"#concept_class_id",x$concept_class_id[k])
+    concept <- stringr::str_replace(concept,"#concept_code",x$concept_code[k])
+    concept <- stringr::str_replace(concept,"#concept_id",as.character(x$concept_id[k]))
+    concept <- stringr::str_replace(concept,"#concept_name",x$concept_name[k])
+    concept <- stringr::str_replace(concept,"#domain_id",x$domain_id[k])
+    concept <- stringr::str_replace(concept,"#invalid_reason",x$invalid_reason[k])
+    concept <- stringr::str_replace(concept,"#invalid_reason_caption",x$invalid_reason_caption[k])
+    concept <- stringr::str_replace(concept,"#standard_concept",x$standard_concept[k])
+    concept <- stringr::str_replace(concept,"#standard_concept_caption",x$standard_concept_caption[k])
+    concept <- stringr::str_replace(concept,"#vocabulary_id",x$vocabulary_id[k])
+    concept <- stringr::str_replace(concept,"#valid_start_date",as.character(x$valid_start_date[k]))
+    concept <- stringr::str_replace(concept,"#valid_end_date",as.character(x$valid_end_date[k]))
+    if (k == 1){
+      concept_all <- concept
+    } else {
+      concept_all <- paste0(concept_all, ",\n", concept)
+    }
+  }
+  
+  jsonFile <- paste0('{
+  "items": [', concept_all, '  ]
+}')
+  
+  return(jsonFile)
+  
+}
+```
+
+```{r, echo = TRUE, eval = FALSE}
 concept_set_json_pancratitis <- getJsonFileFromConceptList(concept_set_pancratitis, cdm)
-writeChar(concept_set_json_pancratitis)
+writeChar(concept_set_json_pancratitis, file = here::here("data", "concept_set_pancreatitis.json"))
+```
+
+## Concept set
+
+```{r}
+fileName <- here::here("data", "concept_set_pancreatitis.json")
+concept <- readChar(fileName, nchars = file.info(fileName)$size)
+cat(concept)
 ```
 
 ## Let's move to ATLAS
@@ -159,18 +255,21 @@ Using ATLAS we can build a concept set from the data obtained from
 
 If we instantiated it from ATLAS we can read it directly from the cohort table in results schema.
 
-```{r}
+```{r, echo=TRUE, eval=FALSE}
 cdm <- cdm_from_con(
   cdm,
   cdm_schema = "public",
   write_schema = "results",
   cohort_tables = "cohort"
 )
+cdm$cohort # go to ATLAS to check that numbers are correct
 ```
 
-Or we may be interested to instantiate our cohort in a table in this case using [CohortGenerator](https://github.com/OHDSI/CohortGenerator) package.
+![](Presentation_Theory_files/cohort3.png){fig-align="center"}
 
 ## CohortGenerator
+
+Or we may be interested to instantiate our cohort in a table in this case using [CohortGenerator](https://github.com/OHDSI/CohortGenerator) package.
 
 ```{r, eval = FALSE, echo = TRUE}
 # create empty cohort definition set
@@ -222,8 +321,264 @@ cdm <- cdm_from_con(
   write_schema = "results",
   cohort_tables = "internal_training"
 )
-cdm$internal_training %>% group_by(cohort_definition_id) %>% tally()
+cdm$internal_training %>% group_by(cohort_definition_id) %>% tally() %>% collect()
 ```
+
 ```{r}
-tibble(cohort_definition_id = c(1,2), n = c(1,1))
+tibble(cohort_definition_id = c(1,2), n = c(3047,36059))
 ```
+
+## CohortDiagnostics
+
+When we have a cohort a way to evaluate it, validate, see if the results are the expected and more is [CohortDiagnostics](https://github.com/OHDSI/CohortDiagnostics/).
+
+CohortDiagnostics is:
+
+-   Easy to execute.
+
+-   Very slow (\~hours in COVID AURUM, 2 days in GOLD 3/4 days in AURUM).
+
+-   "Easy?" to share.
+
+## CohortDiagnostics
+
+```{r, echo=TRUE, eval = FALSE}
+library(CohortDiagnostics)
+
+executeDiagnostics(
+  cohortDefinitionSet = cohortsToCreate,
+  exportFolder = "export",
+  cohortTableNames = cohortTableNames,
+  cohortDatabaseSchema = "results",
+  cdmDatabaseSchema = "public",
+  databaseId = "SUBSET_AURUM",
+  connectionDetails = connectionDetails
+)
+```
+
+### Show cohort diagnostics results.
+
+## IncidencePrevalence
+
+Let's say that we are happy with the results.
+
+We want to compute the incidence and point prevalence of this two outcomes (cohorts).
+
+IncidencePrevalence package: <https://github.com/darwin-eu/IncidencePrevalence/>.
+
+## IncidencePrevalence
+
+```{r, echo=TRUE, eval=FALSE}
+server_dbi <- Sys.getenv("DB_SERVER_DBI_gold_202007")
+user       <- Sys.getenv("DB_USER")
+password   <- Sys.getenv("DB_PASSWORD")
+port       <- Sys.getenv("DB_PORT") 
+host       <- Sys.getenv("DB_HOST") 
+db <- DBI::dbConnect(
+  RPostgres::Postgres(),
+  dbname = server_dbi,
+  port = port,
+  host = host,
+  user = user,
+  password = password
+)
+
+cdm <- cdm_from_con(
+  db,
+  cdm_schema = "public",
+  write_schema = "results",
+  cohort_tables = "internal_training"
+)
+```
+
+## IncidencePrevalence
+
+Compute the denominator population (\~6 minutes in CPRD GOLD).
+
+```{r, echo=TRUE, eval=FALSE}
+denominator_population <- collect_denominator_pops(
+  cdm,
+  study_start_date = as.Date("2017-01-01"),
+  study_end_date = as.Date("2019-12-31"),
+  study_age_stratas = list(c(0,150), c(0,19), c(20,39), c(40,59), c(60,79), c(80,150)),
+  study_sex_stratas = c("Both", "Male", "Female"),
+  study_days_prior_history = 180
+)
+```
+
+## IncidenPrevalence
+
+It provides 4 outputs:
+
+-Denominator populations as cohorts
+
+-Settings (parameters used in each denominator population)
+
+-Attrition
+
+-SQL queries executed in the database
+
+## Denominator populations
+
+![](Presentation_Theory_files/inc1.png)
+
+## Settings
+
+![](Presentation_Theory_files/inc2.png)
+
+## Attrtion
+
+![](Presentation_Theory_files/inc3.png)
+
+## SQL queries
+
+![](Presentation_Theory_files/inc4.png)
+
+## Compute incidence
+
+```{r, eval=FALSE, echo=TRUE}
+cdm[["denominator_population"]] <- denominator_population$denominator_populations
+
+incidence <- collect_pop_incidence(
+  cdm,
+  table_name_denominator = "denominator_population",
+  table_name_outcomes = "internal_training",
+  cohort_ids_denominator_pops = 1:18,
+  cohort_ids_outcomes = 1:2,
+  time_interval = "years",
+  outcome_washout_windows = 180,
+  minimum_cell_count = 5
+)
+```
+
+## Incidence
+
+- Estimates
+
+- Settings
+
+- Attrition
+
+- Person table
+
+## Estimates
+
+![](Presentation_Theory_files/inc5.png)
+
+## Settings
+
+![](Presentation_Theory_files/inc6.png)
+
+## Attrition
+
+![](Presentation_Theory_files/inc7.png)
+
+## Person table
+
+![](Presentation_Theory_files/inc8.png)
+
+## Visualization
+
+It is not included in the package but we can write simple ggplot codes to visualize the results.
+
+```{r, echo=FALSE, eval=TRUE}
+load(file = here::here("data", "incprev.RData"))
+```
+```{r, echo=TRUE, eval=FALSE}
+library(ggplot2)
+inc <- incidence$incidence_estimates %>% semi_join(incidence$analysis_settings %>% filter(cohort_id_denominator_pop == 1)) %>% mutate(outcome = if_else(incidence_analysis_id < 19, "pancreatitis", "acute kidney injury"))
+ggplot(inc, aes(x=time, y=ir_100000_pys, color=outcome)) + 
+  geom_point() +
+  geom_errorbar(aes(ymin=ir_100000_pys_low, ymax=ir_100000_pys_high), width=.2) +
+  ylim(0, 50) 
+```
+## Visualization
+
+```{r, echo=FALSE, eval=TRUE}
+library(ggplot2)
+inc <- incidence$incidence_estimates %>%
+  semi_join(incidence$analysis_settings %>%
+    filter(cohort_id_denominator_pop == 1)) %>%
+  mutate(outcome = if_else(incidence_analysis_id < 19, "pancreatitis", "acute kidney injury"))
+ggplot(inc, aes(x=time, y=ir_100000_pys, color=outcome)) + 
+  geom_point() +
+  geom_errorbar(aes(ymin=ir_100000_pys_low, ymax=ir_100000_pys_high), width=.2) +
+  ylim(0, 50) 
+```
+
+## By Gender and Age group
+
+```{r, echo = TRUE, eval = FALSE}
+inc <- incidence$incidence_estimates %>% 
+  inner_join(incidence$analysis_settings) %>%
+  inner_join(denominator_population$denominator_settings, by = c("cohort_id_denominator_pop" = "cohort_definition_id")) %>%
+  mutate(outcome = if_else(cohort_id_outcome  == 1, "pancreatitis", "acute kidney injury"))
+
+ggplot(inc, aes(x=time, y=ir_100000_pys, color=outcome)) + 
+  geom_point() +
+  geom_errorbar(aes(ymin=ir_100000_pys_low, ymax=ir_100000_pys_high), width=.2) +
+  ylim(0, 180) +
+  facet_grid(rows = vars(sex_strata), cols = vars(age_strata))
+```
+
+## By Gender and Age group
+
+```{r, echo = FALSE, eval = TRUE}
+inc <- incidence$incidence_estimates %>% inner_join(incidence$analysis_settings) %>% inner_join(denominator_population$denominator_settings, by = c("cohort_id_denominator_pop" = "cohort_definition_id")) %>% mutate(outcome = if_else(cohort_id_outcome  == 1, "pancreatitis", "acute kidney injury"))
+
+ggplot(inc, aes(x=time, y=ir_100000_pys, color=outcome)) + 
+  geom_point() +
+  geom_errorbar(aes(ymin=ir_100000_pys_low, ymax=ir_100000_pys_high), width=.2) +
+  ylim(0, 180) +
+  facet_grid(rows = vars(sex_strata), cols = vars(age_strata))
+```
+
+## Prevalence
+
+```{r, eval=FALSE, echo=TRUE}
+cdm[["denominator_population"]] <- denominator_population$denominator_populations
+
+point_prevalence <- collect_pop_prevalence(
+  cdm,
+  table_name_denominator = "denominator_population",
+  table_name_outcomes = "internal_training",
+  cohort_ids_denominator_pops = 1:18,
+  cohort_ids_outcomes = 1:2,
+  type = "point",
+  time_intervals = "years",
+  points = "middle",
+  confidence_interval = "binomial",
+  minimum_cell_count = 5
+)
+```
+
+## By Gender and Age group
+
+```{r, echo = FALSE, eval = TRUE}
+prev <- point_prevalence$prevalence_estimates %>% inner_join(point_prevalence$analysis_settings) %>% inner_join(denominator_population$denominator_settings, by = c("cohort_id_denominator_pop" = "cohort_definition_id")) %>% mutate(outcome = if_else(cohort_id_outcome  == 1, "pancreatitis", "acute kidney injury"))
+
+ggplot(prev, aes(x=time, y=prev, color=outcome)) + 
+  geom_point() +
+  geom_errorbar(aes(ymin=prev_low, ymax=prev_high), width=.2) +
+  ylim(0, 0.00001) +
+  facet_grid(rows = vars(sex_strata), cols = vars(age_strata))
+```
+
+## Prevalence
+
+```{r}
+prev %>% glimpse()
+```
+
+## Recap
+
+-   Connect to the database using [databaseConnector](https://github.com/OHDSI/DatabaseConnector).
+-   Concept set and cohort definitions.
+-   Built a concept set using [CodelistGenerator](https://github.com/darwin-eu/CodelistGenerator).
+-   Built a cohort definition using [ATLAS](https://academy.ehden.eu/course/view.php?id=8).
+-   Instantiate a cohort in the database using [CohortGenerator](https://github.com/OHDSI/CohortGenerator).
+-   Evaluate a cohort with [CohortDiagnostics](https://github.com/OHDSI/CohortDiagnostics/).
+-   Compute the incidence and prevalence using [IncidencePrevalence](https://github.com/darwin-eu/IncidencePrevalence/).
+
+## Practical
+

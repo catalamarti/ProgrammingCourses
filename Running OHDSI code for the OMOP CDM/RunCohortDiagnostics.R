@@ -1,4 +1,4 @@
 library(CohortDiagnostics)
 
-createMergedResultsFile(dataFolder = "export")
+createMergedResultsFile(dataFolder = "export", overwrite = TRUE)
 launchDiagnosticsExplorer()

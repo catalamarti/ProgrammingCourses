@@ -1,7 +1,14 @@
 <!DOCTYPE html>
 <html lang="en"><head>
-  <meta charset="utf-8">
-  <meta name="generator" content="quarto-0.9.80">
+<script src="Presentation_Theory_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Presentation_Theory_files/libs/quarto-html/tabby.min.js"></script>
+<script src="Presentation_Theory_files/libs/quarto-html/popper.min.js"></script>
+<script src="Presentation_Theory_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="Presentation_Theory_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Presentation_Theory_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="Presentation_Theory_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.0.36">
+
   <meta name="author" content="Marti Catala Sabate">
   <title>Running OHDSI code for the OMOP CDM</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -10,9 +17,6 @@
   <link rel="stylesheet" href="Presentation_Theory_files/libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="Presentation_Theory_files/libs/revealjs/dist/reveal.css">
   <style>
-    .reveal .sourceCode {  /* see #7635 */
-      overflow: visible;
-    }
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     span.underline{text-decoration: underline;}
@@ -49,49 +53,42 @@
       }
     pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
     div.sourceCode
-      {   }
+      { color: #003b4f; background-color: #f1f3f5; }
     @media screen {
     pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
     }
-    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-    code span.at { color: #7d9029; } /* Attribute */
-    code span.bn { color: #40a070; } /* BaseN */
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
     code span.bu { } /* BuiltIn */
-    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-    code span.ch { color: #4070a0; } /* Char */
-    code span.cn { color: #880000; } /* Constant */
-    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-    code span.dt { color: #902000; } /* DataType */
-    code span.dv { color: #40a070; } /* DecVal */
-    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.cf { color: #003b4f; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
     code span.ex { } /* Extension */
-    code span.fl { color: #40a070; } /* Float */
-    code span.fu { color: #06287e; } /* Function */
-    code span.im { } /* Import */
-    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-    code span.op { color: #666666; } /* Operator */
-    code span.ot { color: #007020; } /* Other */
-    code span.pp { color: #bc7a00; } /* Preprocessor */
-    code span.sc { color: #4070a0; } /* SpecialChar */
-    code span.ss { color: #bb6688; } /* SpecialString */
-    code span.st { color: #4070a0; } /* String */
-    code span.va { color: #19177c; } /* Variable */
-    code span.vs { color: #4070a0; } /* VerbatimString */
-    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="Presentation_Theory_files/libs/revealjs/dist/theme/quarto.css" id="theme">
-
-  <script src="Presentation_Theory_files/libs/clipboard/clipboard.min.js"></script>
-  <script src="Presentation_Theory_files/libs/quarto-html/tabby.min.js"></script>
-  <script src="Presentation_Theory_files/libs/quarto-html/popper.min.js"></script>
-  <script src="Presentation_Theory_files/libs/quarto-html/tippy.umd.min.js"></script>
-  <link href="Presentation_Theory_files/libs/quarto-html/tippy.css" rel="stylesheet">
-  <link href="Presentation_Theory_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet">
-  <link href="Presentation_Theory_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
   <link href="Presentation_Theory_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="Presentation_Theory_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="Presentation_Theory_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -105,7 +102,7 @@
   }
 
   .callout.callout-style-simple { 
-    padding: 0em 0.7em;
+    padding: 0em 0.5em;
     border-left: solid #acacac .3rem;
     border-right: solid 1px silver;
     border-top: solid 1px silver;
@@ -216,8 +213,7 @@
     display: none !important;
   }
 
-  .callout.callout-captioned .callout-body > :last-child,
-  .callout.callout-captioned .callout-body > div > :last-child {
+  .callout.callout-captioned .callout-body > .callout-content > :last-child {
     margin-bottom: 0.5rem;
   }
 
@@ -306,12 +302,6 @@
     .reveal .slide:not(.center) {
       height: 100%;
     }
-    .reveal #title-slide.center,
-    .reveal .title-slide.center,
-    .reveal .controls .navigate-left .controls-arrow,
-    .reveal .controls .navigate-right .controls-arrow {
-      margin-top: -15px;
-    }
     .reveal .slide.scrollable {
       overflow-y: auto;
     }
@@ -388,7 +378,7 @@
     }
   </style>
 </head>
-<body>
+<body class="quarto-light">
   <div class="reveal">
     <div class="slides">
 
@@ -410,6 +400,7 @@
 <section id="todays-goals" class="slide level2">
 <h2>Today’s goals</h2>
 <ul>
+<li>Connect to the database using <a href="https://github.com/OHDSI/DatabaseConnector">databaseConnector</a>.</li>
 <li>Concept set and cohort definitions.</li>
 <li>Built a concept set using <a href="https://github.com/darwin-eu/CodelistGenerator">CodelistGenerator</a>.</li>
 <li>Built a cohort definition using <a href="https://academy.ehden.eu/course/view.php?id=8">ATLAS</a>.</li>
@@ -417,6 +408,26 @@
 <li>Evaluate a cohort with <a href="https://github.com/OHDSI/CohortDiagnostics/">CohortDiagnostics</a>.</li>
 <li>Compute the incidence and prevalence using <a href="https://github.com/darwin-eu/IncidencePrevalence/">IncidencePrevalence</a>.</li>
 </ul>
+</section>
+<section id="databaseconnector" class="slide level2">
+<h2>DatabaseConnector</h2>
+<p>Yesterday we saw the DBI package, the standard way to connect to a database.</p>
+<p>But OHDSI has their own way to connect to the database using <a href="https://github.com/OHDSI/DatabaseConnector">databaseConnector</a> package:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>server     <span class="ot">&lt;-</span> <span class="fu">Sys.getenv</span>(<span class="st">"DB_SERVER"</span>) <span class="co"># different to server_dbi!</span></span>
+<span id="cb1-2"><a href="#cb1-2"></a>user       <span class="ot">&lt;-</span> <span class="fu">Sys.getenv</span>(<span class="st">"DB_USER"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3"></a>password   <span class="ot">&lt;-</span> <span class="fu">Sys.getenv</span>(<span class="st">"DB_PASSWORD"</span>)</span>
+<span id="cb1-4"><a href="#cb1-4"></a>port       <span class="ot">&lt;-</span> <span class="fu">Sys.getenv</span>(<span class="st">"DB_PORT"</span>) </span>
+<span id="cb1-5"><a href="#cb1-5"></a>host       <span class="ot">&lt;-</span> <span class="fu">Sys.getenv</span>(<span class="st">"DB_HOST"</span>)</span>
+<span id="cb1-6"><a href="#cb1-6"></a>dialect    <span class="ot">&lt;-</span> <span class="st">"postgresql"</span></span>
+<span id="cb1-7"><a href="#cb1-7"></a></span>
+<span id="cb1-8"><a href="#cb1-8"></a>connectionDetails <span class="ot">&lt;-</span> DatabaseConnector<span class="sc">::</span><span class="fu">downloadJdbcDrivers</span>(dialect, here<span class="sc">::</span><span class="fu">here</span>())</span>
+<span id="cb1-9"><a href="#cb1-9"></a>connectionDetails <span class="ot">&lt;-</span> DatabaseConnector<span class="sc">::</span><span class="fu">createConnectionDetails</span>(</span>
+<span id="cb1-10"><a href="#cb1-10"></a>  <span class="at">dbms =</span> dialect, <span class="at">server =</span> server,</span>
+<span id="cb1-11"><a href="#cb1-11"></a>  <span class="at">user =</span> user, <span class="at">password =</span> password,</span>
+<span id="cb1-12"><a href="#cb1-12"></a>  <span class="at">port =</span> port, <span class="at">pathToDriver =</span> here<span class="sc">::</span><span class="fu">here</span>()</span>
+<span id="cb1-13"><a href="#cb1-13"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
 <section id="concept-set-and-cohort-definitions" class="slide level2">
 <h2>Concept set and cohort definitions</h2>
@@ -430,90 +441,1545 @@
 <section id="concept-set-and-cohort-definitions-1" class="slide level2">
 <h2>Concept set and cohort definitions</h2>
 <h3 id="example-of-concept-set">Example of concept set:</h3>
-</section>
+<p>Bells Palsy: 4091559, 36716396, 4048018.</p>
+<p>We export them as Json files.</p>
+
+<img data-src="Presentation_Theory_files/conceptSet.png" class="r-stretch"></section>
 <section id="concept-set-and-cohort-definitions-2" class="slide level2">
 <h2>Concept set and cohort definitions</h2>
 <h3 id="example-of-cohort-definition">Example of cohort definition:</h3>
-</section>
+
+<img data-src="Presentation_Theory_files/cohort.png" class="r-stretch"></section>
+<section id="concept-set-and-cohort-definitions-3" class="slide level2">
+<h2>Concept set and cohort definitions</h2>
+<h3 id="example-of-cohort-definition-1">Example of cohort definition:</h3>
+
+<img data-src="Presentation_Theory_files/cohort2.png" class="r-stretch"></section>
 <section id="lets-build-a-concept-set" class="slide level2">
 <h2>Let’s build a concept set</h2>
 <p>To so we are going to use CodelistGenerator.</p>
 <p>First step, install the package:</p>
 <div class="cell">
-<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r cell-code number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">install.packages</span>(<span class="st">"remotes"</span>)</span>
-<span id="cb1-2"><a href="#cb1-2"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"darwin-eu/CodelistGenerator"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">install.packages</span>(<span class="st">"remotes"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"darwin-eu/CodelistGenerator"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Second let’s pick a topic: we are going to build a concept set of pancreatitis.</p>
+<p>The package has good vignettes that can be very useful to understand how the package and its functions works: <a href="https://darwin-eu.github.io/CodelistGenerator/index.html" class="uri">https://darwin-eu.github.io/CodelistGenerator/index.html</a></p>
 </section>
 <section id="codelistgenerator" class="slide level2">
 <h2>CodelistGenerator</h2>
 <p>Example how to build a concept set:</p>
 <ol type="1">
-<li>Connect to database</li>
+<li>Connect to a database (eunomia don’t have the full version of the vocabulary, so connect to your own database):</li>
 </ol>
 <div class="cell">
-<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r cell-code number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">library</span>(CDMConnector)</span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="fu">library</span>(duckdb)</span>
-<span id="cb2-3"><a href="#cb2-3"></a><span class="fu">library</span>(DBI)</span>
-<span id="cb2-4"><a href="#cb2-4"></a><span class="fu">library</span>(CodelistGenerator)</span>
-<span id="cb2-5"><a href="#cb2-5"></a>con <span class="ot">&lt;-</span> <span class="fu">dbConnect</span>(<span class="fu">duckdb</span>(), <span class="at">dbdir =</span> <span class="fu">eunomia_dir</span>())</span>
-<span id="cb2-6"><a href="#cb2-6"></a>cdm <span class="ot">&lt;-</span> <span class="fu">cdm_from_con</span>(</span>
-<span id="cb2-7"><a href="#cb2-7"></a>  con,</span>
-<span id="cb2-8"><a href="#cb2-8"></a>  <span class="at">cdm_schema =</span> <span class="st">"main"</span>,</span>
-<span id="cb2-9"><a href="#cb2-9"></a>  <span class="at">cdm_tables =</span> tidyselect<span class="sc">::</span><span class="fu">all_of</span>(<span class="fu">c</span>(</span>
-<span id="cb2-10"><a href="#cb2-10"></a>    <span class="st">"concept"</span>, <span class="st">"concept_relationship"</span>,</span>
-<span id="cb2-11"><a href="#cb2-11"></a>    <span class="st">"concept_ancestor"</span>,</span>
-<span id="cb2-12"><a href="#cb2-12"></a>    <span class="st">"concept_synonym"</span>,</span>
-<span id="cb2-13"><a href="#cb2-13"></a>    <span class="st">"vocabulary"</span></span>
-<span id="cb2-14"><a href="#cb2-14"></a>  ))</span>
-<span id="cb2-15"><a href="#cb2-15"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>cdm <span class="ot">&lt;-</span> <span class="fu">cdm_from_con</span>(</span>
+<span id="cb3-2"><a href="#cb3-2"></a>  con,</span>
+<span id="cb3-3"><a href="#cb3-3"></a>  <span class="at">cdm_schema =</span> <span class="st">"public"</span>,</span>
+<span id="cb3-4"><a href="#cb3-4"></a>  <span class="at">cdm_tables =</span> tidyselect<span class="sc">::</span><span class="fu">all_of</span>(<span class="fu">c</span>(</span>
+<span id="cb3-5"><a href="#cb3-5"></a>    <span class="st">"concept"</span>, <span class="st">"concept_relationship"</span>,</span>
+<span id="cb3-6"><a href="#cb3-6"></a>    <span class="st">"concept_ancestor"</span>,</span>
+<span id="cb3-7"><a href="#cb3-7"></a>    <span class="st">"concept_synonym"</span>,</span>
+<span id="cb3-8"><a href="#cb3-8"></a>    <span class="st">"vocabulary"</span></span>
+<span id="cb3-9"><a href="#cb3-9"></a>  ))</span>
+<span id="cb3-10"><a href="#cb3-10"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="codelistgenerator-1" class="slide level2">
 <h2>CodelistGenerator</h2>
+<p>We want to build a “pancreatitis” concept set. So let’s have a preliminary list of codes:</p>
 <div class="cell">
-<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource r cell-code number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="fu">getCandidateCodes</span>(</span>
-<span id="cb3-2"><a href="#cb3-2"></a>  <span class="at">keywords =</span> <span class="st">"pancreatitis"</span>,</span>
-<span id="cb3-3"><a href="#cb3-3"></a>  <span class="at">domains =</span> <span class="st">"Condition"</span>,</span>
-<span id="cb3-4"><a href="#cb3-4"></a>  <span class="at">cdm =</span> cdm</span>
-<span id="cb3-5"><a href="#cb3-5"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-stdout">
-<pre><code># A tibble: 0 × 0</code></pre>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>proposed_list <span class="ot">&lt;-</span> <span class="fu">getCandidateCodes</span>(</span>
+<span id="cb4-2"><a href="#cb4-2"></a>  <span class="at">keywords =</span> <span class="st">"pancreatitis"</span>,</span>
+<span id="cb4-3"><a href="#cb4-3"></a>  <span class="at">domains =</span> <span class="st">"Condition"</span>,</span>
+<span id="cb4-4"><a href="#cb4-4"></a>  <span class="at">includeDescendants =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb4-5"><a href="#cb4-5"></a>  <span class="at">searchViaSynonyms =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb4-6"><a href="#cb4-6"></a>  <span class="at">cdm =</span> cdm</span>
+<span id="cb4-7"><a href="#cb4-7"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
-<!-- keywords <- "acute kidney injury" -->
-<!-- aki  <- getCandidateCodes( -->
-<!--                       keywords = keywords, -->
-<!--                       domains = "Condition", -->
-<!--                       includeDescendants = TRUE, -->
-<!--                       searchViaSynonyms = TRUE, -->
-<!--                        cdm = cdm) -->
-<!-- ## inspect candidate codes -->
-<!-- # for example, in AKI we have a code for "At risk of AKI" -->
-<!-- # we exclude that concept from our definition -->
-<!-- aki <- aki %>% -->
-<!--   filter(!(str_detect(concept_name, "At risk of"))) -->
-<!-- # save -->
-<!-- write.csv2(pancreatitis, here("codes_pancreatitis.csv")) -->
-<!-- write.csv2(aki, here("codes_AKI.csv")) -->
 </section>
 <section id="codelistgenerator-2" class="slide level2">
 <h2>CodelistGenerator</h2>
-<p>The package has good vignettes that can be very useful to understand how the package and its functions works: <a href="https://darwin-eu.github.io/CodelistGenerator/index.html" class="uri">https://darwin-eu.github.io/CodelistGenerator/index.html</a></p>
-</section>
-<section id="obtain-en-exportable-concept-set" class="slide level2">
-<h2>Obtain en exportable concept set</h2>
-<p>Then we can obtain a concept set in JSON format as:</p>
+<p>We have 57 candidates:</p>
 <div class="cell">
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource r cell-code number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a><span class="co"># library(dplyr)</span></span>
-<span id="cb5-2"><a href="#cb5-2"></a><span class="co"># conceptSet &lt;- Capr:::as.Concept(cdm$concept %&gt;% semi_join(asthma, by = "concept_id", copy = TRUE) %&gt;% collect() %&gt;% rename("conceptId" = "concept_id","conceptName"="concept_name","domainId"="domain_id","vocabularyId"="vocabulary_id","conceptClassId"="concept_class_id","standardConcept"="standard_concept","conceptCode"="concept_code","invalidReason"="invalid_reason"))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   concept_id                                           concept_name domain_id
+1      195596                                   Chronic pancreatitis condition
+2      196628                                     Mumps pancreatitis condition
+3      199074                                     Acute pancreatitis condition
+4      763030   Calculus of common bile duct with acute pancreatitis condition
+5     3654680                        Chronic infectious pancreatitis condition
+6     3655446                   Pleural effusion due to pancreatitis condition
+7     4026157                           Acute recurrent pancreatitis condition
+8     4026158                         Acute suppurative pancreatitis condition
+9     4082334                           Post-ERCP acute pancreatitis condition
+10    4088042                               Suppurative pancreatitis condition
+11    4102255                          Calcific chronic pancreatitis condition
+12    4121819                                 Relapsing pancreatitis condition
+13    4124691                                 Recurrent pancreatitis condition
+14    4125494                         Pancytopenia with pancreatitis condition
+15    4147231                                Apoplectic pancreatitis condition
+16    4185268                         Acute hemorrhagic pancreatitis condition
+17    4192249                         Chronic fibrosing pancreatitis condition
+18    4192640                                           Pancreatitis condition
+19    4194916                                Hereditary pancreatitis condition
+20    4211348           Aplastic anemia associated with pancreatitis condition
+21    4241838                                 Metabolic pancreatitis condition
+22    4243504                                  Subacute pancreatitis condition
+23    4262809      Subcutaneous nodular fat necrosis in pancreatitis condition
+24    4262937                              Interstitial pancreatitis condition
+25    4303234                         Acute necrotizing pancreatitis condition
+26    4309439                                Infectious pancreatitis condition
+27    4319446                                 Gallstone pancreatitis condition
+28    4337316                                  Painless pancreatitis condition
+29    4340493                     Alcohol-induced acute pancreatitis condition
+30    4340494                       Postoperative acute pancreatitis condition
+31    4340495                           Traumatic acute pancreatitis condition
+32    4340496                        Idiopathic chronic pancreatitis condition
+33    4340960                          Idiopathic acute pancreatitis condition
+34    4340961                        Drug-induced acute pancreatitis condition
+35    4340962                           Cytomegaloviral pancreatitis condition
+36    4340963                         Gallstone chronic pancreatitis condition
+37    4340964                   Alcohol-induced chronic pancreatitis condition
+38    4341073                      Drug-induced chronic pancreatitis condition
+39    4341074                          Familial chronic pancreatitis condition
+40    4341763                           Gallstone acute pancreatitis condition
+41    4341764                    Acute pancreatitis due to infection condition
+42    4341765                               Viral acute pancreatitis condition
+43    4342865                            Familial acute pancreatitis condition
+44    4342866                       Obstructive chronic pancreatitis condition
+45   35624505 Chronic pancreatitis due to acute alcohol intoxication condition
+46   36675120                Follicular cholangitis and pancreatitis condition
+47   36715932                          Acute on chronic pancreatitis condition
+48   36716513        Pancreatitis due to pancreatic duct obstruction condition
+49   36716714                                    Groove pancreatitis condition
+50   36716715                         Autoimmune pancreatitis type 1 condition
+51   37110323                 Tropical calcific chronic pancreatitis condition
+52   40483827                           Alcohol-induced pancreatitis condition
+53   40490446                                Autoimmune pancreatitis condition
+54   44806251                             Biliary acute pancreatitis condition
+55   45757494         Chronic pancreatitis due to chronic alcoholism condition
+56   46274136    Acute pancreatitis due to common bile duct calculus condition
+57    4164003                       Inflammation of ampulla of Vater condition
+   concept_class_id vocabulary_id          found_from
+1  clinical finding        snomed From initial search
+2  clinical finding        snomed From initial search
+3  clinical finding        snomed From initial search
+4  clinical finding        snomed From initial search
+5  clinical finding        snomed From initial search
+6  clinical finding        snomed From initial search
+7  clinical finding        snomed From initial search
+8  clinical finding        snomed From initial search
+9  clinical finding        snomed From initial search
+10 clinical finding        snomed From initial search
+11 clinical finding        snomed From initial search
+12 clinical finding        snomed From initial search
+13 clinical finding        snomed From initial search
+14 clinical finding        snomed From initial search
+15 clinical finding        snomed From initial search
+16 clinical finding        snomed From initial search
+17 clinical finding        snomed From initial search
+18 clinical finding        snomed From initial search
+19 clinical finding        snomed From initial search
+20 clinical finding        snomed From initial search
+21 clinical finding        snomed From initial search
+22 clinical finding        snomed From initial search
+23 clinical finding        snomed From initial search
+24 clinical finding        snomed From initial search
+25 clinical finding        snomed From initial search
+26 clinical finding        snomed From initial search
+27 clinical finding        snomed From initial search
+28 clinical finding        snomed From initial search
+29 clinical finding        snomed From initial search
+30 clinical finding        snomed From initial search
+31 clinical finding        snomed From initial search
+32 clinical finding        snomed From initial search
+33 clinical finding        snomed From initial search
+34 clinical finding        snomed From initial search
+35 clinical finding        snomed From initial search
+36 clinical finding        snomed From initial search
+37 clinical finding        snomed From initial search
+38 clinical finding        snomed From initial search
+39 clinical finding        snomed From initial search
+40 clinical finding        snomed From initial search
+41 clinical finding        snomed From initial search
+42 clinical finding        snomed From initial search
+43 clinical finding        snomed From initial search
+44 clinical finding        snomed From initial search
+45 clinical finding        snomed From initial search
+46 clinical finding        snomed From initial search
+47 clinical finding        snomed From initial search
+48 clinical finding        snomed From initial search
+49 clinical finding        snomed From initial search
+50 clinical finding        snomed From initial search
+51 clinical finding        snomed From initial search
+52 clinical finding        snomed From initial search
+53 clinical finding        snomed From initial search
+54 clinical finding        snomed From initial search
+55 clinical finding        snomed From initial search
+56 clinical finding        snomed From initial search
+57 clinical finding        snomed    From descendants</code></pre>
 </div>
-<p>This is going to be implemented in an easier way in the CodelistGenerator</p>
-<p>as.Concept(x)</p>
+</div>
+</section>
+<section id="validation" class="slide level2">
+<h2>Validation</h2>
+<p>This is just a preliminary list. At this stage we must review the concept list and together with some experts decide which concepts we want to exclude. In our case we decided to exclude 5 concepts:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>   concept_id                     concept_name
+19    4194916          Hereditary pancreatitis
+31    4340495     Traumatic acute pancreatitis
+39    4341074    Familial chronic pancreatitis
+43    4342865      Familial acute pancreatitis
+57    4164003 Inflammation of ampulla of Vater</code></pre>
+</div>
+</div>
+</section>
+<section id="validation-1" class="slide level2">
+<h2>Validation</h2>
+<p>We can update our concept list:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1"></a>concept_set_pancratitis <span class="ot">&lt;-</span> preliminary_concept_list[<span class="sc">-</span><span class="fu">c</span>(<span class="dv">19</span>,<span class="dv">31</span>,<span class="dv">39</span>,<span class="dv">43</span>,<span class="dv">57</span>),]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We can create an exportable json file and save it:</p>
+<div class="cell">
+
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1"></a>concept_set_json_pancratitis <span class="ot">&lt;-</span> <span class="fu">getJsonFileFromConceptList</span>(concept_set_pancratitis, cdm)</span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="fu">writeChar</span>(concept_set_json_pancratitis, <span class="at">file =</span> here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"data"</span>, <span class="st">"concept_set_pancreatitis.json"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="concept-set-1" class="slide level2">
+<h2>Concept set</h2>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>{
+  "items": [{
+    "concept": {
+      "CONCEPT_CLASS_ID": "Clinical Finding",
+      "CONCEPT_CODE": "838375006",
+      "CONCEPT_ID": 3654680,
+      "CONCEPT_NAME": "Chronic infectious pancreatitis",
+      "DOMAIN_ID": "Condition",
+      "INVALID_REASON": "V",
+      "INVALID_REASON_CAPTION": "Valid",
+      "STANDARD_CONCEPT": "S",
+      "STANDARD_CONCEPT_CAPTION": "Standard",
+      "VOCABULARY_ID": "SNOMED",
+      "VALID_START_DATE": "2020-07-31",
+      "VALID_END_DATE": "valid_end_date"
+    },
+    "isExcluded": false,
+    "includeDescendants": false,
+    "includeMapped": false
+  },
+{
+    "concept": {
+      "CONCEPT_CLASS_ID": "Clinical Finding",
+      "CONCEPT_CODE": "235952002",
+      "CONCEPT_ID": 4340964,
+      "CONCEPT_NAME": "Alcohol-induced chronic pancreatitis",
+      "DOMAIN_ID": "Condition",
+      "INVALID_REASON": "V",
+      "INVALID_REASON_CAPTION": "Valid",
+      "STANDARD_CONCEPT": "S",
+      "STANDARD_CONCEPT_CAPTION": "Standard",
+      "VOCABULARY_ID": "SNOMED",
+      "VALID_START_DATE": "2002-01-31",
+      "VALID_END_DATE": "valid_end_date"
+    },
+    "isExcluded": false,
+    "includeDescendants": false,
+    "includeMapped": false
+  },
+{
+    "concept": {
+      "CONCEPT_CLASS_ID": "Clinical Finding",
+      "CONCEPT_CODE": "235953007",
+      "CONCEPT_ID": 4340496,
+      "CONCEPT_NAME": "Idiopathic chronic pancreatitis",
+      "DOMAIN_ID": "Condition",
+      "INVALID_REASON": "V",
+      "INVALID_REASON_CAPTION": "Valid",
+      "STANDARD_CONCEPT": "S",
+      "STANDARD_CONCEPT_CAPTION": "Standard",
+      "VOCABULARY_ID": "SNOMED",
+      "VALID_START_DATE": "2002-01-31",
+      "VALID_END_DATE": "valid_end_date"
+    },
+    "isExcluded": false,
+    "includeDescendants": false,
+    "includeMapped": false
+  },
+{
+    "concept": {
+      "CONCEPT_CLASS_ID": "Clinical Finding",
+      "CONCEPT_CODE": "771446000",
+      "CONCEPT_ID": 36675120,
+      "CONCEPT_NAME": "Follicular cholangitis and pancreatitis",
+      "DOMAIN_ID": "Condition",
+      "INVALID_REASON": "V",
+      "INVALID_REASON_CAPTION": "Valid",
+      "STANDARD_CONCEPT": "S",
+      "STANDARD_CONCEPT_CAPTION": "Standard",
+      "VOCABULARY_ID": "SNOMED",
+      "VALID_START_DATE": "2019-01-31",
+      "VALID_END_DATE": "valid_end_date"
+    },
+    "isExcluded": false,
+    "includeDescendants": false,
+    "includeMapped": false
+  },
+{
+    "concept": {
+      "CONCEPT_CLASS_ID": "Clinical Finding",
+      "CONCEPT_CODE": "4399003",
+      "CONCEPT_ID": 4185268,
+      "CONCEPT_NAME": "Acute hemorrhagic pancreatitis",
+      "DOMAIN_ID": "Condition",
+      "INVALID_REASON": "V",
+      "INVALID_REASON_CAPTION": "Valid",
+      "STANDARD_CONCEPT": "S",
+      "STANDARD_CONCEPT_CAPTION": "Standard",
+      "VOCABULARY_ID": "SNOMED",
+      "VALID_START_DATE": "2002-01-31",
+      "VALID_END_DATE": "valid_end_date"
+    },
+    "isExcluded": false,
+    "includeDescendants": false,
+    "includeMapped": false
+  },
+{
+    "concept": {
+      "CONCEPT_CLASS_ID": "Clinical Finding",
+      "CONCEPT_CODE": "74973004",
+      "CONCEPT_ID": 4192249,
+      "CONCEPT_NAME": "Chronic fibrosing pancreatitis",
+      "DOMAIN_ID": "Condition",
+      "INVALID_REASON": "V",
+      "INVALID_REASON_CAPTION": "Valid",
+      "STANDARD_CONCEPT": "S",
+      "STANDARD_CONCEPT_CAPTION": "Standard",
+      "VOCABULARY_ID": "SNOMED",
+      "VALID_START_DATE": "2002-01-31",
+      "VALID_END_DATE": "valid_end_date"
+    },
+    "isExcluded": false,
+    "includeDescendants": false,
+    "includeMapped": false
+  },
+{
+    "concept": {
+      "CONCEPT_CLASS_ID": "Clinical Finding",
+      "CONCEPT_CODE": "277537008",
+      "CONCEPT_ID": 4082334,
+      "CONCEPT_NAME": "Post-ERCP acute pancreatitis",
+      "DOMAIN_ID": "Condition",
+      "INVALID_REASON": "V",
+      "INVALID_REASON_CAPTION": "Valid",
+      "STANDARD_CONCEPT": "S",
+      "STANDARD_CONCEPT_CAPTION": "Standard",
+      "VOCABULARY_ID": "SNOMED",
+      "VALID_START_DATE": "2002-01-31",
+      "VALID_END_DATE": "valid_end_date"
+    },
+    "isExcluded": false,
+    "includeDescendants": false,
+    "includeMapped": false
+  },
+{
+    "concept": {
+      "CONCEPT_CLASS_ID": "Clinical Finding",
+      "CONCEPT_CODE": "24407009",
+      "CONCEPT_ID": 4088042,
+      "CONCEPT_NAME": "Suppurative pancreatitis",
+      "DOMAIN_ID": "Condition",
+      "INVALID_REASON": "V",
+      "INVALID_REASON_CAPTION": "Valid",
+      "STANDARD_CONCEPT": "S",
+      "STANDARD_CONCEPT_CAPTION": "Standard",
+      "VOCABULARY_ID": "SNOMED",
+      "VALID_START_DATE": "2002-01-31",
+      "VALID_END_DATE": "valid_end_date"
+    },
+    "isExcluded": false,
+    "includeDescendants": false,
+    "includeMapped": false
+  },
+{
+    "concept": {
+      "CONCEPT_CLASS_ID": "Clinical Finding",
+      "CONCEPT_CODE": "197460005",
+      "CONCEPT_ID": 4026158,
+      "CONCEPT_NAME": "Acute suppurative pancreatitis",
+      "DOMAIN_ID": "Condition",
+      "INVALID_REASON": "V",
+      "INVALID_REASON_CAPTION": "Valid",
+      "STANDARD_CONCEPT": "S",
+      "STANDARD_CONCEPT_CAPTION": "Standard",
+      "VOCABULARY_ID": "SNOMED",
+      "VALID_START_DATE": "2002-01-31",
+      "VALID_END_DATE": "valid_end_date"
+    },
+    "isExcluded": false,
+    "includeDescendants": false,
+    "includeMapped": false
+  },
+{
+    "concept": {
+      "CONCEPT_CLASS_ID": "Clinical Finding",
+      "CONCEPT_CODE": "435211000124107",
+      "CONCEPT_ID": 763030,
+      "CONCEPT_NAME": "Calculus of common bile duct with acute pancreatitis",
+      "DOMAIN_ID": "Condition",
+      "INVALID_REASON": "V",
+      "INVALID_REASON_CAPTION": "Valid",
+      "STANDARD_CONCEPT": "S",
+      "STANDARD_CONCEPT_CAPTION": "Standard",
+      "VOCABULARY_ID": "SNOMED",
+      "VALID_START_DATE": "2013-09-01",
+      "VALID_END_DATE": "valid_end_date"
+    },
+    "isExcluded": false,
+    "includeDescendants": false,
+    "includeMapped": false
+  },
+{
+    "concept": {
+      "CONCEPT_CLASS_ID": "Clinical Finding",
+      "CONCEPT_CODE": "235943006",
+      "CONCEPT_ID": 4340960,
+      "CONCEPT_NAME": "Idiopathic acute pancreatitis",
+      "DOMAIN_ID": "Condition",
+      "INVALID_REASON": "V",
+      "INVALID_REASON_CAPTION": "Valid",
+      "STANDARD_CONCEPT": "S",
+      "STANDARD_CONCEPT_CAPTION": "Standard",
+      "VOCABULARY_ID": "SNOMED",
+      "VALID_START_DATE": "2002-01-31",
+      "VALID_END_DATE": "valid_end_date"
+    },
+    "isExcluded": false,
+    "includeDescendants": false,
+    "includeMapped": false
+  },
+{
+    "concept": {
+      "CONCEPT_CLASS_ID": "Clinical Finding",
+      "CONCEPT_CODE": "7881005",
+      "CONCEPT_ID": 4303234,
+      "CONCEPT_NAME": "Acute necrotizing pancreatitis",
+      "DOMAIN_ID": "Condition",
+      "INVALID_REASON": "V",
+      "INVALID_REASON_CAPTION": "Valid",
+      "STANDARD_CONCEPT": "S",
+      "STANDARD_CONCEPT_CAPTION": "Standard",
+      "VOCABULARY_ID": "SNOMED",
+      "VALID_START_DATE": "2002-01-31",
+      "VALID_END_DATE": "valid_end_date"
+    },
+    "isExcluded": false,
+    "includeDescendants": false,
+    "includeMapped": false
+  },
+{
+    "concept": {
+      "CONCEPT_CLASS_ID": "Clinical Finding",
+      "CONCEPT_CODE": "44636008",
+      "CONCEPT_ID": 4262937,
+      "CONCEPT_NAME": "Interstitial pancreatitis",
+      "DOMAIN_ID": "Condition",
+      "INVALID_REASON": "V",
+      "INVALID_REASON_CAPTION": "Valid",
+      "STANDARD_CONCEPT": "S",
+      "STANDARD_CONCEPT_CAPTION": "Standard",
+      "VOCABULARY_ID": "SNOMED",
+      "VALID_START_DATE": "2002-01-31",
+      "VALID_END_DATE": "valid_end_date"
+    },
+    "isExcluded": false,
+    "includeDescendants": false,
+    "includeMapped": false
+  },
+{
+    "concept": {
+      "CONCEPT_CLASS_ID": "Clinical Finding",
+      "CONCEPT_CODE": "724540009",
+      "CONCEPT_ID": 37110323,
+      "CONCEPT_NAME": "Tropical calcific chronic pancreatitis",
+      "DOMAIN_ID": "Condition",
+      "INVALID_REASON": "V",
+      "INVALID_REASON_CAPTION": "Valid",
+      "STANDARD_CONCEPT": "S",
+      "STANDARD_CONCEPT_CAPTION": "Standard",
+      "VOCABULARY_ID": "SNOMED",
+      "VALID_START_DATE": "2017-07-31",
+      "VALID_END_DATE": "valid_end_date"
+    },
+    "isExcluded": false,
+    "includeDescendants": false,
+    "includeMapped": false
+  },
+{
+    "concept": {
+      "CONCEPT_CLASS_ID": "Clinical Finding",
+      "CONCEPT_CODE": "235947007",
+      "CONCEPT_ID": 4340962,
+      "CONCEPT_NAME": "Cytomegaloviral pancreatitis",
+      "DOMAIN_ID": "Condition",
+      "INVALID_REASON": "V",
+      "INVALID_REASON_CAPTION": "Valid",
+      "STANDARD_CONCEPT": "S",
+      "STANDARD_CONCEPT_CAPTION": "Standard",
+      "VOCABULARY_ID": "SNOMED",
+      "VALID_START_DATE": "2002-01-31",
+      "VALID_END_DATE": "valid_end_date"
+    },
+    "isExcluded": false,
+    "includeDescendants": false,
+    "includeMapped": false
+  },
+{
+    "concept": {
+      "CONCEPT_CLASS_ID": "Clinical Finding",
+      "CONCEPT_CODE": "197456007",
+      "CONCEPT_ID": 199074,
+      "CONCEPT_NAME": "Acute pancreatitis",
+      "DOMAIN_ID": "Condition",
+      "INVALID_REASON": "V",
+      "INVALID_REASON_CAPTION": "Valid",
+      "STANDARD_CONCEPT": "S",
+      "STANDARD_CONCEPT_CAPTION": "Standard",
+      "VOCABULARY_ID": "SNOMED",
+      "VALID_START_DATE": "2002-01-31",
+      "VALID_END_DATE": "valid_end_date"
+    },
+    "isExcluded": false,
+    "includeDescendants": false,
+    "includeMapped": false
+  },
+{
+    "concept": {
+      "CONCEPT_CLASS_ID": "Clinical Finding",
+      "CONCEPT_CODE": "721724009",
+      "CONCEPT_ID": 36715932,
+      "CONCEPT_NAME": "Acute on chronic pancreatitis",
+      "DOMAIN_ID": "Condition",
+      "INVALID_REASON": "V",
+      "INVALID_REASON_CAPTION": "Valid",
+      "STANDARD_CONCEPT": "S",
+      "STANDARD_CONCEPT_CAPTION": "Standard",
+      "VOCABULARY_ID": "SNOMED",
+      "VALID_START_DATE": "2017-01-31",
+      "VALID_END_DATE": "valid_end_date"
+    },
+    "isExcluded": false,
+    "includeDescendants": false,
+    "includeMapped": false
+  },
+{
+    "concept": {
+      "CONCEPT_CLASS_ID": "Clinical Finding",
+      "CONCEPT_CODE": "233870001",
+      "CONCEPT_ID": 4124691,
+      "CONCEPT_NAME": "Recurrent pancreatitis",
+      "DOMAIN_ID": "Condition",
+      "INVALID_REASON": "V",
+      "INVALID_REASON_CAPTION": "Valid",
+      "STANDARD_CONCEPT": "S",
+      "STANDARD_CONCEPT_CAPTION": "Standard",
+      "VOCABULARY_ID": "SNOMED",
+      "VALID_START_DATE": "2002-01-31",
+      "VALID_END_DATE": "valid_end_date"
+    },
+    "isExcluded": false,
+    "includeDescendants": false,
+    "includeMapped": false
+  },
+{
+    "concept": {
+      "CONCEPT_CLASS_ID": "Clinical Finding",
+      "CONCEPT_CODE": "722871007",
+      "CONCEPT_ID": 36716714,
+      "CONCEPT_NAME": "Groove pancreatitis",
+      "DOMAIN_ID": "Condition",
+      "INVALID_REASON": "V",
+      "INVALID_REASON_CAPTION": "Valid",
+      "STANDARD_CONCEPT": "S",
+      "STANDARD_CONCEPT_CAPTION": "Standard",
+      "VOCABULARY_ID": "SNOMED",
+      "VALID_START_DATE": "2017-01-31",
+      "VALID_END_DATE": "valid_end_date"
+    },
+    "isExcluded": false,
+    "includeDescendants": false,
+    "includeMapped": false
+  },
+{
+    "concept": {
+      "CONCEPT_CLASS_ID": "Clinical Finding",
+      "CONCEPT_CODE": "722544004",
+      "CONCEPT_ID": 36716513,
+      "CONCEPT_NAME": "Pancreatitis due to pancreatic duct obstruction",
+      "DOMAIN_ID": "Condition",
+      "INVALID_REASON": "V",
+      "INVALID_REASON_CAPTION": "Valid",
+      "STANDARD_CONCEPT": "S",
+      "STANDARD_CONCEPT_CAPTION": "Standard",
+      "VOCABULARY_ID": "SNOMED",
+      "VALID_START_DATE": "2017-01-31",
+      "VALID_END_DATE": "valid_end_date"
+    },
+    "isExcluded": false,
+    "includeDescendants": false,
+    "includeMapped": false
+  },
+{
+    "concept": {
+      "CONCEPT_CLASS_ID": "Clinical Finding",
+      "CONCEPT_CODE": "235944000",
+      "CONCEPT_ID": 4340961,
+      "CONCEPT_NAME": "Drug-induced acute pancreatitis",
+      "DOMAIN_ID": "Condition",
+      "INVALID_REASON": "V",
+      "INVALID_REASON_CAPTION": "Valid",
+      "STANDARD_CONCEPT": "S",
+      "STANDARD_CONCEPT_CAPTION": "Standard",
+      "VOCABULARY_ID": "SNOMED",
+      "VALID_START_DATE": "2002-01-31",
+      "VALID_END_DATE": "valid_end_date"
+    },
+    "isExcluded": false,
+    "includeDescendants": false,
+    "includeMapped": false
+  },
+{
+    "concept": {
+      "CONCEPT_CLASS_ID": "Clinical Finding",
+      "CONCEPT_CODE": "95563007",
+      "CONCEPT_ID": 4319446,
+      "CONCEPT_NAME": "Gallstone pancreatitis",
+      "DOMAIN_ID": "Condition",
+      "INVALID_REASON": "V",
+      "INVALID_REASON_CAPTION": "Valid",
+      "STANDARD_CONCEPT": "S",
+      "STANDARD_CONCEPT_CAPTION": "Standard",
+      "VOCABULARY_ID": "SNOMED",
+      "VALID_START_DATE": "2002-01-31",
+      "VALID_END_DATE": "valid_end_date"
+    },
+    "isExcluded": false,
+    "includeDescendants": false,
+    "includeMapped": false
+  },
+{
+    "concept": {
+      "CONCEPT_CLASS_ID": "Clinical Finding",
+      "CONCEPT_CODE": "59154002",
+      "CONCEPT_ID": 4243504,
+      "CONCEPT_NAME": "Subacute pancreatitis",
+      "DOMAIN_ID": "Condition",
+      "INVALID_REASON": "V",
+      "INVALID_REASON_CAPTION": "Valid",
+      "STANDARD_CONCEPT": "S",
+      "STANDARD_CONCEPT_CAPTION": "Standard",
+      "VOCABULARY_ID": "SNOMED",
+      "VALID_START_DATE": "2002-01-31",
+      "VALID_END_DATE": "valid_end_date"
+    },
+    "isExcluded": false,
+    "includeDescendants": false,
+    "includeMapped": false
+  },
+{
+    "concept": {
+      "CONCEPT_CLASS_ID": "Clinical Finding",
+      "CONCEPT_CODE": "413566007",
+      "CONCEPT_ID": 4211348,
+      "CONCEPT_NAME": "Aplastic anemia associated with pancreatitis",
+      "DOMAIN_ID": "Condition",
+      "INVALID_REASON": "V",
+      "INVALID_REASON_CAPTION": "Valid",
+      "STANDARD_CONCEPT": "S",
+      "STANDARD_CONCEPT_CAPTION": "Standard",
+      "VOCABULARY_ID": "SNOMED",
+      "VALID_START_DATE": "2005-01-31",
+      "VALID_END_DATE": "valid_end_date"
+    },
+    "isExcluded": false,
+    "includeDescendants": false,
+    "includeMapped": false
+  },
+{
+    "concept": {
+      "CONCEPT_CLASS_ID": "Clinical Finding",
+      "CONCEPT_CODE": "301009006",
+      "CONCEPT_ID": 4102255,
+      "CONCEPT_NAME": "Calcific chronic pancreatitis",
+      "DOMAIN_ID": "Condition",
+      "INVALID_REASON": "V",
+      "INVALID_REASON_CAPTION": "Valid",
+      "STANDARD_CONCEPT": "S",
+      "STANDARD_CONCEPT_CAPTION": "Standard",
+      "VOCABULARY_ID": "SNOMED",
+      "VALID_START_DATE": "2002-01-31",
+      "VALID_END_DATE": "valid_end_date"
+    },
+    "isExcluded": false,
+    "includeDescendants": false,
+    "includeMapped": false
+  },
+{
+    "concept": {
+      "CONCEPT_CLASS_ID": "Clinical Finding",
+      "CONCEPT_CODE": "722872000",
+      "CONCEPT_ID": 36716715,
+      "CONCEPT_NAME": "Autoimmune pancreatitis type 1",
+      "DOMAIN_ID": "Condition",
+      "INVALID_REASON": "V",
+      "INVALID_REASON_CAPTION": "Valid",
+      "STANDARD_CONCEPT": "S",
+      "STANDARD_CONCEPT_CAPTION": "Standard",
+      "VOCABULARY_ID": "SNOMED",
+      "VALID_START_DATE": "2017-01-31",
+      "VALID_END_DATE": "valid_end_date"
+    },
+    "isExcluded": false,
+    "includeDescendants": false,
+    "includeMapped": false
+  },
+{
+    "concept": {
+      "CONCEPT_CLASS_ID": "Clinical Finding",
+      "CONCEPT_CODE": "235954001",
+      "CONCEPT_ID": 4342866,
+      "CONCEPT_NAME": "Obstructive chronic pancreatitis",
+      "DOMAIN_ID": "Condition",
+      "INVALID_REASON": "V",
+      "INVALID_REASON_CAPTION": "Valid",
+      "STANDARD_CONCEPT": "S",
+      "STANDARD_CONCEPT_CAPTION": "Standard",
+      "VOCABULARY_ID": "SNOMED",
+      "VALID_START_DATE": "2002-01-31",
+      "VALID_END_DATE": "valid_end_date"
+    },
+    "isExcluded": false,
+    "includeDescendants": false,
+    "includeMapped": false
+  },
+{
+    "concept": {
+      "CONCEPT_CLASS_ID": "Clinical Finding",
+      "CONCEPT_CODE": "235946003",
+      "CONCEPT_ID": 4341765,
+      "CONCEPT_NAME": "Viral acute pancreatitis",
+      "DOMAIN_ID": "Condition",
+      "INVALID_REASON": "V",
+      "INVALID_REASON_CAPTION": "Valid",
+      "STANDARD_CONCEPT": "S",
+      "STANDARD_CONCEPT_CAPTION": "Standard",
+      "VOCABULARY_ID": "SNOMED",
+      "VALID_START_DATE": "2002-01-31",
+      "VALID_END_DATE": "valid_end_date"
+    },
+    "isExcluded": false,
+    "includeDescendants": false,
+    "includeMapped": false
+  },
+{
+    "concept": {
+      "CONCEPT_CLASS_ID": "Clinical Finding",
+      "CONCEPT_CODE": "235945004",
+      "CONCEPT_ID": 4341764,
+      "CONCEPT_NAME": "Acute pancreatitis due to infection",
+      "DOMAIN_ID": "Condition",
+      "INVALID_REASON": "V",
+      "INVALID_REASON_CAPTION": "Valid",
+      "STANDARD_CONCEPT": "S",
+      "STANDARD_CONCEPT_CAPTION": "Standard",
+      "VOCABULARY_ID": "SNOMED",
+      "VALID_START_DATE": "2002-01-31",
+      "VALID_END_DATE": "valid_end_date"
+    },
+    "isExcluded": false,
+    "includeDescendants": false,
+    "includeMapped": false
+  },
+{
+    "concept": {
+      "CONCEPT_CLASS_ID": "Clinical Finding",
+      "CONCEPT_CODE": "197458008",
+      "CONCEPT_ID": 4026157,
+      "CONCEPT_NAME": "Acute recurrent pancreatitis",
+      "DOMAIN_ID": "Condition",
+      "INVALID_REASON": "V",
+      "INVALID_REASON_CAPTION": "Valid",
+      "STANDARD_CONCEPT": "S",
+      "STANDARD_CONCEPT_CAPTION": "Standard",
+      "VOCABULARY_ID": "SNOMED",
+      "VALID_START_DATE": "2002-01-31",
+      "VALID_END_DATE": "valid_end_date"
+    },
+    "isExcluded": false,
+    "includeDescendants": false,
+    "includeMapped": false
+  },
+{
+    "concept": {
+      "CONCEPT_CLASS_ID": "Clinical Finding",
+      "CONCEPT_CODE": "234689009",
+      "CONCEPT_ID": 4121819,
+      "CONCEPT_NAME": "Relapsing pancreatitis",
+      "DOMAIN_ID": "Condition",
+      "INVALID_REASON": "V",
+      "INVALID_REASON_CAPTION": "Valid",
+      "STANDARD_CONCEPT": "S",
+      "STANDARD_CONCEPT_CAPTION": "Standard",
+      "VOCABULARY_ID": "SNOMED",
+      "VALID_START_DATE": "2002-01-31",
+      "VALID_END_DATE": "valid_end_date"
+    },
+    "isExcluded": false,
+    "includeDescendants": false,
+    "includeMapped": false
+  },
+{
+    "concept": {
+      "CONCEPT_CLASS_ID": "Clinical Finding",
+      "CONCEPT_CODE": "235948002",
+      "CONCEPT_ID": 4340494,
+      "CONCEPT_NAME": "Postoperative acute pancreatitis",
+      "DOMAIN_ID": "Condition",
+      "INVALID_REASON": "V",
+      "INVALID_REASON_CAPTION": "Valid",
+      "STANDARD_CONCEPT": "S",
+      "STANDARD_CONCEPT_CAPTION": "Standard",
+      "VOCABULARY_ID": "SNOMED",
+      "VALID_START_DATE": "2002-01-31",
+      "VALID_END_DATE": "valid_end_date"
+    },
+    "isExcluded": false,
+    "includeDescendants": false,
+    "includeMapped": false
+  },
+{
+    "concept": {
+      "CONCEPT_CLASS_ID": "Clinical Finding",
+      "CONCEPT_CODE": "448542008",
+      "CONCEPT_ID": 40490446,
+      "CONCEPT_NAME": "Autoimmune pancreatitis",
+      "DOMAIN_ID": "Condition",
+      "INVALID_REASON": "V",
+      "INVALID_REASON_CAPTION": "Valid",
+      "STANDARD_CONCEPT": "S",
+      "STANDARD_CONCEPT_CAPTION": "Standard",
+      "VOCABULARY_ID": "SNOMED",
+      "VALID_START_DATE": "2011-07-31",
+      "VALID_END_DATE": "valid_end_date"
+    },
+    "isExcluded": false,
+    "includeDescendants": false,
+    "includeMapped": false
+  },
+{
+    "concept": {
+      "CONCEPT_CLASS_ID": "Clinical Finding",
+      "CONCEPT_CODE": "235941008",
+      "CONCEPT_ID": 4341763,
+      "CONCEPT_NAME": "Gallstone acute pancreatitis",
+      "DOMAIN_ID": "Condition",
+      "INVALID_REASON": "V",
+      "INVALID_REASON_CAPTION": "Valid",
+      "STANDARD_CONCEPT": "S",
+      "STANDARD_CONCEPT_CAPTION": "Standard",
+      "VOCABULARY_ID": "SNOMED",
+      "VALID_START_DATE": "2002-01-31",
+      "VALID_END_DATE": "valid_end_date"
+    },
+    "isExcluded": false,
+    "includeDescendants": false,
+    "includeMapped": false
+  },
+{
+    "concept": {
+      "CONCEPT_CLASS_ID": "Clinical Finding",
+      "CONCEPT_CODE": "154211000119108",
+      "CONCEPT_ID": 45757494,
+      "CONCEPT_NAME": "Chronic pancreatitis due to chronic alcoholism",
+      "DOMAIN_ID": "Condition",
+      "INVALID_REASON": "V",
+      "INVALID_REASON_CAPTION": "Valid",
+      "STANDARD_CONCEPT": "S",
+      "STANDARD_CONCEPT_CAPTION": "Standard",
+      "VOCABULARY_ID": "SNOMED",
+      "VALID_START_DATE": "2014-07-31",
+      "VALID_END_DATE": "valid_end_date"
+    },
+    "isExcluded": false,
+    "includeDescendants": false,
+    "includeMapped": false
+  },
+{
+    "concept": {
+      "CONCEPT_CLASS_ID": "Clinical Finding",
+      "CONCEPT_CODE": "235494005",
+      "CONCEPT_ID": 195596,
+      "CONCEPT_NAME": "Chronic pancreatitis",
+      "DOMAIN_ID": "Condition",
+      "INVALID_REASON": "V",
+      "INVALID_REASON_CAPTION": "Valid",
+      "STANDARD_CONCEPT": "S",
+      "STANDARD_CONCEPT_CAPTION": "Standard",
+      "VOCABULARY_ID": "SNOMED",
+      "VALID_START_DATE": "2002-01-31",
+      "VALID_END_DATE": "valid_end_date"
+    },
+    "isExcluded": false,
+    "includeDescendants": false,
+    "includeMapped": false
+  },
+{
+    "concept": {
+      "CONCEPT_CLASS_ID": "Clinical Finding",
+      "CONCEPT_CODE": "445507008",
+      "CONCEPT_ID": 40483827,
+      "CONCEPT_NAME": "Alcohol-induced pancreatitis",
+      "DOMAIN_ID": "Condition",
+      "INVALID_REASON": "V",
+      "INVALID_REASON_CAPTION": "Valid",
+      "STANDARD_CONCEPT": "S",
+      "STANDARD_CONCEPT_CAPTION": "Standard",
+      "VOCABULARY_ID": "SNOMED",
+      "VALID_START_DATE": "2010-07-31",
+      "VALID_END_DATE": "valid_end_date"
+    },
+    "isExcluded": false,
+    "includeDescendants": false,
+    "includeMapped": false
+  },
+{
+    "concept": {
+      "CONCEPT_CLASS_ID": "Clinical Finding",
+      "CONCEPT_CODE": "303002",
+      "CONCEPT_ID": 4147231,
+      "CONCEPT_NAME": "Apoplectic pancreatitis",
+      "DOMAIN_ID": "Condition",
+      "INVALID_REASON": "V",
+      "INVALID_REASON_CAPTION": "Valid",
+      "STANDARD_CONCEPT": "S",
+      "STANDARD_CONCEPT_CAPTION": "Standard",
+      "VOCABULARY_ID": "SNOMED",
+      "VALID_START_DATE": "2002-01-31",
+      "VALID_END_DATE": "valid_end_date"
+    },
+    "isExcluded": false,
+    "includeDescendants": false,
+    "includeMapped": false
+  },
+{
+    "concept": {
+      "CONCEPT_CLASS_ID": "Clinical Finding",
+      "CONCEPT_CODE": "234367000",
+      "CONCEPT_ID": 4125494,
+      "CONCEPT_NAME": "Pancytopenia with pancreatitis",
+      "DOMAIN_ID": "Condition",
+      "INVALID_REASON": "V",
+      "INVALID_REASON_CAPTION": "Valid",
+      "STANDARD_CONCEPT": "S",
+      "STANDARD_CONCEPT_CAPTION": "Standard",
+      "VOCABULARY_ID": "SNOMED",
+      "VALID_START_DATE": "2002-01-31",
+      "VALID_END_DATE": "valid_end_date"
+    },
+    "isExcluded": false,
+    "includeDescendants": false,
+    "includeMapped": false
+  },
+{
+    "concept": {
+      "CONCEPT_CLASS_ID": "Clinical Finding",
+      "CONCEPT_CODE": "46626002",
+      "CONCEPT_ID": 4262809,
+      "CONCEPT_NAME": "Subcutaneous nodular fat necrosis in pancreatitis",
+      "DOMAIN_ID": "Condition",
+      "INVALID_REASON": "V",
+      "INVALID_REASON_CAPTION": "Valid",
+      "STANDARD_CONCEPT": "S",
+      "STANDARD_CONCEPT_CAPTION": "Standard",
+      "VOCABULARY_ID": "SNOMED",
+      "VALID_START_DATE": "2002-01-31",
+      "VALID_END_DATE": "valid_end_date"
+    },
+    "isExcluded": false,
+    "includeDescendants": false,
+    "includeMapped": false
+  },
+{
+    "concept": {
+      "CONCEPT_CLASS_ID": "Clinical Finding",
+      "CONCEPT_CODE": "96081000119101",
+      "CONCEPT_ID": 46274136,
+      "CONCEPT_NAME": "Acute pancreatitis due to common bile duct calculus",
+      "DOMAIN_ID": "Condition",
+      "INVALID_REASON": "V",
+      "INVALID_REASON_CAPTION": "Valid",
+      "STANDARD_CONCEPT": "S",
+      "STANDARD_CONCEPT_CAPTION": "Standard",
+      "VOCABULARY_ID": "SNOMED",
+      "VALID_START_DATE": "2015-07-31",
+      "VALID_END_DATE": "valid_end_date"
+    },
+    "isExcluded": false,
+    "includeDescendants": false,
+    "includeMapped": false
+  },
+{
+    "concept": {
+      "CONCEPT_CLASS_ID": "Clinical Finding",
+      "CONCEPT_CODE": "39205007",
+      "CONCEPT_ID": 4309439,
+      "CONCEPT_NAME": "Infectious pancreatitis",
+      "DOMAIN_ID": "Condition",
+      "INVALID_REASON": "V",
+      "INVALID_REASON_CAPTION": "Valid",
+      "STANDARD_CONCEPT": "S",
+      "STANDARD_CONCEPT_CAPTION": "Standard",
+      "VOCABULARY_ID": "SNOMED",
+      "VALID_START_DATE": "2002-01-31",
+      "VALID_END_DATE": "valid_end_date"
+    },
+    "isExcluded": false,
+    "includeDescendants": false,
+    "includeMapped": false
+  },
+{
+    "concept": {
+      "CONCEPT_CLASS_ID": "Clinical Finding",
+      "CONCEPT_CODE": "59329007",
+      "CONCEPT_ID": 4241838,
+      "CONCEPT_NAME": "Metabolic pancreatitis",
+      "DOMAIN_ID": "Condition",
+      "INVALID_REASON": "V",
+      "INVALID_REASON_CAPTION": "Valid",
+      "STANDARD_CONCEPT": "S",
+      "STANDARD_CONCEPT_CAPTION": "Standard",
+      "VOCABULARY_ID": "SNOMED",
+      "VALID_START_DATE": "2002-01-31",
+      "VALID_END_DATE": "valid_end_date"
+    },
+    "isExcluded": false,
+    "includeDescendants": false,
+    "includeMapped": false
+  },
+{
+    "concept": {
+      "CONCEPT_CLASS_ID": "Clinical Finding",
+      "CONCEPT_CODE": "235942001",
+      "CONCEPT_ID": 4340493,
+      "CONCEPT_NAME": "Alcohol-induced acute pancreatitis",
+      "DOMAIN_ID": "Condition",
+      "INVALID_REASON": "V",
+      "INVALID_REASON_CAPTION": "Valid",
+      "STANDARD_CONCEPT": "S",
+      "STANDARD_CONCEPT_CAPTION": "Standard",
+      "VOCABULARY_ID": "SNOMED",
+      "VALID_START_DATE": "2002-01-31",
+      "VALID_END_DATE": "valid_end_date"
+    },
+    "isExcluded": false,
+    "includeDescendants": false,
+    "includeMapped": false
+  },
+{
+    "concept": {
+      "CONCEPT_CLASS_ID": "Clinical Finding",
+      "CONCEPT_CODE": "863978006",
+      "CONCEPT_ID": 3655446,
+      "CONCEPT_NAME": "Pleural effusion due to pancreatitis",
+      "DOMAIN_ID": "Condition",
+      "INVALID_REASON": "V",
+      "INVALID_REASON_CAPTION": "Valid",
+      "STANDARD_CONCEPT": "S",
+      "STANDARD_CONCEPT_CAPTION": "Standard",
+      "VOCABULARY_ID": "SNOMED",
+      "VALID_START_DATE": "2020-07-31",
+      "VALID_END_DATE": "valid_end_date"
+    },
+    "isExcluded": false,
+    "includeDescendants": false,
+    "includeMapped": false
+  },
+{
+    "concept": {
+      "CONCEPT_CLASS_ID": "Clinical Finding",
+      "CONCEPT_CODE": "75694006",
+      "CONCEPT_ID": 4192640,
+      "CONCEPT_NAME": "Pancreatitis",
+      "DOMAIN_ID": "Condition",
+      "INVALID_REASON": "V",
+      "INVALID_REASON_CAPTION": "Valid",
+      "STANDARD_CONCEPT": "S",
+      "STANDARD_CONCEPT_CAPTION": "Standard",
+      "VOCABULARY_ID": "SNOMED",
+      "VALID_START_DATE": "2002-01-31",
+      "VALID_END_DATE": "valid_end_date"
+    },
+    "isExcluded": false,
+    "includeDescendants": false,
+    "includeMapped": false
+  },
+{
+    "concept": {
+      "CONCEPT_CLASS_ID": "Clinical Finding",
+      "CONCEPT_CODE": "10665004",
+      "CONCEPT_ID": 196628,
+      "CONCEPT_NAME": "Mumps pancreatitis",
+      "DOMAIN_ID": "Condition",
+      "INVALID_REASON": "V",
+      "INVALID_REASON_CAPTION": "Valid",
+      "STANDARD_CONCEPT": "S",
+      "STANDARD_CONCEPT_CAPTION": "Standard",
+      "VOCABULARY_ID": "SNOMED",
+      "VALID_START_DATE": "2002-01-31",
+      "VALID_END_DATE": "valid_end_date"
+    },
+    "isExcluded": false,
+    "includeDescendants": false,
+    "includeMapped": false
+  },
+{
+    "concept": {
+      "CONCEPT_CLASS_ID": "Clinical Finding",
+      "CONCEPT_CODE": "233005009",
+      "CONCEPT_ID": 4337316,
+      "CONCEPT_NAME": "Painless pancreatitis",
+      "DOMAIN_ID": "Condition",
+      "INVALID_REASON": "V",
+      "INVALID_REASON_CAPTION": "Valid",
+      "STANDARD_CONCEPT": "S",
+      "STANDARD_CONCEPT_CAPTION": "Standard",
+      "VOCABULARY_ID": "SNOMED",
+      "VALID_START_DATE": "2002-01-31",
+      "VALID_END_DATE": "valid_end_date"
+    },
+    "isExcluded": false,
+    "includeDescendants": false,
+    "includeMapped": false
+  },
+{
+    "concept": {
+      "CONCEPT_CLASS_ID": "Clinical Finding",
+      "CONCEPT_CODE": "811431000000107",
+      "CONCEPT_ID": 44806251,
+      "CONCEPT_NAME": "Biliary acute pancreatitis",
+      "DOMAIN_ID": "Condition",
+      "INVALID_REASON": "V",
+      "INVALID_REASON_CAPTION": "Valid",
+      "STANDARD_CONCEPT": "S",
+      "STANDARD_CONCEPT_CAPTION": "Standard",
+      "VOCABULARY_ID": "SNOMED",
+      "VALID_START_DATE": "2012-04-01",
+      "VALID_END_DATE": "valid_end_date"
+    },
+    "isExcluded": false,
+    "includeDescendants": false,
+    "includeMapped": false
+  },
+{
+    "concept": {
+      "CONCEPT_CLASS_ID": "Clinical Finding",
+      "CONCEPT_CODE": "767291004",
+      "CONCEPT_ID": 35624505,
+      "CONCEPT_NAME": "Chronic pancreatitis due to acute alcohol intoxication",
+      "DOMAIN_ID": "Condition",
+      "INVALID_REASON": "V",
+      "INVALID_REASON_CAPTION": "Valid",
+      "STANDARD_CONCEPT": "S",
+      "STANDARD_CONCEPT_CAPTION": "Standard",
+      "VOCABULARY_ID": "SNOMED",
+      "VALID_START_DATE": "2018-07-31",
+      "VALID_END_DATE": "valid_end_date"
+    },
+    "isExcluded": false,
+    "includeDescendants": false,
+    "includeMapped": false
+  },
+{
+    "concept": {
+      "CONCEPT_CLASS_ID": "Clinical Finding",
+      "CONCEPT_CODE": "235955000",
+      "CONCEPT_ID": 4341073,
+      "CONCEPT_NAME": "Drug-induced chronic pancreatitis",
+      "DOMAIN_ID": "Condition",
+      "INVALID_REASON": "V",
+      "INVALID_REASON_CAPTION": "Valid",
+      "STANDARD_CONCEPT": "S",
+      "STANDARD_CONCEPT_CAPTION": "Standard",
+      "VOCABULARY_ID": "SNOMED",
+      "VALID_START_DATE": "2002-01-31",
+      "VALID_END_DATE": "valid_end_date"
+    },
+    "isExcluded": false,
+    "includeDescendants": false,
+    "includeMapped": false
+  },
+{
+    "concept": {
+      "CONCEPT_CLASS_ID": "Clinical Finding",
+      "CONCEPT_CODE": "235951009",
+      "CONCEPT_ID": 4340963,
+      "CONCEPT_NAME": "Gallstone chronic pancreatitis",
+      "DOMAIN_ID": "Condition",
+      "INVALID_REASON": "V",
+      "INVALID_REASON_CAPTION": "Valid",
+      "STANDARD_CONCEPT": "S",
+      "STANDARD_CONCEPT_CAPTION": "Standard",
+      "VOCABULARY_ID": "SNOMED",
+      "VALID_START_DATE": "2002-01-31",
+      "VALID_END_DATE": "valid_end_date"
+    },
+    "isExcluded": false,
+    "includeDescendants": false,
+    "includeMapped": false
+  }  ]
+}</code></pre>
+</div>
+</div>
 </section>
 <section id="lets-move-to-atlas" class="slide level2">
 <h2>Let’s move to ATLAS</h2>
 <p>Using ATLAS we can build a concept set from the data obtained from</p>
+
+<img data-src="Presentation_Theory_files/atlas.png" class="r-stretch quarto-figure-center"></section>
+<section id="we-have-a-cohort" class="slide level2">
+<h2>We have a cohort</h2>
+<p>If we instantiated it from ATLAS we can read it directly from the cohort table in results schema.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1"></a>cdm <span class="ot">&lt;-</span> <span class="fu">cdm_from_con</span>(</span>
+<span id="cb10-2"><a href="#cb10-2"></a>  cdm,</span>
+<span id="cb10-3"><a href="#cb10-3"></a>  <span class="at">cdm_schema =</span> <span class="st">"public"</span>,</span>
+<span id="cb10-4"><a href="#cb10-4"></a>  <span class="at">write_schema =</span> <span class="st">"results"</span>,</span>
+<span id="cb10-5"><a href="#cb10-5"></a>  <span class="at">cohort_tables =</span> <span class="st">"cohort"</span></span>
+<span id="cb10-6"><a href="#cb10-6"></a>)</span>
+<span id="cb10-7"><a href="#cb10-7"></a>cdm<span class="sc">$</span>cohort <span class="co"># go to ATLAS to check that numbers are correct</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+<img data-src="Presentation_Theory_files/cohort3.png" class="r-stretch quarto-figure-center"></section>
+<section id="cohortgenerator" class="slide level2">
+<h2>CohortGenerator</h2>
+<p>Or we may be interested to instantiate our cohort in a table in this case using <a href="https://github.com/OHDSI/CohortGenerator">CohortGenerator</a> package.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a><span class="co"># create empty cohort definition set</span></span>
+<span id="cb11-2"><a href="#cb11-2"></a>cohortsToCreate <span class="ot">&lt;-</span> CohortGenerator<span class="sc">::</span><span class="fu">createEmptyCohortDefinitionSet</span>()</span>
+<span id="cb11-3"><a href="#cb11-3"></a><span class="co"># read the folder that contain the JsonFiles</span></span>
+<span id="cb11-4"><a href="#cb11-4"></a>cohortJsonFiles <span class="ot">&lt;-</span> <span class="fu">list.files</span>(<span class="at">path =</span> here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"Cohorts"</span>), <span class="at">full.names =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb11-5"><a href="#cb11-5"></a><span class="co"># for each one of the cohorts we:</span></span>
+<span id="cb11-6"><a href="#cb11-6"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(cohortJsonFiles)) {</span>
+<span id="cb11-7"><a href="#cb11-7"></a>  <span class="co"># 1) obtain its name</span></span>
+<span id="cb11-8"><a href="#cb11-8"></a>  cohortJsonFileName <span class="ot">&lt;-</span> cohortJsonFiles[i]</span>
+<span id="cb11-9"><a href="#cb11-9"></a>  <span class="co"># 2) Remove the extension and previous path to the name</span></span>
+<span id="cb11-10"><a href="#cb11-10"></a>  cohortName <span class="ot">&lt;-</span> tools<span class="sc">::</span><span class="fu">file_path_sans_ext</span>(<span class="fu">basename</span>(cohortJsonFileName))</span>
+<span id="cb11-11"><a href="#cb11-11"></a>  <span class="co"># 3) Read the Json file</span></span>
+<span id="cb11-12"><a href="#cb11-12"></a>  cohortJson <span class="ot">&lt;-</span> <span class="fu">readChar</span>(cohortJsonFileName, <span class="fu">file.info</span>(cohortJsonFileName)<span class="sc">$</span>size)</span>
+<span id="cb11-13"><a href="#cb11-13"></a>  <span class="co"># 4) Convert the Json to expression</span></span>
+<span id="cb11-14"><a href="#cb11-14"></a>  cohortExpression <span class="ot">&lt;-</span> CirceR<span class="sc">::</span><span class="fu">cohortExpressionFromJson</span>(cohortJson)</span>
+<span id="cb11-15"><a href="#cb11-15"></a>  <span class="co"># 5) Convert the expression to the SQL</span></span>
+<span id="cb11-16"><a href="#cb11-16"></a>  cohortSql <span class="ot">&lt;-</span> CirceR<span class="sc">::</span><span class="fu">buildCohortQuery</span>(cohortExpression, <span class="at">options =</span> CirceR<span class="sc">::</span><span class="fu">createGenerateOptions</span>(<span class="at">generateStats =</span> <span class="cn">FALSE</span>))</span>
+<span id="cb11-17"><a href="#cb11-17"></a>  <span class="co"># 6) Append the definition to the Cohorts to create list</span></span>
+<span id="cb11-18"><a href="#cb11-18"></a>  cohortsToCreate <span class="ot">&lt;-</span> <span class="fu">rbind</span>(cohortsToCreate, <span class="fu">data.frame</span>(<span class="at">cohortId =</span> i, <span class="co"># cohort_definition_id</span></span>
+<span id="cb11-19"><a href="#cb11-19"></a>                                                       <span class="at">cohortName =</span> cohortName, <span class="co"># internal name</span></span>
+<span id="cb11-20"><a href="#cb11-20"></a>                                                       <span class="at">json =</span> cohortJson, <span class="co"># json definition of the cohort</span></span>
+<span id="cb11-21"><a href="#cb11-21"></a>                                                       <span class="at">sql =</span> cohortSql, <span class="co"># sql to execute</span></span>
+<span id="cb11-22"><a href="#cb11-22"></a>                                                       <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>))</span>
+<span id="cb11-23"><a href="#cb11-23"></a>}</span>
+<span id="cb11-24"><a href="#cb11-24"></a></span>
+<span id="cb11-25"><a href="#cb11-25"></a><span class="co"># Create the cohort tables names</span></span>
+<span id="cb11-26"><a href="#cb11-26"></a>cohortTableNames <span class="ot">&lt;-</span> CohortGenerator<span class="sc">::</span><span class="fu">getCohortTableNames</span>(<span class="at">cohortTable =</span> <span class="st">"internal_training"</span>)</span>
+<span id="cb11-27"><a href="#cb11-27"></a><span class="co"># Create the cohort tables (drops tables if exist)</span></span>
+<span id="cb11-28"><a href="#cb11-28"></a>CohortGenerator<span class="sc">::</span><span class="fu">createCohortTables</span>(<span class="at">connectionDetails =</span> connectionDetails,</span>
+<span id="cb11-29"><a href="#cb11-29"></a>                                                        <span class="at">cohortDatabaseSchema =</span> <span class="st">"public"</span>,</span>
+<span id="cb11-30"><a href="#cb11-30"></a>                                                        <span class="at">cohortTableNames =</span> cohortTableNames)</span>
+<span id="cb11-31"><a href="#cb11-31"></a><span class="co"># Generate the cohorts</span></span>
+<span id="cb11-32"><a href="#cb11-32"></a>cohortsGenerated <span class="ot">&lt;-</span> CohortGenerator<span class="sc">::</span><span class="fu">generateCohortSet</span>(<span class="at">connectionDetails =</span> connectionDetails,</span>
+<span id="cb11-33"><a href="#cb11-33"></a>                                                       <span class="at">cdmDatabaseSchema =</span> <span class="st">"public"</span>,</span>
+<span id="cb11-34"><a href="#cb11-34"></a>                                                       <span class="at">cohortDatabaseSchema =</span> <span class="st">"results"</span>,</span>
+<span id="cb11-35"><a href="#cb11-35"></a>                                                       <span class="at">cohortTableNames =</span> cohortTableNames,</span>
+<span id="cb11-36"><a href="#cb11-36"></a>                                                       <span class="at">cohortDefinitionSet =</span> cohortsToCreate)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="cohortgenerator-1" class="slide level2">
+<h2>CohortGenerator</h2>
+<p>Now we can read the cohorts that we have generated and see that the results are the same that we had on ATLAS:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1"></a>cdm <span class="ot">&lt;-</span> <span class="fu">cdm_from_con</span>(</span>
+<span id="cb12-2"><a href="#cb12-2"></a>  db,</span>
+<span id="cb12-3"><a href="#cb12-3"></a>  <span class="at">cdm_schema =</span> <span class="st">"public"</span>,</span>
+<span id="cb12-4"><a href="#cb12-4"></a>  <span class="at">write_schema =</span> <span class="st">"results"</span>,</span>
+<span id="cb12-5"><a href="#cb12-5"></a>  <span class="at">cohort_tables =</span> <span class="st">"internal_training"</span></span>
+<span id="cb12-6"><a href="#cb12-6"></a>)</span>
+<span id="cb12-7"><a href="#cb12-7"></a>cdm<span class="sc">$</span>internal_training <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(cohort_definition_id) <span class="sc">%&gt;%</span> <span class="fu">tally</span>() <span class="sc">%&gt;%</span> <span class="fu">collect</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 2
+  cohort_definition_id     n
+                 &lt;dbl&gt; &lt;dbl&gt;
+1                    1  3047
+2                    2 36059</code></pre>
+</div>
+</div>
+</section>
+<section id="cohortdiagnostics" class="slide level2">
+<h2>CohortDiagnostics</h2>
+<p>When we have a cohort a way to evaluate it, validate, see if the results are the expected and more is <a href="https://github.com/OHDSI/CohortDiagnostics/">CohortDiagnostics</a>.</p>
+<p>CohortDiagnostics is:</p>
+<ul>
+<li><p>Easy to execute.</p></li>
+<li><p>Very slow (~hours in COVID AURUM, 2 days in GOLD 3/4 days in AURUM).</p></li>
+<li><p>“Easy?” to share.</p></li>
+</ul>
+</section>
+<section id="cohortdiagnostics-1" class="slide level2">
+<h2>CohortDiagnostics</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="fu">library</span>(CohortDiagnostics)</span>
+<span id="cb14-2"><a href="#cb14-2"></a></span>
+<span id="cb14-3"><a href="#cb14-3"></a><span class="fu">executeDiagnostics</span>(</span>
+<span id="cb14-4"><a href="#cb14-4"></a>  <span class="at">cohortDefinitionSet =</span> cohortsToCreate,</span>
+<span id="cb14-5"><a href="#cb14-5"></a>  <span class="at">exportFolder =</span> <span class="st">"export"</span>,</span>
+<span id="cb14-6"><a href="#cb14-6"></a>  <span class="at">cohortTableNames =</span> cohortTableNames,</span>
+<span id="cb14-7"><a href="#cb14-7"></a>  <span class="at">cohortDatabaseSchema =</span> <span class="st">"results"</span>,</span>
+<span id="cb14-8"><a href="#cb14-8"></a>  <span class="at">cdmDatabaseSchema =</span> <span class="st">"public"</span>,</span>
+<span id="cb14-9"><a href="#cb14-9"></a>  <span class="at">databaseId =</span> <span class="st">"SUBSET_AURUM"</span>,</span>
+<span id="cb14-10"><a href="#cb14-10"></a>  <span class="at">connectionDetails =</span> connectionDetails</span>
+<span id="cb14-11"><a href="#cb14-11"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<h3 id="show-cohort-diagnostics-results.">Show cohort diagnostics results.</h3>
+</section>
+<section id="incidenceprevalence" class="slide level2">
+<h2>IncidencePrevalence</h2>
+<p>Let’s say that we are happy with the results.</p>
+<p>We want to compute the incidence and point prevalence of this two outcomes (cohorts).</p>
+<p>IncidencePrevalence package: <a href="https://github.com/darwin-eu/IncidencePrevalence/" class="uri">https://github.com/darwin-eu/IncidencePrevalence/</a>.</p>
+</section>
+<section id="incidenceprevalence-1" class="slide level2">
+<h2>IncidencePrevalence</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>server_dbi <span class="ot">&lt;-</span> <span class="fu">Sys.getenv</span>(<span class="st">"DB_SERVER_DBI_gold_202007"</span>)</span>
+<span id="cb15-2"><a href="#cb15-2"></a>user       <span class="ot">&lt;-</span> <span class="fu">Sys.getenv</span>(<span class="st">"DB_USER"</span>)</span>
+<span id="cb15-3"><a href="#cb15-3"></a>password   <span class="ot">&lt;-</span> <span class="fu">Sys.getenv</span>(<span class="st">"DB_PASSWORD"</span>)</span>
+<span id="cb15-4"><a href="#cb15-4"></a>port       <span class="ot">&lt;-</span> <span class="fu">Sys.getenv</span>(<span class="st">"DB_PORT"</span>) </span>
+<span id="cb15-5"><a href="#cb15-5"></a>host       <span class="ot">&lt;-</span> <span class="fu">Sys.getenv</span>(<span class="st">"DB_HOST"</span>) </span>
+<span id="cb15-6"><a href="#cb15-6"></a>db <span class="ot">&lt;-</span> DBI<span class="sc">::</span><span class="fu">dbConnect</span>(</span>
+<span id="cb15-7"><a href="#cb15-7"></a>  RPostgres<span class="sc">::</span><span class="fu">Postgres</span>(),</span>
+<span id="cb15-8"><a href="#cb15-8"></a>  <span class="at">dbname =</span> server_dbi,</span>
+<span id="cb15-9"><a href="#cb15-9"></a>  <span class="at">port =</span> port,</span>
+<span id="cb15-10"><a href="#cb15-10"></a>  <span class="at">host =</span> host,</span>
+<span id="cb15-11"><a href="#cb15-11"></a>  <span class="at">user =</span> user,</span>
+<span id="cb15-12"><a href="#cb15-12"></a>  <span class="at">password =</span> password</span>
+<span id="cb15-13"><a href="#cb15-13"></a>)</span>
+<span id="cb15-14"><a href="#cb15-14"></a></span>
+<span id="cb15-15"><a href="#cb15-15"></a>cdm <span class="ot">&lt;-</span> <span class="fu">cdm_from_con</span>(</span>
+<span id="cb15-16"><a href="#cb15-16"></a>  db,</span>
+<span id="cb15-17"><a href="#cb15-17"></a>  <span class="at">cdm_schema =</span> <span class="st">"public"</span>,</span>
+<span id="cb15-18"><a href="#cb15-18"></a>  <span class="at">write_schema =</span> <span class="st">"results"</span>,</span>
+<span id="cb15-19"><a href="#cb15-19"></a>  <span class="at">cohort_tables =</span> <span class="st">"internal_training"</span></span>
+<span id="cb15-20"><a href="#cb15-20"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="incidenceprevalence-2" class="slide level2">
+<h2>IncidencePrevalence</h2>
+<p>Compute the denominator population (~6 minutes in CPRD GOLD).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1"></a>denominator_population <span class="ot">&lt;-</span> <span class="fu">collect_denominator_pops</span>(</span>
+<span id="cb16-2"><a href="#cb16-2"></a>  cdm,</span>
+<span id="cb16-3"><a href="#cb16-3"></a>  <span class="at">study_start_date =</span> <span class="fu">as.Date</span>(<span class="st">"2017-01-01"</span>),</span>
+<span id="cb16-4"><a href="#cb16-4"></a>  <span class="at">study_end_date =</span> <span class="fu">as.Date</span>(<span class="st">"2019-12-31"</span>),</span>
+<span id="cb16-5"><a href="#cb16-5"></a>  <span class="at">study_age_stratas =</span> <span class="fu">list</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">150</span>), <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">19</span>), <span class="fu">c</span>(<span class="dv">20</span>,<span class="dv">39</span>), <span class="fu">c</span>(<span class="dv">40</span>,<span class="dv">59</span>), <span class="fu">c</span>(<span class="dv">60</span>,<span class="dv">79</span>), <span class="fu">c</span>(<span class="dv">80</span>,<span class="dv">150</span>)),</span>
+<span id="cb16-6"><a href="#cb16-6"></a>  <span class="at">study_sex_stratas =</span> <span class="fu">c</span>(<span class="st">"Both"</span>, <span class="st">"Male"</span>, <span class="st">"Female"</span>),</span>
+<span id="cb16-7"><a href="#cb16-7"></a>  <span class="at">study_days_prior_history =</span> <span class="dv">180</span></span>
+<span id="cb16-8"><a href="#cb16-8"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="incidenprevalence" class="slide level2">
+<h2>IncidenPrevalence</h2>
+<p>It provides 4 outputs:</p>
+<p>-Denominator populations as cohorts</p>
+<p>-Settings (parameters used in each denominator population)</p>
+<p>-Attrition</p>
+<p>-SQL queries executed in the database</p>
+</section>
+<section id="denominator-populations" class="slide level2">
+<h2>Denominator populations</h2>
+
+<img data-src="Presentation_Theory_files/inc1.png" class="r-stretch"></section>
+<section id="settings" class="slide level2">
+<h2>Settings</h2>
+
+<img data-src="Presentation_Theory_files/inc2.png" class="r-stretch"></section>
+<section id="attrtion" class="slide level2">
+<h2>Attrtion</h2>
+
+<img data-src="Presentation_Theory_files/inc3.png" class="r-stretch"></section>
+<section id="sql-queries" class="slide level2">
+<h2>SQL queries</h2>
+
+<img data-src="Presentation_Theory_files/inc4.png" class="r-stretch"></section>
+<section id="compute-incidence" class="slide level2">
+<h2>Compute incidence</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a>cdm[[<span class="st">"denominator_population"</span>]] <span class="ot">&lt;-</span> denominator_population<span class="sc">$</span>denominator_populations</span>
+<span id="cb17-2"><a href="#cb17-2"></a></span>
+<span id="cb17-3"><a href="#cb17-3"></a>incidence <span class="ot">&lt;-</span> <span class="fu">collect_pop_incidence</span>(</span>
+<span id="cb17-4"><a href="#cb17-4"></a>  cdm,</span>
+<span id="cb17-5"><a href="#cb17-5"></a>  <span class="at">table_name_denominator =</span> <span class="st">"denominator_population"</span>,</span>
+<span id="cb17-6"><a href="#cb17-6"></a>  <span class="at">table_name_outcomes =</span> <span class="st">"internal_training"</span>,</span>
+<span id="cb17-7"><a href="#cb17-7"></a>  <span class="at">cohort_ids_denominator_pops =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">18</span>,</span>
+<span id="cb17-8"><a href="#cb17-8"></a>  <span class="at">cohort_ids_outcomes =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>,</span>
+<span id="cb17-9"><a href="#cb17-9"></a>  <span class="at">time_interval =</span> <span class="st">"years"</span>,</span>
+<span id="cb17-10"><a href="#cb17-10"></a>  <span class="at">outcome_washout_windows =</span> <span class="dv">180</span>,</span>
+<span id="cb17-11"><a href="#cb17-11"></a>  <span class="at">minimum_cell_count =</span> <span class="dv">5</span></span>
+<span id="cb17-12"><a href="#cb17-12"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="incidence" class="slide level2">
+<h2>Incidence</h2>
+<ul>
+<li><p>Estimates</p></li>
+<li><p>Settings</p></li>
+<li><p>Attrition</p></li>
+<li><p>Person table</p></li>
+</ul>
+</section>
+<section id="estimates" class="slide level2">
+<h2>Estimates</h2>
+
+<img data-src="Presentation_Theory_files/inc5.png" class="r-stretch"></section>
+<section id="settings-1" class="slide level2">
+<h2>Settings</h2>
+
+<img data-src="Presentation_Theory_files/inc6.png" class="r-stretch"></section>
+<section id="attrition" class="slide level2">
+<h2>Attrition</h2>
+
+<img data-src="Presentation_Theory_files/inc7.png" class="r-stretch"></section>
+<section id="person-table" class="slide level2">
+<h2>Person table</h2>
+
+<img data-src="Presentation_Theory_files/inc8.png" class="r-stretch"></section>
+<section id="visualization" class="slide level2">
+<h2>Visualization</h2>
+<p>It is not included in the package but we can write simple ggplot codes to visualize the results.</p>
+<div class="cell">
+
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb18-2"><a href="#cb18-2"></a>inc <span class="ot">&lt;-</span> incidence<span class="sc">$</span>incidence_estimates <span class="sc">%&gt;%</span> <span class="fu">semi_join</span>(incidence<span class="sc">$</span>analysis_settings <span class="sc">%&gt;%</span> <span class="fu">filter</span>(cohort_id_denominator_pop <span class="sc">==</span> <span class="dv">1</span>)) <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">outcome =</span> <span class="fu">if_else</span>(incidence_analysis_id <span class="sc">&lt;</span> <span class="dv">19</span>, <span class="st">"pancreatitis"</span>, <span class="st">"acute kidney injury"</span>))</span>
+<span id="cb18-3"><a href="#cb18-3"></a><span class="fu">ggplot</span>(inc, <span class="fu">aes</span>(<span class="at">x=</span>time, <span class="at">y=</span>ir_100000_pys, <span class="at">color=</span>outcome)) <span class="sc">+</span> </span>
+<span id="cb18-4"><a href="#cb18-4"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb18-5"><a href="#cb18-5"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin=</span>ir_100000_pys_low, <span class="at">ymax=</span>ir_100000_pys_high), <span class="at">width=</span>.<span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb18-6"><a href="#cb18-6"></a>  <span class="fu">ylim</span>(<span class="dv">0</span>, <span class="dv">50</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="visualization-1" class="slide level2">
+<h2>Visualization</h2>
+
+<img data-src="Presentation_Theory_files/figure-revealjs/unnamed-chunk-21-1.png" width="960" class="r-stretch"></section>
+<section id="by-gender-and-age-group" class="slide level2">
+<h2>By Gender and Age group</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1"></a>inc <span class="ot">&lt;-</span> incidence<span class="sc">$</span>incidence_estimates <span class="sc">%&gt;%</span> </span>
+<span id="cb19-2"><a href="#cb19-2"></a>  <span class="fu">inner_join</span>(incidence<span class="sc">$</span>analysis_settings) <span class="sc">%&gt;%</span></span>
+<span id="cb19-3"><a href="#cb19-3"></a>  <span class="fu">inner_join</span>(denominator_population<span class="sc">$</span>denominator_settings, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"cohort_id_denominator_pop"</span> <span class="ot">=</span> <span class="st">"cohort_definition_id"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb19-4"><a href="#cb19-4"></a>  <span class="fu">mutate</span>(<span class="at">outcome =</span> <span class="fu">if_else</span>(cohort_id_outcome  <span class="sc">==</span> <span class="dv">1</span>, <span class="st">"pancreatitis"</span>, <span class="st">"acute kidney injury"</span>))</span>
+<span id="cb19-5"><a href="#cb19-5"></a></span>
+<span id="cb19-6"><a href="#cb19-6"></a><span class="fu">ggplot</span>(inc, <span class="fu">aes</span>(<span class="at">x=</span>time, <span class="at">y=</span>ir_100000_pys, <span class="at">color=</span>outcome)) <span class="sc">+</span> </span>
+<span id="cb19-7"><a href="#cb19-7"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb19-8"><a href="#cb19-8"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin=</span>ir_100000_pys_low, <span class="at">ymax=</span>ir_100000_pys_high), <span class="at">width=</span>.<span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb19-9"><a href="#cb19-9"></a>  <span class="fu">ylim</span>(<span class="dv">0</span>, <span class="dv">180</span>) <span class="sc">+</span></span>
+<span id="cb19-10"><a href="#cb19-10"></a>  <span class="fu">facet_grid</span>(<span class="at">rows =</span> <span class="fu">vars</span>(sex_strata), <span class="at">cols =</span> <span class="fu">vars</span>(age_strata))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="by-gender-and-age-group-1" class="slide level2">
+<h2>By Gender and Age group</h2>
+
+<img data-src="Presentation_Theory_files/figure-revealjs/unnamed-chunk-23-1.png" width="960" class="r-stretch"></section>
+<section id="prevalence" class="slide level2">
+<h2>Prevalence</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1"></a>cdm[[<span class="st">"denominator_population"</span>]] <span class="ot">&lt;-</span> denominator_population<span class="sc">$</span>denominator_populations</span>
+<span id="cb20-2"><a href="#cb20-2"></a></span>
+<span id="cb20-3"><a href="#cb20-3"></a>point_prevalence <span class="ot">&lt;-</span> <span class="fu">collect_pop_prevalence</span>(</span>
+<span id="cb20-4"><a href="#cb20-4"></a>  cdm,</span>
+<span id="cb20-5"><a href="#cb20-5"></a>  <span class="at">table_name_denominator =</span> <span class="st">"denominator_population"</span>,</span>
+<span id="cb20-6"><a href="#cb20-6"></a>  <span class="at">table_name_outcomes =</span> <span class="st">"internal_training"</span>,</span>
+<span id="cb20-7"><a href="#cb20-7"></a>  <span class="at">cohort_ids_denominator_pops =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">18</span>,</span>
+<span id="cb20-8"><a href="#cb20-8"></a>  <span class="at">cohort_ids_outcomes =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>,</span>
+<span id="cb20-9"><a href="#cb20-9"></a>  <span class="at">type =</span> <span class="st">"point"</span>,</span>
+<span id="cb20-10"><a href="#cb20-10"></a>  <span class="at">time_intervals =</span> <span class="st">"years"</span>,</span>
+<span id="cb20-11"><a href="#cb20-11"></a>  <span class="at">points =</span> <span class="st">"middle"</span>,</span>
+<span id="cb20-12"><a href="#cb20-12"></a>  <span class="at">confidence_interval =</span> <span class="st">"binomial"</span>,</span>
+<span id="cb20-13"><a href="#cb20-13"></a>  <span class="at">minimum_cell_count =</span> <span class="dv">5</span></span>
+<span id="cb20-14"><a href="#cb20-14"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="by-gender-and-age-group-2" class="slide level2">
+<h2>By Gender and Age group</h2>
+
+<img data-src="Presentation_Theory_files/figure-revealjs/unnamed-chunk-25-1.png" width="960" class="r-stretch"></section>
+<section id="prevalence-1" class="slide level2">
+<h2>Prevalence</h2>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 108
+Columns: 28
+$ prevalence_analysis_id            &lt;chr&gt; "1", "1", "1", "10", "10", "10", "11…
+$ time                              &lt;chr&gt; "2017", "2018", "2019", "2017", "201…
+$ numerator                         &lt;int&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, …
+$ denominator                       &lt;int&gt; 3614928, 3406202, 3281162, 1014846, …
+$ prev                              &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, …
+$ prev_low                          &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, …
+$ prev_high                         &lt;dbl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, …
+$ start_time                        &lt;date&gt; 2017-07-01, 2018-07-01, 2019-07-01,…
+$ end_time                          &lt;date&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA,…
+$ cohort_obscured                   &lt;chr&gt; "FALSE", "FALSE", "FALSE", "FALSE", …
+$ result_obscured                   &lt;chr&gt; "TRUE", "TRUE", "TRUE", "TRUE", "TRU…
+$ type                              &lt;chr&gt; "point", "point", "point", "point", …
+$ point                             &lt;chr&gt; "middle", "middle", "middle", "middl…
+$ time_interval                     &lt;chr&gt; "years", "years", "years", "years", …
+$ minimum_representative_proportion &lt;dbl&gt; 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0…
+$ full_periods_required             &lt;lgl&gt; TRUE, TRUE, TRUE, TRUE, TRUE, TRUE, …
+$ cohort_id_outcome                 &lt;chr&gt; "1", "1", "1", "1", "1", "1", "1", "…
+$ cohort_id_denominator_pop         &lt;chr&gt; "1", "1", "1", "10", "10", "10", "11…
+$ confidence_interval               &lt;chr&gt; "binomial", "binomial", "binomial", …
+$ minimum_cell_count                &lt;dbl&gt; 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, …
+$ age_strata                        &lt;chr&gt; "0;150", "0;150", "0;150", "40;59", …
+$ min_age                           &lt;dbl&gt; 0, 0, 0, 40, 40, 40, 40, 40, 40, 40,…
+$ max_age                           &lt;dbl&gt; 150, 150, 150, 59, 59, 59, 59, 59, 5…
+$ sex_strata                        &lt;chr&gt; "Both", "Both", "Both", "Both", "Bot…
+$ study_days_prior_history          &lt;dbl&gt; 180, 180, 180, 180, 180, 180, 180, 1…
+$ study_start_date                  &lt;date&gt; 2017-01-01, 2017-01-01, 2017-01-01,…
+$ study_end_date                    &lt;date&gt; 2019-12-31, 2019-12-31, 2019-12-31,…
+$ outcome                           &lt;chr&gt; "pancreatitis", "pancreatitis", "pan…</code></pre>
+</div>
+</div>
+</section>
+<section id="recap" class="slide level2">
+<h2>Recap</h2>
+<ul>
+<li>Connect to the database using <a href="https://github.com/OHDSI/DatabaseConnector">databaseConnector</a>.</li>
+<li>Concept set and cohort definitions.</li>
+<li>Built a concept set using <a href="https://github.com/darwin-eu/CodelistGenerator">CodelistGenerator</a>.</li>
+<li>Built a cohort definition using <a href="https://academy.ehden.eu/course/view.php?id=8">ATLAS</a>.</li>
+<li>Instantiate a cohort in the database using <a href="https://github.com/OHDSI/CohortGenerator">CohortGenerator</a>.</li>
+<li>Evaluate a cohort with <a href="https://github.com/OHDSI/CohortDiagnostics/">CohortDiagnostics</a>.</li>
+<li>Compute the incidence and prevalence using <a href="https://github.com/darwin-eu/IncidencePrevalence/">IncidencePrevalence</a>.</li>
+</ul>
+</section>
+<section id="practical" class="slide level2">
+<h2>Practical</h2>
 <div class="footer footer-default">
 
 </div>
@@ -523,19 +1989,19 @@
 
   <script>window.backupDefine = window.define; window.define = undefined;</script>
   <script src="Presentation_Theory_files/libs/revealjs/dist/reveal.js"></script>
-
   <!-- reveal.js plugins -->
   <script src="Presentation_Theory_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
   <script src="Presentation_Theory_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
   <script src="Presentation_Theory_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
   <script src="Presentation_Theory_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
   <script src="Presentation_Theory_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
   <script src="Presentation_Theory_files/libs/revealjs/plugin/notes/notes.js"></script>
   <script src="Presentation_Theory_files/libs/revealjs/plugin/search/search.js"></script>
   <script src="Presentation_Theory_files/libs/revealjs/plugin/zoom/zoom.js"></script>
   <script src="Presentation_Theory_files/libs/revealjs/plugin/math/math.js"></script>
   <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
-
 
   <script>
 
@@ -549,10 +2015,9 @@
 'autoAnimateEasing': "ease",
 'autoAnimateDuration': 1,
 'autoAnimateUnmatched': true,
-
 'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
 'smaller': false,
-
+ 
         // Display controls in the bottom right corner
         controls: false,
 
@@ -772,8 +2237,26 @@
       })();
     </script>
 
-    <script type="application/javascript">
+    <script id="quarto-html-after-body" type="application/javascript">
     window.document.addEventListener("DOMContentLoaded", function (event) {
+      const toggleBodyColorMode = (bsSheetEl) => {
+        const mode = bsSheetEl.getAttribute("data-mode");
+        const bodyEl = window.document.querySelector("body");
+        if (mode === "dark") {
+          bodyEl.classList.add("quarto-dark");
+          bodyEl.classList.remove("quarto-light");
+        } else {
+          bodyEl.classList.add("quarto-light");
+          bodyEl.classList.remove("quarto-dark");
+        }
+      }
+      const toggleBodyColorPrimary = () => {
+        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+        if (bsSheetEl) {
+          toggleBodyColorMode(bsSheetEl);
+        }
+      }
+      toggleBodyColorPrimary();  
       const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
       tabsets.forEach(function(tabset) {
         const tabby = new Tabby('#' + tabset.id);
@@ -790,7 +2273,10 @@
         button.blur();
         // flash "checked"
         button.classList.add('code-copy-button-checked');
+        var currentTitle = button.getAttribute("title");
+        button.setAttribute("title", "Copied!");
         setTimeout(function() {
+          button.setAttribute("title", currentTitle);
           button.classList.remove('code-copy-button-checked');
         }, 1000);
         // clear code selection
