@@ -58,23 +58,18 @@ install.packages("remotes")
 remotes::install_github("darwin-eu/CodelistGenerator")
 ```
 
-Second let's pick a topic: we are going to build a concept set of pancreatitis.
+The package has good vignettes that can be very useful to understand how the package and its functions works: <https://darwin-eu.github.io/CodelistGenerator/index.html>
 
 ## CodelistGenerator
 
 Example how to build a concept set:
 
-1) Connect to a database (in this case eunomia):
+1) Connect to a database (eunomia don't have the full version of the vocabulary, so connect to your own database):
 
-```{r, echo = TRUE}
-library(CDMConnector)
-library(duckdb)
-library(DBI)
-library(CodelistGenerator)
-con <- dbConnect(duckdb(), dbdir = eunomia_dir())
+```{r, echo = TRUE, eval = FALSE}
 cdm <- cdm_from_con(
   con,
-  cdm_schema = "main",
+  cdm_schema = "public",
   cdm_tables = tidyselect::all_of(c(
     "concept", "concept_relationship",
     "concept_ancestor",
@@ -86,49 +81,42 @@ cdm <- cdm_from_con(
 
 ## CodelistGenerator
 
-```{r echo = TRUE}
-getCandidateCodes(
+We want to build a "pancreatitis" concept set. So let's have a preliminary list of codes:
+
+```{r echo = TRUE, eval = FALSE}
+proposed_list <- getCandidateCodes(
   keywords = "pancreatitis",
   domains = "Condition",
+  includeDescendants = TRUE,
+  searchViaSynonyms = TRUE,
   cdm = cdm
 )
 ```
 
-<!-- keywords <- "acute kidney injury" -->
-
-<!-- aki  <- getCandidateCodes( -->
-<!--                       keywords = keywords, -->
-<!--                       domains = "Condition", -->
-<!--                       includeDescendants = TRUE, -->
-<!--                       searchViaSynonyms = TRUE, -->
-<!--                        cdm = cdm) -->
-
-<!-- ## inspect candidate codes -->
-<!-- # for example, in AKI we have a code for "At risk of AKI" -->
-<!-- # we exclude that concept from our definition -->
-<!-- aki <- aki %>% -->
-<!--   filter(!(str_detect(concept_name, "At risk of"))) -->
-
-<!-- # save -->
-<!-- write.csv2(pancreatitis, here("codes_pancreatitis.csv")) -->
-<!-- write.csv2(aki, here("codes_AKI.csv")) -->
-
 ## CodelistGenerator
 
-The package has good vignettes that can be very useful to understand how the package and its functions works: <https://darwin-eu.github.io/CodelistGenerator/index.html>
-
-## Obtain en exportable concept set
-
-Then we can obtain a concept set in JSON format as:
-
-```{r, echo=TRUE}
-# library(dplyr)
-# conceptSet <- Capr:::as.Concept(cdm$concept %>% semi_join(asthma, by = "concept_id", copy = TRUE) %>% collect() %>% rename("conceptId" = "concept_id","conceptName"="concept_name","domainId"="domain_id","vocabularyId"="vocabulary_id","conceptClassId"="concept_class_id","standardConcept"="standard_concept","conceptCode"="concept_code","invalidReason"="invalid_reason"))
+We have 57 candidates:
+```{r}
+preliminary_concept_list <- read.csv(here::here("data", "proposed_list_pancreatitis.csv"))
+preliminary_concept_list
 ```
 
-This is going to be implemented in an easier way in the CodelistGenerator
+## Validation
 
-as.Concept(x)
+This is just a preliminary list. At this stage we must review the concept list and together with some experts decide which concepts we want to exclude.
+In our case we decided to exclude 5 concepts:
+```{r}
+preliminary_concept_list[c(19,31,39,43,57),]
+```
+We can update our concept list:
+```{r, eval = FALSE, echo = TRUE}
+concept_set_pancratitis <- preliminary_concept_list[-c(19,31,39,43,57),]
+```
+We can create an exportable json file and save it:
+```{r}
+concept_set_json_pancratitis <- getJsonFileFromConceptList(concept_set_pancratitis, cdm)
+writeChar(concept_set_json_pancratitis)
+```
 
 ## Let's move to ATLAS
 
