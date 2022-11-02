@@ -1698,7 +1698,7 @@
 <span id="cb11-26"><a href="#cb11-26"></a>cohortTableNames <span class="ot">&lt;-</span> CohortGenerator<span class="sc">::</span><span class="fu">getCohortTableNames</span>(<span class="at">cohortTable =</span> <span class="st">"internal_training"</span>)</span>
 <span id="cb11-27"><a href="#cb11-27"></a><span class="co"># Create the cohort tables (drops tables if exist)</span></span>
 <span id="cb11-28"><a href="#cb11-28"></a>CohortGenerator<span class="sc">::</span><span class="fu">createCohortTables</span>(<span class="at">connectionDetails =</span> connectionDetails,</span>
-<span id="cb11-29"><a href="#cb11-29"></a>                                                        <span class="at">cohortDatabaseSchema =</span> <span class="st">"public"</span>,</span>
+<span id="cb11-29"><a href="#cb11-29"></a>                                                        <span class="at">cohortDatabaseSchema =</span> <span class="st">"results"</span>,</span>
 <span id="cb11-30"><a href="#cb11-30"></a>                                                        <span class="at">cohortTableNames =</span> cohortTableNames)</span>
 <span id="cb11-31"><a href="#cb11-31"></a><span class="co"># Generate the cohorts</span></span>
 <span id="cb11-32"><a href="#cb11-32"></a>cohortsGenerated <span class="ot">&lt;-</span> CohortGenerator<span class="sc">::</span><span class="fu">generateCohortSet</span>(<span class="at">connectionDetails =</span> connectionDetails,</span>

@@ -300,7 +300,7 @@ for (i in 1:length(cohortJsonFiles)) {
 cohortTableNames <- CohortGenerator::getCohortTableNames(cohortTable = "internal_training")
 # Create the cohort tables (drops tables if exist)
 CohortGenerator::createCohortTables(connectionDetails = connectionDetails,
-                                                        cohortDatabaseSchema = "public",
+                                                        cohortDatabaseSchema = "results",
                                                         cohortTableNames = cohortTableNames)
 # Generate the cohorts
 cohortsGenerated <- CohortGenerator::generateCohortSet(connectionDetails = connectionDetails,
@@ -453,13 +453,13 @@ incidence <- collect_pop_incidence(
 
 ## collect_pop_incidence
 
-- Estimates
+-   Estimates
 
-- Settings
+-   Settings
 
-- Attrition
+-   Attrition
 
-- Person table
+-   Person table
 
 ## Estimates
 
@@ -484,6 +484,7 @@ It is not included in the package but we can write simple ggplot codes to visual
 ```{r, echo=FALSE, eval=TRUE}
 load(file = here::here("data", "incprev.RData"))
 ```
+
 ```{r, echo=TRUE, eval=FALSE}
 library(ggplot2)
 inc <- incidence$incidence_estimates %>% semi_join(incidence$analysis_settings %>% filter(cohort_id_denominator_pop == 1)) %>% mutate(outcome = if_else(incidence_analysis_id < 19, "pancreatitis", "acute kidney injury"))
@@ -492,6 +493,7 @@ ggplot(inc, aes(x=time, y=ir_100000_pys, color=outcome)) +
   geom_errorbar(aes(ymin=ir_100000_pys_low, ymax=ir_100000_pys_high), width=.2) +
   ylim(0, 50) 
 ```
+
 ## Visualization
 
 ```{r, echo=FALSE, eval=TRUE}
@@ -584,13 +586,12 @@ prev %>% glimpse()
 
 We **STRONGLY** "recommend" to do it:
 
-1) Pick a topic and build a concept set
+1)  Pick a topic and build a concept set
 
-2) Build a cohort (remember to set a duration)
+2)  Build a cohort (remember to set a duration)
 
-3) Instantiate the cohort in the database
+3)  Instantiate the cohort in the database
 
-4) Use IncidencePrevalence to compute incidence or prevalence
+4)  Use IncidencePrevalence to compute incidence or prevalence
 
-5) Share the code with someone else
-
+5)  Share the code with someone else
