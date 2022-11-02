@@ -406,7 +406,7 @@ denominator_population <- collect_denominator_pops(
 )
 ```
 
-## IncidenPrevalence
+## collect_denominator_pops
 
 It provides 4 outputs:
 
@@ -426,7 +426,7 @@ It provides 4 outputs:
 
 ![](Presentation_Theory_files/inc2.png)
 
-## Attrtion
+## Attrition
 
 ![](Presentation_Theory_files/inc3.png)
 
@@ -451,7 +451,7 @@ incidence <- collect_pop_incidence(
 )
 ```
 
-## Incidence
+## collect_pop_incidence
 
 - Estimates
 
@@ -581,4 +581,16 @@ prev %>% glimpse()
 -   Compute the incidence and prevalence using [IncidencePrevalence](https://github.com/darwin-eu/IncidencePrevalence/).
 
 ## Practical
+
+We **STRONGLY** "recommend" to do it:
+
+1) Pick a topic and build a concept set
+
+2) Build a cohort (remember to set a duration)
+
+3) Instantiate the cohort in the database
+
+4) Use IncidencePrevalence to compute incidence or prevalence
+
+5) Share the code with someone else
 

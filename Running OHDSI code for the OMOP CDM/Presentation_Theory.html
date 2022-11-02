@@ -1802,8 +1802,8 @@
 <span id="cb16-8"><a href="#cb16-8"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="incidenprevalence" class="slide level2">
-<h2>IncidenPrevalence</h2>
+<section id="collect_denominator_pops" class="slide level2">
+<h2>collect_denominator_pops</h2>
 <p>It provides 4 outputs:</p>
 <p>-Denominator populations as cohorts</p>
 <p>-Settings (parameters used in each denominator population)</p>
@@ -1818,8 +1818,8 @@
 <h2>Settings</h2>
 
 <img data-src="Presentation_Theory_files/inc2.png" class="r-stretch"></section>
-<section id="attrtion" class="slide level2">
-<h2>Attrtion</h2>
+<section id="attrition" class="slide level2">
+<h2>Attrition</h2>
 
 <img data-src="Presentation_Theory_files/inc3.png" class="r-stretch"></section>
 <section id="sql-queries" class="slide level2">
@@ -1843,8 +1843,8 @@
 <span id="cb17-12"><a href="#cb17-12"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="incidence" class="slide level2">
-<h2>Incidence</h2>
+<section id="collect_pop_incidence" class="slide level2">
+<h2>collect_pop_incidence</h2>
 <ul>
 <li><p>Estimates</p></li>
 <li><p>Settings</p></li>
@@ -1860,7 +1860,7 @@
 <h2>Settings</h2>
 
 <img data-src="Presentation_Theory_files/inc6.png" class="r-stretch"></section>
-<section id="attrition" class="slide level2">
+<section id="attrition-1" class="slide level2">
 <h2>Attrition</h2>
 
 <img data-src="Presentation_Theory_files/inc7.png" class="r-stretch"></section>
@@ -1980,6 +1980,14 @@ $ outcome                           &lt;chr&gt; "pancreatitis", "pancreatitis", 
 </section>
 <section id="practical" class="slide level2">
 <h2>Practical</h2>
+<p>We <strong>STRONGLY</strong> “recommend” to do it:</p>
+<ol type="1">
+<li><p>Pick a topic and build a concept set</p></li>
+<li><p>Build a cohort (remember to set a duration)</p></li>
+<li><p>Instantiate the cohort in the database</p></li>
+<li><p>Use IncidencePrevalence to compute incidence or prevalence</p></li>
+<li><p>Share the code with someone else</p></li>
+</ol>
 <div class="footer footer-default">
 
 </div>
