@@ -247,7 +247,7 @@ cat(concept)
 
 ## Let's move to ATLAS
 
-Using ATLAS we can build a concept set from the data obtained from
+Using ATLAS we can build a concept set. THe presentation continues in ATLAS.
 
 ![](Presentation_Theory_files/atlas.png){fig-align="center"}
 
@@ -309,6 +309,16 @@ cohortsGenerated <- CohortGenerator::generateCohortSet(connectionDetails = conne
                                                        cohortTableNames = cohortTableNames,
                                                        cohortDefinitionSet = cohortsToCreate)
 ```
+
+------------------------------------------------------------------------
+
+![](Presentation_Theory_files/warning.png){fig-align="center" width="143"}
+
+'cohortTable' is the variable that contains the name of our cohort.
+
+To not interfere with ATLAS this variables should never be named **"cohort"**.
+
+![](Presentation_Theory_files/warning.png){fig-align="center" width="143"}
 
 ## CohortGenerator
 
